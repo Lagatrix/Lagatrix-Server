@@ -45,7 +45,7 @@ public class CommandExecutor {
             insertArgs(process.getOutputStream(), stdin);
             readLinesResponse(response, process.getInputStream());
             
-            response.setStatusCode(process.waitFor());
+            response.setExitCode(process.waitFor());
             
             if (response.getExitCode() != 0){
                 getException(response.getExitCode(), command);
