@@ -6,5 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 ### Added
 - LASRV001 - Create the class to exec commands and the response object.
+- LASRV001 - Create CPUInfo class to obtain information of CPU.
+- LASRV001 - Create temperature classes to obtain the temperature of CPU.
 
 [unreleased]: https://github.com/Lagatrix/Lagatrix-Server
