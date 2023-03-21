@@ -15,6 +15,6 @@ public class LagatrixServerException extends Exception{
 
     @Override
     public String toString() {
-        return String.format("Exception %s -> %s", getClass(), super.getMessage());
+        return String.format("%s -> %s", getClass().getSimpleName(), super.getMessage());
     }
 }

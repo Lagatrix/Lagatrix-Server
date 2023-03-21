@@ -11,22 +11,26 @@ import java.util.List;
  */
 public class CommandResponse {
     private List<String> lines;
-    private int statusCode;
+    private int exitCode;
 
     public CommandResponse() {
         lines = new ArrayList<>();
     }
 
-    public void setStatusCode(int statusCode) {
-        this.statusCode = statusCode;
+    public void setStatusCode(int exitCode) {
+        this.exitCode = exitCode;
     }
     
     public void addLine(String line){
         lines.add(line);
     }
 
-    public int getStatusCode() {
-        return statusCode;
+    public int getExitCode() {
+        return exitCode;
+    }
+    
+    public String getFirstLine(){
+        return lines.get(0);
     }
 
     public List<String> getLines() {

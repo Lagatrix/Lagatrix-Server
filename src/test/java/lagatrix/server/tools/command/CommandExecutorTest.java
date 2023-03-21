@@ -25,7 +25,7 @@ public class CommandExecutorTest {
     public void normalTest() throws CommandInOutException, CommandBadExitCodeException{
         CommandResponse response = executor.executeCommand("ls");
         
-        assertEquals(0, response.getStatusCode());
+        assertEquals(0, response.getExitCode());
     }
     
     @Test
@@ -33,7 +33,7 @@ public class CommandExecutorTest {
         CommandResponse response = executor.executeCommand("ls", true, "docker"); // Sudo Password.
         
         System.out.println(response.getLines().get(0));
-        assertEquals(0, response.getStatusCode());
+        assertEquals(0, response.getExitCode());
     }
     
     @Test

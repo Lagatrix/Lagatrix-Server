@@ -17,7 +17,9 @@ import lagatrix.server.exceptions.command.CommandInOutException;
  */
 public class CommandExecutor {
     
-    
+    /**
+     * Te constructor of the class, no require parameters.
+     */
     public CommandExecutor(){ 
     }
     
@@ -45,8 +47,8 @@ public class CommandExecutor {
             
             response.setStatusCode(process.waitFor());
             
-            if (response.getStatusCode() != 0){
-                getException(response.getStatusCode(), command);
+            if (response.getExitCode() != 0){
+                getException(response.getExitCode(), command);
             }
         } catch (IOException | InterruptedException ex) {
             throw new CommandInOutException(String.format("Error in I/O command: %s", command));
