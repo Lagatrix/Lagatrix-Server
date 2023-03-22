@@ -77,7 +77,7 @@ public class CPUInfo {
      * command.
      */
     public float obtainMinSpeed() throws CPUException{
-        return Float.parseFloat(executeCommand("CPU fmin").getFirstLine());
+        return Float.parseFloat(executeCommand("CPU min").getFirstLine());
     }
     
     /**

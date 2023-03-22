@@ -2,7 +2,6 @@ package lagatrix.server.tools.temperature;
 
 import lagatrix.server.tools.hawrdare_status.DevicesEnum;
 import lagatrix.server.tools.hawrdare_status.TemperatureDeviceDetector;
-import lagatrix.server.exceptions.manager.TemperatureException;
 import lagatrix.server.manager.hardware_status.temperature.cpu.NormalCPUTemperature;
 import lagatrix.server.manager.hardware_status.temperature.cpu.RaspberryPiTemperature;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -24,7 +23,7 @@ public class TemperatureDeviceDetectorTest {
     }
     
     @Test
-    public void getRaspberryCPUTempManagerTest() throws TemperatureException{
+    public void getRaspberryCPUTempManagerTest() {
         TemperatureDeviceDetector detector = new TemperatureDeviceDetector(DevicesEnum.CPU, executor, true);
         
         assertEquals(RaspberryPiTemperature.class, detector.getManager().getClass());

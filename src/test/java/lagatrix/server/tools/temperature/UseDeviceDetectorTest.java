@@ -1,6 +1,5 @@
 package lagatrix.server.tools.temperature;
 
-import lagatrix.server.exceptions.manager.UseException;
 import lagatrix.server.manager.hardware_status.use.UseCPU;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.hawrdare_status.DevicesEnum;
@@ -12,6 +11,7 @@ import org.junit.Test;
  * This test checks UseDeviceDetector class.
  * 
  * @author javier
+ * @since 1.0
  */
 public class UseDeviceDetectorTest {
     
@@ -22,7 +22,7 @@ public class UseDeviceDetectorTest {
     }
     
     @Test
-    public void getRaspberryCPUTempManagerTest() throws UseException{
+    public void getRaspberryCPUTempManagerTest() {
         UseDeviceDetector detector = new UseDeviceDetector(DevicesEnum.CPU, executor);
         
         assertEquals(UseCPU.class, detector.getManager().getClass());
