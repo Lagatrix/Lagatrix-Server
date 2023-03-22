@@ -8,8 +8,8 @@ package lagatrix.server.exceptions.manager;
  */
 public class TemperatureException extends ManagerException {
 
-    public TemperatureException(String description) {
-        super(description);
+    public TemperatureException(String component) {
+        super(String.format("Can't obtain temperature of: %s", component));
     }
 
 }

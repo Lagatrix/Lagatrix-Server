@@ -17,7 +17,7 @@ public class NormalCPUTemperature extends CPUTemperature{
 
     @Override
     public float obtainTemperature() throws TemperatureException {
-        return super.executeTemperatureCommand("sensors | grep Core |  awk '{s+=$3; i++}END{print s/i}'");
+        return super.executeTemperatureCommand("sensors | grep Core |  awk '{s+=$3; i++}END{print s/i}'", "CPU");
     }
 
 }

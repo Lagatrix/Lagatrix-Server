@@ -10,5 +10,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - Create temperature classes to obtain the temperature of CPU.
 - LASRV001 - Create an class which detects the device and return the correct temperature manager.
 - LASRV001 - Add the cpu use class.
+- LASRV001 - Refractor code in the temperature detectors.
 
 [unreleased]: https://github.com/Lagatrix/Lagatrix-Server

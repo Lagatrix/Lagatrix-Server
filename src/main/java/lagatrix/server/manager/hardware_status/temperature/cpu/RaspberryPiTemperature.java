@@ -17,7 +17,7 @@ public class RaspberryPiTemperature extends CPUTemperature {
     
     @Override
     public float obtainTemperature() throws TemperatureException {
-        return super.executeTemperatureCommand("vcgencmd measure_temp | awk -F = '{print $2}' | awk -F \\' '{print $1}'");
+        return super.executeTemperatureCommand("vcgencmd measure_temp | awk -F = '{print $2}' | awk -F \\' '{print $1}'", "CPU");
     }
     
 }
