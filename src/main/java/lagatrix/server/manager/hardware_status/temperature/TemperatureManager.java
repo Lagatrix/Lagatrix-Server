@@ -30,7 +30,7 @@ public abstract class TemperatureManager {
      * @param command The command to exec.
      * @param device The device.
      * @return The percentaje the use.
-     * @throws TemperatureException If can't obtain the use.
+     * @throws TemperatureException If can't obtain the temperature.
      */
     protected final float executeTemperatureCommand(String command, String device) throws TemperatureException {
         CommandResponse response = null;

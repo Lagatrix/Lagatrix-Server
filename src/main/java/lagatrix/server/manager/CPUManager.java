@@ -27,8 +27,8 @@ public class CPUManager {
     /**
      * The constructor of the class
      *
-     * @param executor
-     * @param isRaspberry
+     * @param executor The executor of the class.
+     * @param isRaspberry If the machine is raspberry.
      */
     public CPUManager(CommandExecutor executor, boolean isRaspberry) {
         this.information = new CPUInfo(executor);
@@ -58,9 +58,9 @@ public class CPUManager {
      * This method obtain the temperature of the CPU.
      *
      * @return The temperature in celsius.
-     * @throws lagatrix.server.exceptions.manager.TemperatureException
+     * @throws TemperatureException If can't obtain the temperature.
      */
-    public float obtainTemperatura() throws TemperatureException {
+    public float obtainTemperature() throws TemperatureException {
         return temperature.obtainTemperature();
     }
 
@@ -68,7 +68,7 @@ public class CPUManager {
      * This method obtain the use of the CPU.
      *
      * @return The percentaje of use,
-     * @throws lagatrix.server.exceptions.manager.UseException
+     * @throws UseException If can't obtain the use.
      */
     public float obtainUse() throws UseException {
         return use.obtainUse();
