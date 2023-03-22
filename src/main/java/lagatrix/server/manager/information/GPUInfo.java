@@ -6,7 +6,7 @@ import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 
 /**
- *  This class obtain the information of a GPU in Linux with lspci command.
+ * This class obtain the information of a GPU in Linux with lspci command.
  *
  * @author javier
  * @since 1.0

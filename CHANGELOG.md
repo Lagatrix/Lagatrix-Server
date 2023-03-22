@@ -13,7 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 22/03/2023 - Add an use device detector.
 - LASRV001 - 22/03/2023 - Add CPUManager class to obtain CPU.
 - LASRV002 - 22/03/2023 - Add GPUInfo class to obtain information of GPU.
-- LASRV001 - 22/03/2023 - Add GPUManager class to obtain GPU.
+- LASRV002 - 22/03/2023 - Add GPUManager class to obtain GPU.
+- LASRV003 - 22/03/2023 - Add RAMInfo class to obtain information of RAM.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
