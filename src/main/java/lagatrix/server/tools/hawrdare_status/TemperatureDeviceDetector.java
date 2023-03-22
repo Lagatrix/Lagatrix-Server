@@ -1,12 +1,12 @@
-package lagatrix.server.tools.temperature;
+package lagatrix.server.tools.hawrdare_status;
 
 import lagatrix.server.manager.hardware_status.temperature.TemperatureManager;
 import lagatrix.server.manager.hardware_status.temperature.cpu.NormalCPUTemperature;
 import lagatrix.server.manager.hardware_status.temperature.cpu.RaspberryPiTemperature;
 import lagatrix.server.tools.command.CommandExecutor;
-import static lagatrix.server.tools.temperature.DevicesEnum.CPU;
-import static lagatrix.server.tools.temperature.DevicesEnum.DISK;
-import static lagatrix.server.tools.temperature.DevicesEnum.GPU;
+import static lagatrix.server.tools.hawrdare_status.DevicesEnum.CPU;
+import static lagatrix.server.tools.hawrdare_status.DevicesEnum.DISK;
+import static lagatrix.server.tools.hawrdare_status.DevicesEnum.GPU;
 
 /**
  * This class obtains the temperature manager of device.
@@ -55,16 +55,16 @@ public class TemperatureDeviceDetector {
     /**
      * Obtain the temperature manager of default devices.
      * 
-     * @return The manager.
+     * @return The manager, return null if not find it.
      */
     private TemperatureManager obtainDefaultTemperatureManager(){
         switch (device){
             case GPU:
-                throw new UnsupportedOperationException("Not GPU temp supported");
+                throw new UnsupportedOperationException("Not temperature supported");
             case CPU:
                 return new NormalCPUTemperature(this.executor);
             case DISK:
-                throw new UnsupportedOperationException("Not GPU temp supported");
+                throw new UnsupportedOperationException("Not temperature supported");
         }
         
         return null;
@@ -78,11 +78,11 @@ public class TemperatureDeviceDetector {
     private TemperatureManager obtainRaspberryTemperatureManager(){
         switch (device){
             case GPU:
-                throw new UnsupportedOperationException("Not GPU temp supported");
+                throw new UnsupportedOperationException("Not temperature supported");
             case CPU:
                 return new RaspberryPiTemperature(this.executor);
             case DISK:
-                throw new UnsupportedOperationException("Not GPU temp supported");
+                throw new UnsupportedOperationException("Not temperature supported");
         }
         
         return null;

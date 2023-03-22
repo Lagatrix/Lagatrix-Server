@@ -1,5 +1,7 @@
 package lagatrix.server.tools.temperature;
 
+import lagatrix.server.tools.hawrdare_status.DevicesEnum;
+import lagatrix.server.tools.hawrdare_status.TemperatureDeviceDetector;
 import lagatrix.server.exceptions.manager.TemperatureException;
 import lagatrix.server.manager.hardware_status.temperature.cpu.NormalCPUTemperature;
 import lagatrix.server.manager.hardware_status.temperature.cpu.RaspberryPiTemperature;
@@ -14,6 +16,7 @@ import static org.junit.Assert.*;
  * @since 1.0
  */
 public class TemperatureDeviceDetectorTest {
+    
     private CommandExecutor executor;
 
     public TemperatureDeviceDetectorTest() {
