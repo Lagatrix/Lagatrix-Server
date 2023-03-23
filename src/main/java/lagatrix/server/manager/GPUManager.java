@@ -6,7 +6,7 @@ import lagatrix.server.manager.information.GPUInfo;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
- * This class obtain uses, information of GPU in Linux.
+ * This class obtain information of GPU in Linux.
  *
  * @author javier
  * @since 1.0

@@ -15,7 +15,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV002 - 22/03/2023 - Add GPUInfo class to obtain information of GPU.
 - LASRV002 - 22/03/2023 - Add GPUManager class to obtain GPU.
 - LASRV003 - 22/03/2023 - Add RAMInfo class to obtain information of RAM.
-- LASRV003 - 23/03/2023 - Add the UseRam class.
+- LASRV003 - 23/03/2023 - Add the UseRAM class.
+- LASRV003 - 23/03/2023 - Add the RAMManager class.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.

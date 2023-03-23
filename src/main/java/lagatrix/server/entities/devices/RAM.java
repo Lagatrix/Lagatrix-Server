@@ -1,24 +1,24 @@
 package lagatrix.server.entities.devices;
 
 /**
- * his entity reperents a RAM.
+ * This entity reperents a RAM.
  *
  * @author javier
  * @since 1.0
  */
 public class RAM {
-    private String unityStorage;
+    private String unitCapacity;
     private int capacity;
 
     public RAM() {
     }
 
-    public String getUnityStorage() {
-        return unityStorage;
+    public String getUnitCapacity() {
+        return unitCapacity;
     }
 
-    public void setUnityStorage(String unityStorage) {
-        this.unityStorage = unityStorage;
+    public void setUnitCapacity(String unitCapacity) {
+        this.unitCapacity = unitCapacity;
     }
 
     public int getCapacity() {
@@ -31,6 +31,6 @@ public class RAM {
 
     @Override
     public String toString() {
-        return "RAM{" + "unityStorage=" + unityStorage + ", capacity=" + capacity + '}';
+        return "RAM{" + "unitCapacity=" + unitCapacity + ", capacity=" + capacity + '}';
     }
 }

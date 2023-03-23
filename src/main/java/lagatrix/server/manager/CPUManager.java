@@ -33,7 +33,7 @@ public class CPUManager {
     public CPUManager(CommandExecutor executor, boolean isRaspberry) {
         this.information = new CPUInfo(executor);
         this.temperature = new TemperatureDeviceDetector(DevicesEnum.CPU, executor, isRaspberry).getManager();
-        this.use = new UseDeviceDetector(DevicesEnum.DISK, executor).getManager();
+        this.use = new UseDeviceDetector(DevicesEnum.CPU, executor).getManager();
     }
 
     /**

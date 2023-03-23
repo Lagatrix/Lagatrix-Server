@@ -24,27 +24,27 @@ public class RAMInfo {
     }
     
     /**
-     * This method obtain the total memory of the RAM. It return String because
+     * This method obtain the capacity of the RAM. It return String because
      * it get the unity of storage.
      * 
      * @return Size of RAM.
      * @throws RAMException If a problem occurs with the execution of the 
      * command.
      */
-    public int obtainMemory() throws RAMException {
+    public int obtainCapacity() throws RAMException {
         return Integer.parseInt(executeCommand("Total online memory").getFirstLine());
     }
     
     /**
-     * This method obtain the total memory of the RAM. It return String because
+     * This method obtain the unit capacity of the RAM. It return String because
      * it get the unity of storage.
      * 
      * @return Unity of storage of RAM.
      * @throws RAMException If a problem occurs with the execution of the 
      * command.
      */
-    public String obtainMemoryUnit() throws RAMException {
-        return executeCommand("UnitStorage").getFirstLine();
+    public String obtainUnitCapacity() throws RAMException {
+        return executeCommand("UnitCapacity").getFirstLine();
     }
     
     /**
@@ -57,7 +57,7 @@ public class RAMInfo {
      */
     private CommandResponse executeCommand(String component) throws RAMException {
         CommandResponse response = null;
-        String filter = (!component.equals("UnitStorage")) ? "'[A-Z]' '{print $1}'" : "'[0-9].' '{print $2}'";
+        String filter = (!component.equals("UnitCapacity")) ? "'[A-Z]' '{print $1}'" : "'[0-9].' '{print $2}'";
         
         try {
             response = executor.executeCommand(String.format("LC_ALL=C lsmem | grep 'Total online memory' "
