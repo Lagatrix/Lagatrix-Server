@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV003 - 22/03/2023 - Add RAMInfo class to obtain information of RAM.
 - LASRV003 - 23/03/2023 - Add the UseRAM class.
 - LASRV003 - 23/03/2023 - Add the RAMManager class.
+- LASRV004 - 23/03/2023 - Add the PartitonInfo class.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
