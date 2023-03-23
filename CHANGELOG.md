@@ -9,12 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 21/03/2023 - Create CPUInfo class to obtain information of CPU.
 - LASRV001 - 21/03/2023 - Create temperature classes to obtain the temperature of CPU.
 - LASRV001 - 21/03/2023 - Create an class which detects the device and return the correct temperature manager.
-- LASRV001 - 21/03/2023 - Add the CPU use class.
+- LASRV001 - 21/03/2023 - Add the UseCPU class.
 - LASRV001 - 22/03/2023 - Add an use device detector.
-- LASRV001 - 22/03/2023 - Add CPUManager class to obtain CPU.
+- LASRV001 - 22/03/2023 - Add the CPUManager class to obtain CPU.
 - LASRV002 - 22/03/2023 - Add GPUInfo class to obtain information of GPU.
 - LASRV002 - 22/03/2023 - Add GPUManager class to obtain GPU.
 - LASRV003 - 22/03/2023 - Add RAMInfo class to obtain information of RAM.
+- LASRV003 - 23/03/2023 - Add the UseRam class.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
