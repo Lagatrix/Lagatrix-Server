@@ -8,16 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 20/03/2023 - Create the class to exec commands and the response object.
 - LASRV001 - 21/03/2023 - Create CPUInfo class to obtain information of CPU.
 - LASRV001 - 21/03/2023 - Create temperature classes to obtain the temperature of CPU.
-- LASRV001 - 21/03/2023 - Create an class which detects the device and return the correct temperature manager.
-- LASRV001 - 21/03/2023 - Add the UseCPU class.
-- LASRV001 - 22/03/2023 - Add an use device detector.
+- LASRV001 - 21/03/2023 - Create an class which detects the device to return the correct temperature manager.
+- LASRV001 - 21/03/2023 - Add the UseCPU class to obtain uses of CPU.
+- LASRV001 - 22/03/2023 - Add an use device detector to return the correct usage manager.
 - LASRV001 - 22/03/2023 - Add the CPUManager class to obtain CPU.
 - LASRV002 - 22/03/2023 - Add GPUInfo class to obtain information of GPU.
 - LASRV002 - 22/03/2023 - Add GPUManager class to obtain GPU.
 - LASRV003 - 22/03/2023 - Add RAMInfo class to obtain information of RAM.
-- LASRV003 - 23/03/2023 - Add the UseRAM class.
-- LASRV003 - 23/03/2023 - Add the RAMManager class.
-- LASRV004 - 23/03/2023 - Add the PartitonInfo class.
+- LASRV003 - 23/03/2023 - Add the UseRAM class to obtain information of RAM.
+- LASRV003 - 23/03/2023 - Add the RAMManager class to obtain the RAM.
+- LASRV004 - 23/03/2023 - Add the PartitonInfo class to obtain information of partitions.
+- LASRV004 - 24/03/2023 - Add the PartitionManager class to obtain partitions.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.

@@ -63,8 +63,8 @@ public class PartitionInfo {
      * @throws PartitionException If a problem occurs with the execution of the 
      * command.
      */
-    public String obtainPercentageUse(int numPartition) throws PartitionException{
-        return executeCommand(numPartition, PartitionComponents.PERCENTAGE_USE).getFirstLine();
+    public int obtainPercentageUse(int numPartition) throws PartitionException{
+        return Integer.parseInt(executeCommand(numPartition, PartitionComponents.PERCENTAGE_USE).getFirstLine().replace("%", ""));
     }
     
     /**
