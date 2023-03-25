@@ -1,4 +1,4 @@
-package lagatrix.server.entities.devices;
+package lagatrix.server.entities.dto.partition;
 
 import java.util.Objects;
 

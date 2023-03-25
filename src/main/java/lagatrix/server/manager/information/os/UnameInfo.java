@@ -1,13 +1,13 @@
 package lagatrix.server.manager.information.os;
 
-import lagatrix.server.entities.devices.components.OSComponents;
+import lagatrix.server.entities.components.OSComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.OSException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 
 /**
- * This class obtain information of os with uname command.
+ * This class obtain information of OS with uname command.
  *
  * @author javier
  * @since 1.0

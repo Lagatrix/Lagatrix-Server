@@ -1,4 +1,4 @@
-package lagatrix.server.entities.devices.components;
+package lagatrix.server.entities.components;
 
 /**
  * This enum represents the components of the partition.

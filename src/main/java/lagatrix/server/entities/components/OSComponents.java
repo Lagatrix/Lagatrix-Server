@@ -1,7 +1,7 @@
-package lagatrix.server.entities.devices.components;
+package lagatrix.server.entities.components;
 
 /**
- * This enum represents the information of Linux operative system.
+ * This enum represents the information of Linux OS.
  * 
  * @author javier
  * @since 1.0

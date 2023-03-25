@@ -1,13 +1,13 @@
 package lagatrix.server.manager.information.os;
 
-import lagatrix.server.entities.devices.components.OSComponents;
+import lagatrix.server.entities.components.OSComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.OSException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 
 /**
- * This class obtain trivial information of Linux operetive syste,
+ * This class obtain trivial information of distribution of OS.
  *
  * @author javier
  * @since 1.0

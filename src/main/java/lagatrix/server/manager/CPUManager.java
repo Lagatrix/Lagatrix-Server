@@ -1,6 +1,6 @@
 package lagatrix.server.manager;
 
-import lagatrix.server.entities.devices.CPU;
+import lagatrix.server.entities.dto.hardware.CPU;
 import lagatrix.server.exceptions.manager.hardware.CPUException;
 import lagatrix.server.exceptions.manager.TemperatureException;
 import lagatrix.server.exceptions.manager.UseException;

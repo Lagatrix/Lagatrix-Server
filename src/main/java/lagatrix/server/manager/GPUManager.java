@@ -1,6 +1,6 @@
 package lagatrix.server.manager;
 
-import lagatrix.server.entities.devices.GPU;
+import lagatrix.server.entities.dto.hardware.GPU;
 import lagatrix.server.exceptions.manager.hardware.GPUException;
 import lagatrix.server.manager.information.hardware.GPUInfo;
 import lagatrix.server.tools.command.CommandExecutor;

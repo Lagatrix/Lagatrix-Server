@@ -2,7 +2,7 @@ package lagatrix.server.manager;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-import lagatrix.server.entities.devices.Partition;
+import lagatrix.server.entities.dto.partition.Partition;
 import lagatrix.server.exceptions.manager.PartitionException;
 import lagatrix.server.manager.information.partition.PartitionInfo;
 import lagatrix.server.tools.command.CommandExecutor;

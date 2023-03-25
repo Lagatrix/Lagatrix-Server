@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV004 - 24/03/2023 - Add the PartitionManager class to obtain partitions.
 - LASRV005 - 25/03/2024 - Add the UnameInfo class to obtain hostame and kernel.
 - LASRV005 - 25/03/2024 - Add the DistributionInfo class to obtain information of distribution.
+- LASRV004 - 24/03/2023 - Add the OSManager class to obtain information of OS.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.

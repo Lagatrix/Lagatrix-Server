@@ -1,6 +1,6 @@
 package lagatrix.server.manager.information.partition;
 
-import lagatrix.server.entities.devices.components.PartitionComponents;
+import lagatrix.server.entities.components.PartitionComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.PartitionException;
 import lagatrix.server.tools.command.CommandExecutor;

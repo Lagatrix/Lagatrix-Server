@@ -1,6 +1,6 @@
 package lagatrix.server.manager;
 
-import lagatrix.server.entities.devices.RAM;
+import lagatrix.server.entities.dto.hardware.RAM;
 import lagatrix.server.exceptions.manager.hardware.RAMException;
 import lagatrix.server.exceptions.manager.UseException;
 import lagatrix.server.manager.hardware_status.use.UseManager;
