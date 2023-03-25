@@ -1,5 +1,7 @@
 package lagatrix.server.manager.information.hardware;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.hardware.CPUException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -47,20 +49,9 @@ public class CPUInfo {
     }
     
     /**
-     * This method obtain the L3 cache memory.
+     * This method obtain the amount of threads of the CPU per core.
      * 
-     * @return The capacity of L3 memory.
-     * @throws CPUException If a problem occurs with the execution of the 
-     * command.
-     */
-    public int obtainCacheMemory() throws CPUException{
-        return Integer.parseInt(executeCommand("L3").getFirstLine());
-    }
-    
-    /**
-     * This method obtain the amount of threads of the CPU.
-     * 
-     * @return The amount of threads.
+     * @return The amount of threads per core.
      * @throws CPUException If a problem occurs with the execution of the 
      * command. 
      */
@@ -69,25 +60,45 @@ public class CPUInfo {
     }
     
     /**
-     * This method obtain the min speed of CPU in Mhz
+     * This method obtain the L3 cache memory, if it cannot be obtained, 
+     * 0 will be returned.
      * 
-     * @return The min speed in Mhz.
-     * @throws CPUException If a problem occurs with the execution of the 
-     * command.
+     * @return The capacity of L3 memory.
      */
-    public float obtainMinSpeed() throws CPUException{
-        return Float.parseFloat(executeCommand("CPU min").getFirstLine());
+    public String obtainCacheMemory() {
+        try {
+            return executeCommand("L3").getFirstLine();
+        } catch (CPUException ex) {
+            return "unknown";
+        }
     }
     
     /**
-     * This method obtain the max speed of CPU in Mhz
+     * This method obtain the min speed of CPU in Mhz, if it cannot be obtained, 
+     * 0 will be returned.
+     * 
+     * @return The min speed in Mhz.
+     */
+    public float obtainMinSpeed() {
+        try {
+            return Float.parseFloat(executeCommand("CPU min").getFirstLine());
+        } catch (CPUException ex) {
+            return 0;
+        }
+    }
+    
+    /**
+     * This method obtain the max speed of CPU in Mhz, if it cannot be obtained, 
+     * 0 will be returned.
      * 
      * @return The max speed in Mhz.
-     * @throws CPUException If a problem occurs with the execution of the 
-     * command.
      */
-    public float obtainMaxSpeed() throws CPUException{
-        return Float.parseFloat(executeCommand("CPU max").getFirstLine());
+    public float obtainMaxSpeed() {
+        try {
+            return Float.parseFloat(executeCommand("CPU max").getFirstLine());
+        } catch (CPUException ex) {
+            return 0;
+        }
     }
     
     /**

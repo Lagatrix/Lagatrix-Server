@@ -40,16 +40,20 @@ public class CPUManager {
      * This method obtain the CPU of the system.
      *
      * @return The CPU info in entity.
-     * @throws CPUException If you can't get some information from CPU.
+     * @throws CPUException If you can't get important information from CPU.
      */
     public CPU obtainCPU() throws CPUException {
         CPU cpu = new CPU();
 
+        // Important information.
         cpu.setModel(information.obtainModel());
         cpu.setCores(information.obtainCores());
+        cpu.setThreads(information.obtainThreads() * cpu.getCores());
+        
+        // Not important information.
         cpu.setMaxSpeed(information.obtainMaxSpeed());
         cpu.setMinSpeed(information.obtainMinSpeed());
-        cpu.setThreads(information.obtainThreads() * cpu.getCores());
+        cpu.setCacheMemory(information.obtainCacheMemory());
 
         return cpu;
     }

@@ -7,7 +7,7 @@ package lagatrix.server.entities.dto.hardware;
  * @since 1.0
  */
 public class CPU {
-    private String model;
+    private String model, cacheMemory;
     private int cores, threads;
     private float minSpeed, maxSpeed;
 
@@ -54,8 +54,16 @@ public class CPU {
         this.maxSpeed = maxSpeed;
     }
 
+    public String getCacheMemory() {
+        return cacheMemory;
+    }
+
+    public void setCacheMemory(String cacheMemory) {
+        this.cacheMemory = cacheMemory;
+    }
+
     @Override
     public String toString() {
-        return "CPU{" + "model=" + model + ", cores=" + cores + ", threads=" + threads + ", minSpeed=" + minSpeed + ", maxSpeed=" + maxSpeed + "}'";
+        return "CPU{" + "model=" + model + ", cacheMemory=" + cacheMemory + ", cores=" + cores + ", threads=" + threads + ", minSpeed=" + minSpeed + ", maxSpeed=" + maxSpeed + '}';
     }
 }
