@@ -4,7 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import lagatrix.server.entities.devices.Partition;
 import lagatrix.server.exceptions.manager.PartitionException;
-import lagatrix.server.manager.information.PartitionInfo;
+import lagatrix.server.manager.information.partition.PartitionInfo;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**

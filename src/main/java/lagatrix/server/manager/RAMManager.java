@@ -1,10 +1,10 @@
 package lagatrix.server.manager;
 
 import lagatrix.server.entities.devices.RAM;
-import lagatrix.server.exceptions.manager.RAMException;
+import lagatrix.server.exceptions.manager.hardware.RAMException;
 import lagatrix.server.exceptions.manager.UseException;
 import lagatrix.server.manager.hardware_status.use.UseManager;
-import lagatrix.server.manager.information.RAMInfo;
+import lagatrix.server.manager.information.hardware.RAMInfo;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.hawrdare_status.DevicesEnum;
 import lagatrix.server.tools.hawrdare_status.UseDeviceDetector;

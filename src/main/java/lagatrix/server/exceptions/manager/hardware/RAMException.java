@@ -1,4 +1,6 @@
-package lagatrix.server.exceptions.manager;
+package lagatrix.server.exceptions.manager.hardware;
+
+import lagatrix.server.exceptions.manager.ManagerException;
 
 /**
  * This exception repersents all errors related to the RAM.

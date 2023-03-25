@@ -1,7 +1,7 @@
-package lagatrix.server.manager.information;
+package lagatrix.server.manager.information.hardware;
 
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.CPUException;
+import lagatrix.server.exceptions.manager.hardware.CPUException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 
@@ -12,6 +12,7 @@ import lagatrix.server.tools.command.CommandResponse;
  * @since 1.0
  */
 public class CPUInfo {
+    
     private CommandExecutor executor;
 
     /**
@@ -64,8 +65,6 @@ public class CPUInfo {
      * command. 
      */
     public int obtainThreads() throws CPUException{
-        int count;
-        
         return Integer.parseInt(executeCommand("Thread").getFirstLine());
     }
     

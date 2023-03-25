@@ -1,4 +1,4 @@
-package lagatrix.server.manager.information;
+package lagatrix.server.manager.information.partition;
 
 import lagatrix.server.entities.devices.components.PartitionComponents;
 import lagatrix.server.exceptions.command.CommandException;

@@ -1,7 +1,7 @@
-package lagatrix.server.manager.information;
+package lagatrix.server.manager.information.hardware;
 
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.RAMException;
+import lagatrix.server.exceptions.manager.hardware.RAMException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 
