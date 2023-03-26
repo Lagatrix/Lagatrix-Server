@@ -8,6 +8,7 @@ package lagatrix.server.entities.dto.user;
  */
 public class User {
     private String username, home, shell, group, password;
+    private boolean isRoot;
 
     public User() {
     }
@@ -52,8 +53,16 @@ public class User {
         this.password = password;
     }
 
+    public void setIsRoot(boolean isRoot) {
+        this.isRoot = isRoot;
+    }
+
+    public boolean isIsRoot() {
+        return isRoot;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "username=" + username + ", home=" + home + ", shell=" + shell + ", group=" + group + ", password=" + password + '}';
+        return "User{" + "username=" + username + ", home=" + home + ", shell=" + shell + ", group=" + group + ", password=" + password + ", isRoot=" + isRoot + '}';
     }
 }

@@ -81,9 +81,9 @@ public class UserInsertion {
         } catch (CommandException ex) {
             switch (ex.getStatusCode()) {
                 case 6:
-                    throw new NotExistException("Group not exist");
+                    throw new NotExistException(UserComponents.GROUP.getName());
                 case 9:
-                    throw new ExistException("User already exist");
+                    throw new ExistException(UserComponents.USERNAME.getName());
                 default:
                     throw new UserException(String.format("Can't add user %s", name));
             }
