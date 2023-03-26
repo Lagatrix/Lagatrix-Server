@@ -1,12 +1,7 @@
 package lagatrix.server.manager.modificator.user;
 
-import lagatrix.server.entities.components.UserComponents;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.user.ExistException;
-import lagatrix.server.exceptions.manager.user.HomeException;
-import lagatrix.server.exceptions.manager.user.NotExistException;
 import lagatrix.server.exceptions.manager.user.PasswordException;
-import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
