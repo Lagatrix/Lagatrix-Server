@@ -81,7 +81,8 @@ public class UserManager {
      * @throws UserException If can't insert the user.
      */
     public void insertUser(User user) throws UserException {
-        insertion.insertUser(user.getUsername(), user.getHome(), user.getShell(), user.getPassword(), user.getGroup());
+        insertion.insertUser(user.getUsername(), user.getHome(), user.getShell(), user.getGroup());
+        password.modifyPassword(user.getUsername(), user.getPassword());
     }
     
     /**

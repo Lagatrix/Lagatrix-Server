@@ -33,5 +33,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
 - LASRV001 - 25/03/2023 - Quit CPUException in not important information of CPU.
+- LASRV006 - 26/03/2023 - Fix add user bug.
 
 [unreleased]: https://github.com/Lagatrix/Lagatrix-Server
