@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV006 - 26/03/2023 - Add the RootPermissionInfo class to obtain if user have root permission.
 - LASRV006 - 26/03/2023 - Add the UserModificator class to modify user.
 - LASRV006 - 26/03/2023 - Add the PasswordModificator class to modify password of user.
+- LASRV006 - 26/03/2023 - Add the UserInsertion class to add users.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
