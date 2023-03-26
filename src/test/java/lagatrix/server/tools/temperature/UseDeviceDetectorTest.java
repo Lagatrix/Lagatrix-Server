@@ -1,6 +1,6 @@
 package lagatrix.server.tools.temperature;
 
-import lagatrix.server.manager.hardware_status.use.UseCPU;
+import lagatrix.server.manager.information.hardware.hardware_status.use.UseCPU;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.hawrdare_status.DevicesEnum;
 import lagatrix.server.tools.hawrdare_status.UseDeviceDetector;

@@ -1,8 +1,8 @@
 package lagatrix.server.tools.hawrdare_status;
 
-import lagatrix.server.manager.hardware_status.temperature.TemperatureManager;
-import lagatrix.server.manager.hardware_status.temperature.cpu.NormalCPUTemperature;
-import lagatrix.server.manager.hardware_status.temperature.cpu.RaspberryPiTemperature;
+import lagatrix.server.manager.information.hardware.hardware_status.temperature.TemperatureManager;
+import lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu.NormalCPUTemperature;
+import lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu.RaspberryPiTemperature;
 import lagatrix.server.tools.command.CommandExecutor;
 import static lagatrix.server.tools.hawrdare_status.DevicesEnum.CPU;
 import static lagatrix.server.tools.hawrdare_status.DevicesEnum.DISK;

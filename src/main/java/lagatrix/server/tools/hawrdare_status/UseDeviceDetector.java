@@ -1,8 +1,8 @@
 package lagatrix.server.tools.hawrdare_status;
 
-import lagatrix.server.manager.hardware_status.use.UseCPU;
-import lagatrix.server.manager.hardware_status.use.UseManager;
-import lagatrix.server.manager.hardware_status.use.UseRAM;
+import lagatrix.server.manager.information.hardware.hardware_status.use.UseCPU;
+import lagatrix.server.manager.information.hardware.hardware_status.use.UseManager;
+import lagatrix.server.manager.information.hardware.hardware_status.use.UseRAM;
 import lagatrix.server.tools.command.CommandExecutor;
 import static lagatrix.server.tools.hawrdare_status.DevicesEnum.RAM;
 

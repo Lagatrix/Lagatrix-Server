@@ -2,10 +2,10 @@ package lagatrix.server.manager;
 
 import lagatrix.server.entities.dto.hardware.CPU;
 import lagatrix.server.exceptions.manager.hardware.CPUException;
-import lagatrix.server.exceptions.manager.TemperatureException;
-import lagatrix.server.exceptions.manager.UseException;
-import lagatrix.server.manager.hardware_status.temperature.TemperatureManager;
-import lagatrix.server.manager.hardware_status.use.UseManager;
+import lagatrix.server.exceptions.manager.hardware.status.TemperatureException;
+import lagatrix.server.exceptions.manager.hardware.status.UseException;
+import lagatrix.server.manager.information.hardware.hardware_status.temperature.TemperatureManager;
+import lagatrix.server.manager.information.hardware.hardware_status.use.UseManager;
 import lagatrix.server.manager.information.hardware.CPUInfo;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.hawrdare_status.DevicesEnum;

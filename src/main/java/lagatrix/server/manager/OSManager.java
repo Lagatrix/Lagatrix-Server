@@ -1,7 +1,7 @@
 package lagatrix.server.manager;
 
 import lagatrix.server.entities.dto.os.OSInformation;
-import lagatrix.server.exceptions.manager.OSException;
+import lagatrix.server.exceptions.manager.os.OSException;
 import lagatrix.server.manager.information.os.DistributionInfo;
 import lagatrix.server.manager.information.os.UnameInfo;
 import lagatrix.server.tools.command.CommandExecutor;

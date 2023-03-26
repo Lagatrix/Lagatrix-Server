@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV005 - 25/03/2023 - Add the UnameInfo class to obtain hostame and kernel.
 - LASRV005 - 25/03/2023 - Add the DistributionInfo class to obtain information of distribution.
 - LASRV005 - 25/03/2023 - Add the OSManager class to obtain information of OS.
+- LASRV006 - 26/03/2023 - Add the UserInfo class to obtain information of user.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.

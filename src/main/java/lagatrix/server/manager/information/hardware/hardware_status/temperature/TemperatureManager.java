@@ -1,7 +1,7 @@
-package lagatrix.server.manager.hardware_status.temperature;
+package lagatrix.server.manager.information.hardware.hardware_status.temperature;
 
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.TemperatureException;
+import lagatrix.server.exceptions.manager.hardware.status.TemperatureException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 

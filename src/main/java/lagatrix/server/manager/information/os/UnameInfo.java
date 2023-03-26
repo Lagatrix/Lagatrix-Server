@@ -2,7 +2,7 @@ package lagatrix.server.manager.information.os;
 
 import lagatrix.server.entities.components.OSComponents;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.OSException;
+import lagatrix.server.exceptions.manager.os.OSException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 

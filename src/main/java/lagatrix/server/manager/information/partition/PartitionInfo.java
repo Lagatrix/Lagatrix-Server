@@ -2,7 +2,7 @@ package lagatrix.server.manager.information.partition;
 
 import lagatrix.server.entities.components.PartitionComponents;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.PartitionException;
+import lagatrix.server.exceptions.manager.partition.PartitionException;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.command.CommandResponse;
 
@@ -25,7 +25,8 @@ public class PartitionInfo {
      * 
      * @param numPartition The num of partiton who get the information.
      * @return The file system of partiton.
-     * @throws PartitionException 
+     * @throws PartitionException If a problem occurs with the execution of the 
+     * command.
      */
     public String obtainFileSystem(int numPartition) throws PartitionException{
         return executeCommand(numPartition, PartitionComponents.FILE_SYSTEM).getFirstLine();

@@ -1,7 +1,7 @@
-package lagatrix.server.manager.hardware_status.temperature.cpu;
+package lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu;
 
-import lagatrix.server.exceptions.manager.TemperatureException;
-import lagatrix.server.manager.hardware_status.temperature.TemperatureManager;
+import lagatrix.server.exceptions.manager.hardware.status.TemperatureException;
+import lagatrix.server.manager.information.hardware.hardware_status.temperature.TemperatureManager;
 
 /**
  * This class is used to onglobar the methods to obtain the temperature of any 

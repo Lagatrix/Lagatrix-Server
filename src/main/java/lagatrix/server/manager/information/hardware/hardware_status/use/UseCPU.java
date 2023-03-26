@@ -1,6 +1,6 @@
-package lagatrix.server.manager.hardware_status.use;
+package lagatrix.server.manager.information.hardware.hardware_status.use;
 
-import lagatrix.server.exceptions.manager.UseException;
+import lagatrix.server.exceptions.manager.hardware.status.UseException;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
