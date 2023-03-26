@@ -83,7 +83,7 @@ public class UserInfo {
      */
     private CommandResponse executeCommand(int numUser, UserComponents component) throws UserException {
         String command = String.format("cat /etc/passwd | awk -F : '{if($3 > 999 && $3 < 65534) print $%d}' | sed -n %dp", 
-                component.getValue(), numUser);
+                component.getValueInfo(), numUser);
         CommandResponse response = null;
         
         try {

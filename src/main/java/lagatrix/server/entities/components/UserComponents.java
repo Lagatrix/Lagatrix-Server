@@ -6,31 +6,37 @@ package lagatrix.server.entities.components;
  * @author javier
  */
 public enum UserComponents {
-    USERNAME("Username", 1),
-    HOME("Home path", 6),
-    GROUP("Main group", 4),
-    SHELL("Password", 7);
+    USERNAME("Username", 1, "-l"),
+    HOME("Home path", 6, "-d"),
+    GROUP("Main group", 4, "-G"),
+    SHELL("Password", 7, "-p");
     
     
-    private String name;
-    private int value;
+    private String name, valueUserMod;
+    private int valueInfo;
 
     /**
      * The constructor of enum.
      *
      * @param name The name of the component.
-     * @param value His value.
+     * @param valueInfo His value in /etc/passwd.
+     * @param valueUserMod His value with usermod.
      */
-    private UserComponents(String name, int value) {
+    private UserComponents(String name, int value, String valueUserMod) {
         this.name = name;
-        this.value = value;
+        this.valueInfo = value;
+        this.valueUserMod = valueUserMod;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getValue() {
-        return value;
+    public int getValueInfo() {
+        return valueInfo;
+    }
+
+    public String getValueUserMod() {
+        return valueUserMod;
     }
 }

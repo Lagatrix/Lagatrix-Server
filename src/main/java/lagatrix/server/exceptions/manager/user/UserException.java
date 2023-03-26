@@ -11,7 +11,7 @@ import lagatrix.server.exceptions.manager.ManagerException;
 public class UserException extends ManagerException{
     
     public UserException(String component) {
-        super(String.format("Can't obtain user component: %s", component));
+        super(String.format("Error handling user component: %s", component));
     }
     
 }

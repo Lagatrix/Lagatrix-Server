@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV005 - 25/03/2023 - Add the OSManager class to obtain information of OS.
 - LASRV006 - 26/03/2023 - Add the UserInfo class to obtain information of user.
 - LASRV006 - 26/03/2023 - Add the RootPermissionInfo class to obtain if user have root permission.
+- LASRV006 - 26/03/2023 - Add the UserModificator class to modify user.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
