@@ -74,7 +74,8 @@ public class UserInfo {
     }
     
     /**
-     * This method exec the uname command. Gets the component you want to get.
+     * This method exec the cat in /etc/passwd command. Gets the component you 
+     * want to get.
      * 
      * @param component The component who want to get.
      * @return The response of command.

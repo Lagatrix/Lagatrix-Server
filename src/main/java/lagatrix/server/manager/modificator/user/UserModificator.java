@@ -76,7 +76,7 @@ public class UserModificator {
     }
     
     /**
-     * This method exec the uname command. Gets the component you want to get.
+     * This method exec the usermod command.
      * 
      * @param component The component who want to modify.
      * @throws UserException If a problem occurs with the execution of the 

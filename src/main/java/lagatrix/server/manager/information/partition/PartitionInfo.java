@@ -93,7 +93,7 @@ public class PartitionInfo {
     }
     
     /**
-     * This method exec the lscpu command. Gets the component you want to get.
+     * This method exec the df command. Gets the component you want to get.
      * 
      * @param numPartition The num of partiton who get the information.
      * @param component The component who want to get.
