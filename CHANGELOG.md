@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV006 - 26/03/2023 - Add the UserDeletion class to delete users.
 - LASRV006 - 26/03/2023 - Add the UserManager class to manage users.
 - LASRV007 - 27/03/2023 - Add the ProcessInfo class to get information of process.
+- LASRV007 - 27/03/2023 - Add the ProcessManager class to get process object.
 
 ### Fixed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
