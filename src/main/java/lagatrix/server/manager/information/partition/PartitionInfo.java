@@ -16,6 +16,11 @@ public class PartitionInfo {
     
     private CommandExecutor executor;
 
+    /**
+     * The constructor of the class
+     *
+     * @param executor The executor of the commands.
+     */
     public PartitionInfo(CommandExecutor executor) {
         this.executor = executor;
     }
