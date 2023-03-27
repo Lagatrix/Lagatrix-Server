@@ -27,7 +27,7 @@ public class PasswordModificator {
      * This method modify the password of user.
      * 
      * @param username The username of user to change.
-     * @param newPassword The new password-
+     * @param newPassword The new password.
      * @throws PasswordException If a problem occurs with the execution of the 
      * command.
      */

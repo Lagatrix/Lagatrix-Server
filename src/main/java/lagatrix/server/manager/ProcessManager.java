@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import lagatrix.server.entities.dto.process.UnixProcess;
 import lagatrix.server.exceptions.manager.process.ProcessException;
+import lagatrix.server.manager.deletion.process.ProcessDeletion;
 import lagatrix.server.manager.information.process.ProcessInfo;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -16,6 +17,7 @@ import lagatrix.server.tools.command.CommandExecutor;
 public class ProcessManager {
     
     private ProcessInfo information;
+    private ProcessDeletion deletion;
 
     /**
      * The constructor of the class
@@ -58,5 +60,16 @@ public class ProcessManager {
                 }
             }
         }
+    }
+    
+    /**
+     * This method kill a process.
+     * 
+     * @param PID The PID of process to kill.
+     * @throws ProcessException If no process is obtained, it will be taken 
+     * as an error.
+     */
+    public void killProcess (int PID) throws ProcessException{
+        deletion.killProcess(PID);
     }
 }
