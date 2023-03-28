@@ -32,10 +32,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV007 - 27/03/2023 - Add the ProcessInfo class to get information of process.
 - LASRV007 - 27/03/2023 - Add the ProcessManager class to get process object.
 - LASRV007 - 27/03/2023 - Add the ProcessDeletion class to kill process.
-- LASRV008 - 28/03/2003 - Add the EventInformation class to get information of event.
-- LASRV008 - 28/03/2003 - Add the EventInsertion class to insert event.
-- LASRV008 - 28/03/2003 - Add the EventModificator class to modify event.
-- LASRV008 - 28/03/2003 - Add the EventDeletion class to delete event.
+- LASRV008 - 28/03/2023 - Add the EventInformation class to get information of event.
+- LASRV008 - 28/03/2023 - Add the EventInsertion class to insert event.
+- LASRV008 - 28/03/2023 - Add the EventModificator class to modify event.
+- LASRV008 - 28/03/2023 - Add the EventDeletion class to delete event.
+- LASRV008 - 28/03/2023 - Add the EventManager class to manage event objects.
 
 
 ### Changed

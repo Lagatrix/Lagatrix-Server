@@ -12,7 +12,7 @@ import lagatrix.server.tools.command.CommandResponse;
  * @author javier
  * @since 1.0
  */
-public class EventInformation {
+public class EventInfo {
     
  private CommandExecutor executor;
     
@@ -21,7 +21,7 @@ public class EventInformation {
      *
      * @param executor The executor of the commands.
      */
-    public EventInformation(CommandExecutor executor) {
+    public EventInfo(CommandExecutor executor) {
         this.executor = executor;
     }
     
@@ -113,7 +113,7 @@ public class EventInformation {
         CommandResponse response = null;
         
         try {
-            response = executor.executeCommand(command); 
+            response = executor.executeCommand(command, true); 
         } catch (CommandException ex) {
             throw new EventException(component.getName());
         }
