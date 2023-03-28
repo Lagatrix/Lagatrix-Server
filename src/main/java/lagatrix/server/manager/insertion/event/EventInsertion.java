@@ -5,7 +5,7 @@ import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
- * This class and an event in the root crontab file.
+ * This class insert event in the root crontab file.
  *
  * @author javier
  * @since 1.0
