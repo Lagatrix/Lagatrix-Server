@@ -1,16 +1,16 @@
-package lagatrix.server.manager.modificator.event;
+package lagatrix.server.manager.deletion.event;
 
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
- * This class modify event in the root crontab file.
+ * This class delete event in the root crontab file.
  *
  * @author javier
  * @since 1.0
  */
-public class EventModificator {
+public class EventDeletion {
         
     private CommandExecutor executor;
 
@@ -19,26 +19,24 @@ public class EventModificator {
      *
      * @param executor The executor of the commands.
      */
-    public EventModificator(CommandExecutor executor) {
+    public EventDeletion(CommandExecutor executor) {
         this.executor = executor;
     }
     
     /**
-     * This method modify an event of the crontab, the format of event is like
-     * this: * * * * * command
+     * This method delete an event of the crontab.
      * 
-     * @param eventOld The old event.
-     * @param eventNew The new event.
+     * @param event The event to delete, format like this: * * * * * command
      * @throws EventException If a problem occurs with the execution of the 
      * command.
      */
-    public void modifyEvent(String eventOld, String eventNew) throws EventException {
-        String command = String.format("crontab -l | sed '/%s/c %s' | sudo crontab -", eventOld, eventNew);
+    public void deleteEvent(String event) throws EventException {
+        String command = String.format("crontab -l | grep -v \"%s\"  | sudo crontab -", event);
         
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new EventException("Can't modify event");
+            throw new EventException("Can't delete event");
         }
     } 
 }
