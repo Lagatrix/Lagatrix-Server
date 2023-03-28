@@ -9,9 +9,9 @@ import lagatrix.server.exceptions.manager.ManagerException;
  * @since 1.0
  */
 public class ProcessException extends ManagerException {
-
-    public ProcessException(String description) {
-        super(description);
+    
+    public ProcessException(String errorMessage) {
+        super(errorMessage);
     }
-
+    
 }

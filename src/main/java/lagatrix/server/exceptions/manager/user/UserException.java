@@ -10,8 +10,8 @@ import lagatrix.server.exceptions.manager.ManagerException;
  */
 public class UserException extends ManagerException{
     
-    public UserException(String component) {
-        super(String.format("Error handling user component: %s", component));
+    public UserException(String errorMessage) {
+        super(errorMessage);
     }
     
 }

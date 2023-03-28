@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.user;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -55,7 +56,7 @@ public class RootPermissionInfo {
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new UserException("Is Root");
+            throw new UserException(UserException.getMessage(this.getClass(), ActionsEnum.GET));
         }
         
         return response;

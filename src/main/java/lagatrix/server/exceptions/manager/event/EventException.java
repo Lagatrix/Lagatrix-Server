@@ -10,8 +10,8 @@ import lagatrix.server.exceptions.manager.ManagerException;
  */
 public class EventException extends ManagerException {
 
-    public EventException(String description) {
-        super(description);
+    public EventException(String errorMessage) {
+        super(errorMessage);
     }
 
 }

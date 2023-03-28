@@ -1,10 +1,8 @@
 package lagatrix.server.manager.modificator.user;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.UserComponents;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.user.ExistException;
-import lagatrix.server.exceptions.manager.user.HomeException;
-import lagatrix.server.exceptions.manager.user.NotExistException;
 import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -88,16 +86,8 @@ public class UserModificator {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            switch (ex.getStatusCode()) {
-                case 6:
-                    throw new NotExistException(component.getName());
-                case 9:
-                    throw new ExistException(component.getName());
-                case 12:
-                    throw new HomeException(component.getName());
-                default:
-                    throw new UserException(component.getName());
-            }
+            throw new UserException(UserException.getMessage(
+                    this.getClass(), ActionsEnum.MODIFY, ex.getMessage()));
         }
     }
 }

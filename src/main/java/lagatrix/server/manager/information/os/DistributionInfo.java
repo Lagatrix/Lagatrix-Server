@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.os;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.OSComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.os.OSException;
@@ -77,17 +78,18 @@ public class DistributionInfo {
      */
     private CommandResponse executeCommand(OSComponents component) throws OSException {
         String command = String.format("cat /etc/os-release | %s | awk -F = '{print $2}' | xargs", component.getValue());
+        String msgError = OSException.getMessage(this.getClass(), component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new OSException(component.getName());
+            throw new OSException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new OSException(component.getName());
+            throw new OSException(msgError);
         }
         
         return response;

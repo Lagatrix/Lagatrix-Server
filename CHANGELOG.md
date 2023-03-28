@@ -42,6 +42,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
 - LASRV001 - 25/03/2023 - Quit CPUException in not important information of CPU.
+- LASRV008 - 28/03/2023 - Change the manager exceptions to give a standard description.
 
 ### Fixed
 - LASRV006 - 26/03/2023 - Fix add user bug.

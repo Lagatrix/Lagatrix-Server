@@ -1,5 +1,6 @@
 package lagatrix.server.manager.insertion.event;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -36,7 +37,8 @@ public class EventInsertion {
         try {
             executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new EventException("Can't insert event");
+            throw new EventException(EventException.getMessage(
+                    this.getClass(), ActionsEnum.INSERT, ex.getMessage()));
         }
     } 
 }

@@ -1,9 +1,7 @@
 package lagatrix.server.manager.insertion.user;
 
-import lagatrix.server.entities.components.UserComponents;
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.user.ExistException;
-import lagatrix.server.exceptions.manager.user.NotExistException;
 import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -75,14 +73,8 @@ public class UserInsertion {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            switch (ex.getStatusCode()) {
-                case 6:
-                    throw new NotExistException(UserComponents.GROUP.getName());
-                case 9:
-                    throw new ExistException(UserComponents.USERNAME.getName());
-                default:
-                    throw new UserException(String.format("Can't add user %s", name));
-            }
+            throw new UserException(UserException.getMessage(
+                    this.getClass(), ActionsEnum.INSERT, ex.getMessage()));
         }
     }
 }

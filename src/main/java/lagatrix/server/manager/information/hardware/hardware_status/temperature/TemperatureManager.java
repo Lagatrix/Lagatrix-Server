@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.hardware.hardware_status.temperature;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.hardware.status.TemperatureException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -34,16 +35,17 @@ public abstract class TemperatureManager {
      */
     protected final float executeTemperatureCommand(String command, String device) throws TemperatureException {
         CommandResponse response = null;
+        String msgError = TemperatureException.getMessage(this.getClass(), ActionsEnum.GET);
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new TemperatureException(device);
+            throw new TemperatureException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new TemperatureException(device);
+            throw new TemperatureException(msgError);
         }
         
         return Float.parseFloat(response.getFirstLine());

@@ -1,6 +1,8 @@
 package lagatrix.server.manager.deletion.user;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
+import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -26,8 +28,9 @@ public class UserDeletion {
     /**
      * This method delete an user of the system.
      * 
-     * @param username
-     * @throws UserException 
+     * @param username The username who delete.
+     * @throws UserException If a problem occurs with the execution of the 
+     * command.
      */
     public void deleteUser(String username) throws UserException {
         String command = String.format("deluser %s", username);
@@ -35,7 +38,8 @@ public class UserDeletion {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new UserException("Can't delete user");
+            throw new UserException(UserException.getMessage(
+                    this.getClass(), ActionsEnum.GET, ex.getMessage()));
         }
     } 
 }

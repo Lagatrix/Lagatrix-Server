@@ -9,14 +9,9 @@ import lagatrix.server.exceptions.manager.ManagerException;
  * @since 1.0
  */
 public class GPUException extends ManagerException {
-    private String component;
-
-    public GPUException(String component) {
-        super(String.format("Cant obtain component: %s", component));
-        this.component = component;
+    
+    public GPUException(String errorMessage) {
+        super(errorMessage);
     }
-
-    public String getComponent() {
-        return component;
-    }
+    
 }

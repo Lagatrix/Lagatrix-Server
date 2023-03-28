@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.partition;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.PartitionComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.partition.PartitionException;
@@ -70,7 +71,8 @@ public class PartitionInfo {
      * command.
      */
     public int obtainPercentageUse(int numPartition) throws PartitionException{
-        return Integer.parseInt(executeCommand(numPartition, PartitionComponents.PERCENTAGE_USE).getFirstLine().replace("%", ""));
+        return Integer.parseInt(executeCommand(numPartition, PartitionComponents.PERCENTAGE_USE)
+                .getFirstLine().replace("%", ""));
     }
     
     /**
@@ -108,17 +110,18 @@ public class PartitionInfo {
      */
     private CommandResponse executeCommand(int numPartition, PartitionComponents component) throws PartitionException {
         String command = String.format("df -h | awk '{print $%d}' | sed -n %dp", component.getValue(), ++numPartition);
+        String msgError = PartitionException.getMessage(this.getClass(), component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new PartitionException(component.name());
+            throw new PartitionException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new PartitionException(component.getName());
+            throw new PartitionException(msgError);
         }
         
         return response;

@@ -1,5 +1,6 @@
 package lagatrix.server.manager.deletion.process;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.process.ProcessException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -36,7 +37,8 @@ public class ProcessDeletion {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new ProcessException("Kill process");
+            throw new ProcessException(ProcessException.getMessage(
+                    this.getClass(), ActionsEnum.DELETE, ex.getMessage()));
         }
     }
 }

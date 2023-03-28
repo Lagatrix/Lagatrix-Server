@@ -9,14 +9,9 @@ import lagatrix.server.exceptions.manager.ManagerException;
  * @since 1.0
  */
 public class OSException extends ManagerException{
-    private String component;
-
-    public OSException(String component) {
-        super(String.format("Can't obtain OS component: %s", component));
-        this.component = component;
+    
+    public OSException(String errorMessage) {
+        super(errorMessage);
     }
-
-    public String getComponent() {
-        return component;
-    }
+    
 }

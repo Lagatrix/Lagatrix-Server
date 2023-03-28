@@ -1,6 +1,6 @@
 package lagatrix.server.exceptions.command;
 
-import lagatrix.server.exceptions.LagatrixServerException;
+import lagatrix.server.exceptions.LagatrixException;
 
 /**
  * This exception repersents all errors related to the execution of the 
@@ -9,7 +9,7 @@ import lagatrix.server.exceptions.LagatrixServerException;
  * @author javier
  * @since 1.0
  */
-public class CommandException extends LagatrixServerException {
+public class CommandException extends LagatrixException {
     private int statusCode;
 
     public CommandException(String description, int statusCode) {
@@ -23,5 +23,10 @@ public class CommandException extends LagatrixServerException {
 
     public int getStatusCode() {
         return statusCode;
+    }
+
+    @Override
+    public String getMessage() {
+        return super.getMessage(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 }

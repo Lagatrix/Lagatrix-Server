@@ -9,9 +9,9 @@ import lagatrix.server.exceptions.manager.ManagerException;
  * @since 1.0
  */
 public class UseException extends ManagerException {
-
-    public UseException(String component) {
-        super(String.format("Can't obtain use of: %s", component));
+    
+    public UseException(String errorMessage) {
+        super(errorMessage);
     }
-
+    
 }

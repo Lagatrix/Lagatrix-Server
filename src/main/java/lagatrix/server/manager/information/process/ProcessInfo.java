@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.process;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.ProcessComponent;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.process.ProcessException;
@@ -95,18 +96,21 @@ public class ProcessInfo {
      * command.
      */
     private CommandResponse executeCommand(int numProcess, ProcessComponent component) throws ProcessException {
-        String command = String.format("ps aux --no-headers | awk '{print $%s}' | sed -n %dp", component.getValue(), numProcess);
+        String command = String.format("ps aux --no-headers | awk '{print $%s}' | sed -n %dp", 
+                component.getValue(), numProcess);
+        String msgError = ProcessException.getMessage(this.getClass(), 
+                component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new ProcessException(component.name());
+            throw new ProcessException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new ProcessException(component.getName());
+            throw new ProcessException(msgError);
         }
         
         return response;

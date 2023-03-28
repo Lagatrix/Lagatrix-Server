@@ -1,5 +1,6 @@
 package lagatrix.server.manager.modificator.event;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -38,7 +39,8 @@ public class EventModificator {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new EventException("Can't modify event");
+            throw new EventException(EventException.getMessage(
+                    this.getClass(), ActionsEnum.MODIFY, ex.getMessage()));
         }
     } 
 }

@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.user;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.UserComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.user.UserException;
@@ -85,17 +86,19 @@ public class UserInfo {
     private CommandResponse executeCommand(int numUser, UserComponents component) throws UserException {
         String command = String.format("cat /etc/passwd | awk -F : '{if($3 > 999 && $3 < 65534) print $%d}' | sed -n %dp", 
                 component.getValueInfo(), numUser);
+        String msgError = UserException.getMessage(this.getClass(), 
+                component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new UserException(component.getName());
+            throw new UserException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new UserException(component.getName());
+            throw new UserException(msgError);
         }
         
         return response;

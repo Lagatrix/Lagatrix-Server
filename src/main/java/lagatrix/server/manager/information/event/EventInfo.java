@@ -1,5 +1,6 @@
 package lagatrix.server.manager.information.event;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.EventComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.event.EventException;
@@ -110,17 +111,19 @@ public class EventInfo {
     private CommandResponse executeCommand(int numEvent, EventComponents component) throws EventException {
         String command = String.format("crontab -l | grep -v \"#\" | cut -d\" \" -f%s | sed -n %dp", 
                 component.getValue(), numEvent);
+        String msgError = EventException.getMessage(
+                    this.getClass(), component.getValue(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new EventException(component.getName());
+            throw new EventException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new EventException(component.getName());
+            throw new EventException(msgError);
         }
         
         return response;

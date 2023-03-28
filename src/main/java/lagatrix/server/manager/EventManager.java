@@ -70,12 +70,12 @@ public class EventManager {
     }
     
     /**
-     * This method insert user in the system.
+     * This method insert event in the system.
      * 
      * @param event The event who insert
      * @throws EventException If can't insert the event.
      */
-    public void insertUser(Event event) throws EventException {
+    public void insertEvent(Event event) throws EventException {
         insertion.insertEvent(event.toString());
     }
     

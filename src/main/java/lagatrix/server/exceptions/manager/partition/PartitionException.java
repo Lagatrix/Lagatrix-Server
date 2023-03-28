@@ -10,8 +10,8 @@ import lagatrix.server.exceptions.manager.ManagerException;
  */
 public class PartitionException extends ManagerException{
     
-    public PartitionException(String component) {
-        super(String.format("Can't obtain partition component: %s", component));
+    public PartitionException(String errorMessage) {
+        super(errorMessage);
     }
     
 }

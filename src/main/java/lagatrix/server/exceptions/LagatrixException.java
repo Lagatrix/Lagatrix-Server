@@ -7,9 +7,9 @@ package lagatrix.server.exceptions;
  * @author javier
  * @since 1.0
  */
-public class LagatrixServerException extends Exception{
+public class LagatrixException extends Exception{
 
-    public LagatrixServerException(String description) {
+    public LagatrixException(String description) {
         super(description);
     }
 

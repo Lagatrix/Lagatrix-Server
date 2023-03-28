@@ -1,5 +1,6 @@
 package lagatrix.server.manager.deletion.event;
 
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -36,7 +37,8 @@ public class EventDeletion {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new EventException("Can't delete event");
+            throw new EventException(EventException.getMessage(this.getClass(), 
+                    ActionsEnum.DELETE, ex.getMessage()));
         }
     } 
 }

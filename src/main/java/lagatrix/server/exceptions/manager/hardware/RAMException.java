@@ -9,14 +9,9 @@ import lagatrix.server.exceptions.manager.ManagerException;
  * @since 1.0
  */
 public class RAMException extends ManagerException {
-    private String component;
-
-    public RAMException(String component) {
-        super(String.format("Cant obtain component of RAM: %s", component));
-        this.component = component;
+    
+    public RAMException(String errorMessage) {
+        super(errorMessage);
     }
-
-    public String getComponent() {
-        return component;
-    }
+    
 }

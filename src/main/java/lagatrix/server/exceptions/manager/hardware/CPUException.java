@@ -9,14 +9,9 @@ import lagatrix.server.exceptions.manager.ManagerException;
  * @since 1.0
  */
 public class CPUException extends ManagerException {
-    private String component;
-
-    public CPUException(String component) {
-        super(String.format("Cant obtain component: %s", component));
-        this.component = component;
+    
+    public CPUException(String errorMessage) {
+        super(errorMessage);
     }
-
-    public String getComponent() {
-        return component;
-    }
+    
 }

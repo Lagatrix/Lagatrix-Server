@@ -115,19 +115,19 @@ public class CommandExecutor {
         
         switch (statusCode) {
             case 1:
-                description = String.format("General error with command: %s", command);
+                description = String.format("general error with command: %s", command);
                 break;
             case 2:
-                description = String.format("Bad usage with command: %s", command);
+                description = String.format("bad usage with command: %s", command);
                 break;
             case 126:
-                description = String.format("Permision error with command: %s", command);
+                description = String.format("permision error with command: %s", command);
                 break;
             case 127:
-                description = String.format("This command not exist: %s", command);
+                description = String.format("this command not exist: %s", command);
                 break;
             default:
-                description = String.format("Special error %d of command: %s", statusCode, command);
+                description = String.format("special error %d of command: %s", statusCode, command);
         }
         
         throw new CommandBadExitCodeException(description, statusCode);
