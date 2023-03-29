@@ -37,6 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV008 - 28/03/2023 - Add the EventModificator class to modify event.
 - LASRV008 - 28/03/2023 - Add the EventDeletion class to delete event.
 - LASRV008 - 28/03/2023 - Add the EventManager class to manage event objects.
+- LASRV009 - 29/03/2023 - Add the PackageInsertion class to install packages.
 
 ### Changed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
