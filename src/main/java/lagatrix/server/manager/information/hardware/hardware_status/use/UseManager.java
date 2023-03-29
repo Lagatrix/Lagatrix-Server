@@ -28,11 +28,10 @@ public abstract class UseManager {
      * This methos execute the commands to obtain devices uses.
      * 
      * @param command The command to exec.
-     * @param device The device.
      * @return The percentaje the use.
      * @throws UseException If can't obtain the use.
      */
-    protected final float executeUseCommand(String command, String device) throws UseException {
+    protected final float executeUseCommand(String command) throws UseException {
         CommandResponse response = null;
         String msgError = UseException.getMessage(this.getClass(), ActionsEnum.GET);
         

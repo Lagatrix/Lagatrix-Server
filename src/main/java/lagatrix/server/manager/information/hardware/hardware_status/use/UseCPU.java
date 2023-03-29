@@ -17,7 +17,7 @@ public class UseCPU extends UseManager {
 
     @Override
     public float obtainUse() throws UseException {
-        return executeUseCommand("ps aux --no-headers | awk '{s+=$3}END{print s*0.10}'", "CPU");
+        return executeUseCommand("ps aux --no-headers | awk '{s+=$3}END{print s*0.10}'");
     }
 
 }

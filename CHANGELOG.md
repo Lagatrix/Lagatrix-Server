@@ -49,4 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 - LASRV006 - 26/03/2023 - Fix add user bug.
 
+### Removed
+- LASRV001 - 29/03/2023 - Quit the device string in temperature and use managers.
+
 [unreleased]: https://github.com/Lagatrix/Lagatrix-Server

@@ -26,14 +26,13 @@ public abstract class TemperatureManager {
     public abstract float obtainTemperature() throws TemperatureException;
     
     /**
-     * This methos execute the commands to obtain devices uses.
+     * This methos execute the commands to obtain devices temperatures.
      * 
      * @param command The command to exec.
-     * @param device The device.
      * @return The percentaje the use.
      * @throws TemperatureException If can't obtain the temperature.
      */
-    protected final float executeTemperatureCommand(String command, String device) throws TemperatureException {
+    protected final float executeTemperatureCommand(String command) throws TemperatureException {
         CommandResponse response = null;
         String msgError = TemperatureException.getMessage(this.getClass(), ActionsEnum.GET);
         

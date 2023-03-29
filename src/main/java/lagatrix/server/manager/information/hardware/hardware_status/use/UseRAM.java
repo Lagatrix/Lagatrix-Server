@@ -17,7 +17,7 @@ public class UseRAM extends UseManager{
 
     @Override
     public float obtainUse() throws UseException {
-        return executeUseCommand("ps aux --no-headers | awk '{s+=$4}END{print s}'", "RAM");
+        return executeUseCommand("ps aux --no-headers | awk '{s+=$4}END{print s}'");
     }
 
 }
