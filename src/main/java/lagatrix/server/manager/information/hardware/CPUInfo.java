@@ -1,7 +1,7 @@
 package lagatrix.server.manager.information.hardware;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import lagatrix.server.entities.actions.ActionsEnum;
+import lagatrix.server.entities.components.CPUComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.hardware.CPUException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -34,7 +34,7 @@ public class CPUInfo {
      * command.
      */
     public String obtainModel() throws CPUException{
-        return executeCommand("Model").getFirstLine();
+        return executeCommand(CPUComponents.MODEL).getFirstLine();
     }
     
     /**
@@ -45,7 +45,7 @@ public class CPUInfo {
      * command.
      */
     public int obtainCores() throws CPUException{
-        return Integer.parseInt(executeCommand("^CPU(s):").getFirstLine());
+        return Integer.parseInt(executeCommand(CPUComponents.CORES).getFirstLine());
     }
     
     /**
@@ -56,7 +56,7 @@ public class CPUInfo {
      * command. 
      */
     public int obtainThreads() throws CPUException{
-        return Integer.parseInt(executeCommand("Thread").getFirstLine());
+        return Integer.parseInt(executeCommand(CPUComponents.THREADS).getFirstLine());
     }
     
     /**
@@ -67,7 +67,7 @@ public class CPUInfo {
      */
     public String obtainCacheMemory() {
         try {
-            return executeCommand("L3").getFirstLine();
+            return executeCommand(CPUComponents.L3).getFirstLine();
         } catch (CPUException ex) {
             return "unknown";
         }
@@ -81,7 +81,7 @@ public class CPUInfo {
      */
     public float obtainMinSpeed() {
         try {
-            return Float.parseFloat(executeCommand("CPU min").getFirstLine());
+            return Float.parseFloat(executeCommand(CPUComponents.MIN_SPEED).getFirstLine());
         } catch (CPUException ex) {
             return 0;
         }
@@ -95,7 +95,7 @@ public class CPUInfo {
      */
     public float obtainMaxSpeed() {
         try {
-            return Float.parseFloat(executeCommand("CPU max").getFirstLine());
+            return Float.parseFloat(executeCommand(CPUComponents.MAX_SPEED).getFirstLine());
         } catch (CPUException ex) {
             return 0;
         }
@@ -105,23 +105,26 @@ public class CPUInfo {
      * This method exec the lscpu command. Gets the component you want to get.
      * 
      * @param component The component who want to get.
-     * @return Th response of command.
+     * @return The response of command.
      * @throws CPUException If a problem occurs with the execution of the 
      * command.
      */
-    private CommandResponse executeCommand(String component) throws CPUException {
-        String command = String.format("LC_ALL=C lscpu | grep '%s' | awk -F : '{print $2}' | xargs", component);
+    private CommandResponse executeCommand(CPUComponents component) throws CPUException {
+        String command = String.format("LC_ALL=C lscpu | grep '%s' | awk -F : '{print $2}' | xargs", 
+                component.getValue());
+        String msgError = CPUException.getMessage(this.getClass(), 
+                component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new CPUException(component);
+            throw new CPUException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new CPUException(component);
+            throw new CPUException(msgError);
         }
         
         return response;
