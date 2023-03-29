@@ -25,21 +25,22 @@ public class ManagerException extends LagatrixException{
      * @return The message.
      */
     public static String getMessage(Class manager, String component, ActionsEnum action, String response) {
+        String simpleMessage = String.format("When %s in '%s' class", action.getCorrectName(), 
+                manager.getSimpleName());
+        String responseMessage = String.format("result command: %s", response);
+        String componentMessage = String.format("with component '%s'",component);
+        
         if (component == null && response == null) {
-            return String.format("When %s in %s", manager.getClass().
-                    getSimpleName(), action.getCorrectName());
+            return simpleMessage;
         }
         
         if (component == null) {
-            return String.format("When %s in %s, result command: %s", 
-                manager.getClass().getSimpleName(), action.getCorrectName(), response);
+            return String.format("%s with %s", simpleMessage, responseMessage);
         } else if (response == null) {
-            return String.format("When %s in %s with component %s", 
-                manager.getClass().getSimpleName(), action.getCorrectName(), component);
+            return String.format("%s %s", simpleMessage, componentMessage);
         }
         
-        return String.format("When %s in %s with component %s, result command: %s", 
-                manager.getClass().getSimpleName(), action.getCorrectName(), component, response);
+        return String.format("%s %s %s", simpleMessage, componentMessage, responseMessage);
     }
     
     /**

@@ -112,7 +112,7 @@ public class EventInfo {
         String command = String.format("crontab -l | grep -v \"#\" | cut -d\" \" -f%s | sed -n %dp", 
                 component.getValue(), numEvent);
         String msgError = EventException.getMessage(
-                    this.getClass(), component.getValue(), ActionsEnum.GET);
+                    this.getClass(), component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
