@@ -38,14 +38,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV008 - 28/03/2023 - Add the EventDeletion class to delete event.
 - LASRV008 - 28/03/2023 - Add the EventManager class to manage event objects.
 
-
 ### Changed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
 - LASRV001 - 25/03/2023 - Quit CPUException in not important information of CPU.
 - LASRV008 - 28/03/2023 - Change the manager exceptions to give a standard description.
 - LASRV008 - 29/03/2023 - Refactor the exception message of the ManagerException.
 - LASRV001 - 29/03/2023 - Add components enum in CPUInfo.
-- LASRV002 - 29/03/2023 - Add components enum in RAMInfo.
+- LASRV003 - 29/03/2023 - Add components enum in RAMInfo.
+- LASRV002 - 29/03/2023 - Add components enum in GPUInfo.
 
 ### Fixed
 - LASRV006 - 26/03/2023 - Fix add user bug.

@@ -1,19 +1,17 @@
 package lagatrix.server.entities.components;
 
 /**
- * This enum represents the information of process.
+ * This enum represents the components of GPU.
  * 
  * @author javier
+ * @since 1.0
  */
-public enum ProcessComponent {
-    PID("PID", 2),
-    COMMAND("Command", 11),
-    USER("User", 1),
-    USE_CPU("Use CPU", 3),
-    USE_MEM("Use RAM", 4);
+public enum GPUComponents {
+    MODEL("Model", "Model"),
+    VENDOR("Vendor", "Vendor:");
     
     private String name;
-    private int value;
+    private String value;
 
     /**
      * The constructor of enum.
@@ -21,7 +19,7 @@ public enum ProcessComponent {
      * @param name The name of the component.
      * @param value His value.
      */
-    private ProcessComponent(String name, int value) {
+    private GPUComponents(String name, String value) {
         this.name = name;
         this.value = value;
     }
@@ -30,7 +28,7 @@ public enum ProcessComponent {
         return name;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 }

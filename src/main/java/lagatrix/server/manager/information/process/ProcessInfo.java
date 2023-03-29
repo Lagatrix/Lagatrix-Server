@@ -1,7 +1,7 @@
 package lagatrix.server.manager.information.process;
 
 import lagatrix.server.entities.actions.ActionsEnum;
-import lagatrix.server.entities.components.ProcessComponent;
+import lagatrix.server.entities.components.ProcessComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.process.ProcessException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -35,7 +35,7 @@ public class ProcessInfo {
      * command.
      */
     public int obtainPID(int numProcess) throws ProcessException {
-        return Integer.parseInt(executeCommand(numProcess, ProcessComponent.PID).getFirstLine());
+        return Integer.parseInt(executeCommand(numProcess, ProcessComponents.PID).getFirstLine());
     }
     
     /**
@@ -47,7 +47,7 @@ public class ProcessInfo {
      * command.
      */
     public String obtainCommand(int numProcess) throws ProcessException {
-        return executeCommand(numProcess, ProcessComponent.COMMAND).getFirstLine();
+        return executeCommand(numProcess, ProcessComponents.COMMAND).getFirstLine();
     }
     
     /**
@@ -59,7 +59,7 @@ public class ProcessInfo {
      * command.
      */
     public String obtainUser(int numProcess) throws ProcessException {
-        return executeCommand(numProcess, ProcessComponent.USER).getFirstLine();
+        return executeCommand(numProcess, ProcessComponents.USER).getFirstLine();
     }
     
     /**
@@ -71,7 +71,7 @@ public class ProcessInfo {
      * command.
      */
     public float obtainUseCPU(int numProcess) throws ProcessException {
-        return Float.parseFloat(executeCommand(numProcess, ProcessComponent.USE_CPU).getFirstLine());
+        return Float.parseFloat(executeCommand(numProcess, ProcessComponents.USE_CPU).getFirstLine());
     }
     
     /**
@@ -83,7 +83,7 @@ public class ProcessInfo {
      * command.
      */
     public float obtainUseRAM(int numProcess) throws ProcessException {
-        return Float.parseFloat(executeCommand(numProcess, ProcessComponent.USE_MEM).getFirstLine());
+        return Float.parseFloat(executeCommand(numProcess, ProcessComponents.USE_MEM).getFirstLine());
     }
     
     /**
@@ -95,7 +95,7 @@ public class ProcessInfo {
      * @throws PartitionException If a problem occurs with the execution of the 
      * command.
      */
-    private CommandResponse executeCommand(int numProcess, ProcessComponent component) throws ProcessException {
+    private CommandResponse executeCommand(int numProcess, ProcessComponents component) throws ProcessException {
         String command = String.format("ps aux --no-headers | awk '{print $%s}' | sed -n %dp", 
                 component.getValue(), numProcess);
         String msgError = ProcessException.getMessage(this.getClass(), 

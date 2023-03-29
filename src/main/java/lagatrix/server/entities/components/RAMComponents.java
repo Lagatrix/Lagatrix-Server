@@ -6,7 +6,7 @@ package lagatrix.server.entities.components;
  * @author javier
  * @since 0.1
  */
-public enum RAMComponent {
+public enum RAMComponents {
     CAPACITY("Memory capacity", "'[A-Z]' '{print $1}'"),
     UNIT_CAPACITY("UnitCapacity", "'[0-9].' '{print $2}'");
     
@@ -20,7 +20,7 @@ public enum RAMComponent {
      * @param name The name of the component.
      * @param filter The filter to obtain this info.
      */
-    private RAMComponent(String name, String filter) {
+    private RAMComponents(String name, String filter) {
         this.name = name;
         this.filter = filter;
     }

@@ -1,5 +1,7 @@
 package lagatrix.server.manager.information.hardware;
 
+import lagatrix.server.entities.actions.ActionsEnum;
+import lagatrix.server.entities.components.GPUComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.hardware.GPUException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -32,7 +34,7 @@ private CommandExecutor executor;
      * command.
      */
     public String obtainModel() throws GPUException{
-        return executeCommand("Device").getFirstLine();
+        return executeCommand(GPUComponents.MODEL).getFirstLine();
     }
     
     /**
@@ -43,7 +45,7 @@ private CommandExecutor executor;
      * command.
      */
     public String obtainVendor() throws GPUException{
-        return executeCommand("Vendor").getFirstLine();
+        return executeCommand(GPUComponents.VENDOR).getFirstLine();
     }
     
     /**
@@ -54,19 +56,23 @@ private CommandExecutor executor;
      * @throws GPUException If a problem occurs with the execution of the 
      * command.
      */
-    private CommandResponse executeCommand(String component) throws GPUException {
-        String command = String.format("lspci -vmm | grep '\\sVGA' -A2 | grep '%s' | awk -F : '{print $2}' | xargs ", component);
+    private CommandResponse executeCommand(GPUComponents component) throws GPUException {
+        String command = String.format(
+                "lspci -vmm | grep '\\sVGA' -A2 | grep '%s' | awk -F : "
+                        + "'{print $2}' | xargs ", component.getValue());
+        String msgError = GPUException.getMessage(this.getClass(), 
+                component.getName(), ActionsEnum.GET);
         CommandResponse response = null;
         
         try {
             response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new GPUException(component);
+            throw new GPUException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new GPUException(component);
+            throw new GPUException(msgError);
         }
         
         return response;

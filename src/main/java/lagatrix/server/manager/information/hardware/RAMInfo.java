@@ -1,7 +1,7 @@
 package lagatrix.server.manager.information.hardware;
 
 import lagatrix.server.entities.actions.ActionsEnum;
-import lagatrix.server.entities.components.RAMComponent;
+import lagatrix.server.entities.components.RAMComponents;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.hardware.RAMException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -35,7 +35,7 @@ public class RAMInfo {
      * command.
      */
     public int obtainCapacity() throws RAMException {
-        return Integer.parseInt(executeCommand(RAMComponent.CAPACITY).getFirstLine());
+        return Integer.parseInt(executeCommand(RAMComponents.CAPACITY).getFirstLine());
     }
     
     /**
@@ -47,7 +47,7 @@ public class RAMInfo {
      * command.
      */
     public String obtainUnitCapacity() throws RAMException {
-        return executeCommand(RAMComponent.UNIT_CAPACITY).getFirstLine();
+        return executeCommand(RAMComponents.UNIT_CAPACITY).getFirstLine();
     }
     
     /**
@@ -58,7 +58,7 @@ public class RAMInfo {
      * @throws RAMException If a problem occurs with the execution of the 
      * command.
      */
-    private CommandResponse executeCommand(RAMComponent component) throws RAMException {
+    private CommandResponse executeCommand(RAMComponents component) throws RAMException {
         CommandResponse response = null;
         String command = String.format("LC_ALL=C lsmem | grep 'Total online memory' "
                     + "| awk -F : '{print $2}' | awk -F %s | xargs", component.getFilter());
