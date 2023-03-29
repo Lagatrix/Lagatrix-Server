@@ -1,5 +1,7 @@
 package lagatrix.server.manager.information.hardware;
 
+import lagatrix.server.entities.actions.ActionsEnum;
+import lagatrix.server.entities.components.RAMComponent;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.manager.hardware.RAMException;
 import lagatrix.server.tools.command.CommandExecutor;
@@ -12,6 +14,7 @@ import lagatrix.server.tools.command.CommandResponse;
  * @since 1.0
  */
 public class RAMInfo {
+    
     private CommandExecutor executor;
 
     /**
@@ -32,7 +35,7 @@ public class RAMInfo {
      * command.
      */
     public int obtainCapacity() throws RAMException {
-        return Integer.parseInt(executeCommand("Total online memory").getFirstLine());
+        return Integer.parseInt(executeCommand(RAMComponent.CAPACITY).getFirstLine());
     }
     
     /**
@@ -44,7 +47,7 @@ public class RAMInfo {
      * command.
      */
     public String obtainUnitCapacity() throws RAMException {
-        return executeCommand("UnitCapacity").getFirstLine();
+        return executeCommand(RAMComponent.UNIT_CAPACITY).getFirstLine();
     }
     
     /**
@@ -55,20 +58,22 @@ public class RAMInfo {
      * @throws RAMException If a problem occurs with the execution of the 
      * command.
      */
-    private CommandResponse executeCommand(String component) throws RAMException {
+    private CommandResponse executeCommand(RAMComponent component) throws RAMException {
         CommandResponse response = null;
-        String filter = (!component.equals("UnitCapacity")) ? "'[A-Z]' '{print $1}'" : "'[0-9].' '{print $2}'";
+        String command = String.format("LC_ALL=C lsmem | grep 'Total online memory' "
+                    + "| awk -F : '{print $2}' | awk -F %s | xargs", component.getFilter());
+        String msgError = RAMException.getMessage(this.getClass(), 
+                component.getName(), ActionsEnum.GET);
         
         try {
-            response = executor.executeCommand(String.format("LC_ALL=C lsmem | grep 'Total online memory' "
-                    + "| awk -F : '{print $2}' | awk -F %s | xargs", filter)); 
+            response = executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new RAMException(component);
+            throw new RAMException(msgError);
         }
         
         // Check if the command not have output.
         if (response.getFirstLine().length() < 1){
-            throw new RAMException(component);
+            throw new RAMException(msgError);
         }
         
         return response;
