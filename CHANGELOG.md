@@ -40,6 +40,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV009 - 29/03/2023 - Add the PackageInsertion class to install packages.
 - LASRV009 - 30/03/2023 - Add the PackageModificator class to update or upgrade packages.
 - LASRV009 - 30/03/2023 - Add the PackageDeletion class to uninstall packages.
+- LASRV009 - 30/03/2023 - Add the PackageInfo class to get info of packages.
 
 ### Changed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
