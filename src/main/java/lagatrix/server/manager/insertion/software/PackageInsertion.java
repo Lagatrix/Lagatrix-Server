@@ -1,11 +1,7 @@
 package lagatrix.server.manager.insertion.software;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.PackageManagerComponents;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.exceptions.manager.software.PackageManagerException;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -30,7 +26,14 @@ public class PackageInsertion {
         this.component = component;
     }
     
-    public void installCommand(String packageName) throws PackageManagerException{
+    /**
+     * This method install an package into the system.
+     * 
+     * @param packageName The name of the package who install.
+     * @throws PackageManagerException If a problem occurs with the execution of the 
+     * command.
+     */
+    public void installPackage(String packageName) throws PackageManagerException{
         String command = String.format("%s %s %s %s", 
                 component.getCommand(), component.getInstall(), component.getNoConfirm(), packageName);
         
