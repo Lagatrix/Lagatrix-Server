@@ -3,8 +3,8 @@ package lagatrix.server.entities.dto.os;
 /**
  * This entity represents a class of data of Linux OS.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class OSInformation {
     private String distribution, distributionName, distributionFamily, kernel, hostname;

@@ -51,6 +51,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 29/03/2023 - Add components enum in CPUInfo.
 - LASRV003 - 29/03/2023 - Add components enum in RAMInfo.
 - LASRV002 - 29/03/2023 - Add components enum in GPUInfo.
+- LASRV000 - 30/03/2023 - Change in the docs of all files.
 
 ### Fixed
 - LASRV006 - 26/03/2023 - Fix add user bug.

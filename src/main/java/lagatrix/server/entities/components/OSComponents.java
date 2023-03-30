@@ -3,8 +3,8 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the information of Linux OS.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public enum OSComponents {
     DISTRIBUTION("Distribution", "grep -w 'PRETTY_NAME'"),

@@ -3,8 +3,8 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the components of CPU.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public enum CPUComponents {
     MODEL("Model", "Model"),

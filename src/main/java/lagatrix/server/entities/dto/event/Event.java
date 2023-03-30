@@ -5,8 +5,8 @@ import java.util.Objects;
 /**
  * This entoty represents an event of crontab.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class Event {
     private String command, minute, hour, dayMonth, month, dayWeek;

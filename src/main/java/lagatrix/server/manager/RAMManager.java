@@ -12,8 +12,8 @@ import lagatrix.server.tools.hawrdare_status.UseDeviceDetector;
 /**
  * This class obtain uses and information of RAM in Linux.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class RAMManager {
     

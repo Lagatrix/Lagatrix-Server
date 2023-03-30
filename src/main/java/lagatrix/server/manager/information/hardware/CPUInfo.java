@@ -10,8 +10,8 @@ import lagatrix.server.tools.command.CommandResponse;
 /**
  * This class obtain the information of a CPU in Linux with lscpu command.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class CPUInfo {
     

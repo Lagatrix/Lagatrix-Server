@@ -3,7 +3,8 @@ package lagatrix.server.entities.actions;
 /**
  * This enum represents the actions who can do it.
  * 
- * @author javier
+ * @author javierfh03
+ * @since 0.1
  */
 public enum ActionsEnum {
     INSERT("insert"),

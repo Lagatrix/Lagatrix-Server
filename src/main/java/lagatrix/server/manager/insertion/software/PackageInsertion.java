@@ -8,7 +8,8 @@ import lagatrix.server.tools.command.CommandExecutor;
 /**
  * This class install packege in the system.
  * 
- * @author javier
+ * @author javierfh03
+ * @since 0.1
  */
 public class PackageInsertion {
     

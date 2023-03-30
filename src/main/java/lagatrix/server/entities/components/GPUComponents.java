@@ -3,8 +3,8 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the components of GPU.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public enum GPUComponents {
     MODEL("Model", "Model"),

@@ -12,13 +12,13 @@ import lagatrix.server.exceptions.command.CommandInOutException;
  * This class exec a command, he puts stdin and gets the input of the command. 
  * Also handles output errors.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class CommandExecutor {
     
     /**
-     * Te constructor of the class, no require parameters.
+     * The constructor of the class, no require parameters.
      */
     public CommandExecutor(){ 
     }

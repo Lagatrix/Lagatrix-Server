@@ -3,7 +3,8 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the information of process.
  * 
- * @author javier
+ * @author javierfh03
+ * @since 0.1
  */
 public enum ProcessComponents {
     PID("PID", 2),

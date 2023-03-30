@@ -5,8 +5,8 @@ import java.util.Objects;
 /**
  * This entity represents a partiton.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class Partition {
     

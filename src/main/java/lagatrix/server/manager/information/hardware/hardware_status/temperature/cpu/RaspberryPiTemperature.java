@@ -6,8 +6,8 @@ import lagatrix.server.tools.command.CommandExecutor;
 /**
  * This class obtain the temperature in raspberry pi.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class RaspberryPiTemperature extends CPUTemperature {
 

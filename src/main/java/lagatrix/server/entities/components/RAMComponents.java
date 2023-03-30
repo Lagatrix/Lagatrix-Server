@@ -3,7 +3,7 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the components of RAM.
  * 
- * @author javier
+ * @author javierfh03
  * @since 0.1
  */
 public enum RAMComponents {

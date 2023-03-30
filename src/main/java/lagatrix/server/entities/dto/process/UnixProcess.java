@@ -3,8 +3,8 @@ package lagatrix.server.entities.dto.process;
 /**
  * This entoty represents an Linux process.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class UnixProcess {
     public int PID;

@@ -3,8 +3,8 @@ package lagatrix.server.tools.hawrdare_status;
 /**
  * An enum with the devices.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public enum DevicesEnum {
     CPU,

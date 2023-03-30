@@ -3,8 +3,8 @@ package lagatrix.server.entities.dto.hardware;
 /**
  * This entity reperents a CPU.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class CPU {
     private String model, cacheMemory;

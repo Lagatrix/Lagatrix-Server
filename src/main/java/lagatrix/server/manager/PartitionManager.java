@@ -10,8 +10,8 @@ import lagatrix.server.tools.command.CommandExecutor;
 /**
  * This class obtain the partitions of Linux.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class PartitionManager {
     

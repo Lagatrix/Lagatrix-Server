@@ -2,15 +2,14 @@ package lagatrix.server.manager.deletion.user;
 
 import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.manager.event.EventException;
 import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
  * This class delete users of the system with deluser command.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class UserDeletion {
     

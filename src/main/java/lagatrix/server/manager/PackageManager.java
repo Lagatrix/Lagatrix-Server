@@ -11,7 +11,7 @@ import lagatrix.server.tools.command.CommandExecutor;
 /**
  * This class interact with the package manager of the system.
  * 
- * @author javier
+ * @author javierfh03
  * @since 0.1
  */
 public class PackageManager {

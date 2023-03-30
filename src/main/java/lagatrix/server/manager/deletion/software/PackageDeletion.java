@@ -8,7 +8,7 @@ import lagatrix.server.tools.command.CommandExecutor;
 /**
  * This class uninstall packages of Linux.
  * 
- * @author javier
+ * @author javierfh03
  * @since 0.1
  */
 public class PackageDeletion {

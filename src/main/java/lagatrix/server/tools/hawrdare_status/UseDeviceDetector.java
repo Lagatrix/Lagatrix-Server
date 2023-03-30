@@ -9,8 +9,8 @@ import static lagatrix.server.tools.hawrdare_status.DevicesEnum.RAM;
 /**
  * This class obtains the use manager of device.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class UseDeviceDetector {
     private UseManager manager;

@@ -10,8 +10,8 @@ import lagatrix.server.tools.command.CommandResponse;
  * This class is used to onglobar the methods to obtain the temperature of any 
  * device.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public abstract class TemperatureManager {
     protected CommandExecutor executor;

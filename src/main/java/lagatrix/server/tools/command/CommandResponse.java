@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * This class represents an response of Linux command.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class CommandResponse {
     private List<String> lines;

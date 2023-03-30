@@ -3,7 +3,8 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the components of event.
  * 
- * @author javier
+ * @author javierfh03
+ * @since 0.1
  */
 public enum EventComponents {
     MINUTE("Minute", "1"),

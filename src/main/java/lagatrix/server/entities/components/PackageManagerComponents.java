@@ -3,7 +3,8 @@ package lagatrix.server.entities.components;
 /**
  * This enum represents the components of package manager.
  * 
- * @author javier
+ * @author javierfh03
+ * @since 0.1
  */
 public enum PackageManagerComponents {
     APT("apt", new String[] {"install", "purge", "update", "upgrade", "list"}, "-y"),

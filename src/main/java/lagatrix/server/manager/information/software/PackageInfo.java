@@ -8,7 +8,7 @@ import lagatrix.server.tools.command.CommandExecutor;
 /**
  * This class obtain information of packages in Linux.
  * 
- * @author javier
+ * @author javierfh03
  * @since 0.1
  */
 public class PackageInfo {

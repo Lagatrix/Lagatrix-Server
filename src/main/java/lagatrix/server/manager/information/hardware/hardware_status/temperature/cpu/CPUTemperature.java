@@ -7,8 +7,8 @@ import lagatrix.server.manager.information.hardware.hardware_status.temperature.
  * This class is used to onglobar the methods to obtain the temperature of any 
  * CPU.
  * 
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public abstract class CPUTemperature extends TemperatureManager {
     

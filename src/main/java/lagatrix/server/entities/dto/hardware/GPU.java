@@ -3,8 +3,8 @@ package lagatrix.server.entities.dto.hardware;
 /**
  * This entity reperents a GPU.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class GPU {
     

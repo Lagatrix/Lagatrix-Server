@@ -15,8 +15,8 @@ import lagatrix.server.tools.hawrdare_status.UseDeviceDetector;
 /**
  * This class obtain uses, information and temperature of CPU in Linux.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class CPUManager {
 
