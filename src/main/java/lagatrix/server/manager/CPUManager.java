@@ -8,9 +8,9 @@ import lagatrix.server.manager.information.hardware.hardware_status.temperature.
 import lagatrix.server.manager.information.hardware.hardware_status.use.UseManager;
 import lagatrix.server.manager.information.hardware.CPUInfo;
 import lagatrix.server.tools.command.CommandExecutor;
-import lagatrix.server.tools.hawrdare_status.DevicesEnum;
-import lagatrix.server.tools.hawrdare_status.TemperatureDeviceDetector;
-import lagatrix.server.tools.hawrdare_status.UseDeviceDetector;
+import lagatrix.server.tools.detectors.DevicesEnum;
+import lagatrix.server.tools.detectors.TemperatureDeviceDetector;
+import lagatrix.server.tools.detectors.UseDeviceDetector;
 
 /**
  * This class obtain uses, information and temperature of CPU in Linux.

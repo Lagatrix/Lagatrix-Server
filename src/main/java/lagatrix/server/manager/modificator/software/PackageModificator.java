@@ -41,7 +41,7 @@ public class PackageModificator {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new PackageManagerException(PackageManagerException.getMessageFailPackage("Upgrade", packageName));
+            throw new PackageManagerException(PackageManagerException.getMessageFailPackage("upgrade", packageName));
         }
     }
     
@@ -58,7 +58,7 @@ public class PackageModificator {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new PackageManagerException(PackageManagerException.getMessageFailAllPackages("Upgrade"));
+            throw new PackageManagerException(PackageManagerException.getMessageFailAllPackages("upgrade"));
         }
     }
     
@@ -75,7 +75,7 @@ public class PackageModificator {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new PackageManagerException(PackageManagerException.getMessageFailAllPackages("Update"));
+            throw new PackageManagerException(PackageManagerException.getMessageFailAllPackages("update"));
         }
     }
 }

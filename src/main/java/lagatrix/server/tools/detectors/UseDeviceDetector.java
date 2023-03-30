@@ -1,10 +1,10 @@
-package lagatrix.server.tools.hawrdare_status;
+package lagatrix.server.tools.detectors;
 
 import lagatrix.server.manager.information.hardware.hardware_status.use.UseCPU;
 import lagatrix.server.manager.information.hardware.hardware_status.use.UseManager;
 import lagatrix.server.manager.information.hardware.hardware_status.use.UseRAM;
 import lagatrix.server.tools.command.CommandExecutor;
-import static lagatrix.server.tools.hawrdare_status.DevicesEnum.RAM;
+import static lagatrix.server.tools.detectors.DevicesEnum.RAM;
 
 /**
  * This class obtains the use manager of device.

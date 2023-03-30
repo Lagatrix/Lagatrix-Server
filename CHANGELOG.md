@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## 0.1
+### Added
 - LASRV001 - 20/03/2023 - Add the class to exec commands and the response object.
 - LASRV001 - 21/03/2023 - Add CPUInfo class to obtain information of CPU.
 - LASRV001 - 21/03/2023 - Add temperature classes to obtain the temperature of CPU.
@@ -42,6 +51,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV009 - 30/03/2023 - Add the PackageDeletion class to uninstall packages.
 - LASRV009 - 30/03/2023 - Add the PackageInfo class to get info of packages.
 - LASRV009 - 30/03/2023 - Add the PackageManager class to inetact to the package manager.
+- LASRV009 - 30/03/2023 - Add the PackageManagerDetector class to detect the package manager.
 
 ### Changed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.

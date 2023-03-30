@@ -6,8 +6,8 @@ import lagatrix.server.exceptions.manager.hardware.status.UseException;
 import lagatrix.server.manager.information.hardware.hardware_status.use.UseManager;
 import lagatrix.server.manager.information.hardware.RAMInfo;
 import lagatrix.server.tools.command.CommandExecutor;
-import lagatrix.server.tools.hawrdare_status.DevicesEnum;
-import lagatrix.server.tools.hawrdare_status.UseDeviceDetector;
+import lagatrix.server.tools.detectors.DevicesEnum;
+import lagatrix.server.tools.detectors.UseDeviceDetector;
 
 /**
  * This class obtain uses and information of RAM in Linux.

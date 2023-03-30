@@ -1,4 +1,4 @@
-package lagatrix.server.tools.hawrdare_status;
+package lagatrix.server.tools.detectors;
 
 /**
  * An enum with the devices.

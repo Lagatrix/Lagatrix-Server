@@ -3,16 +3,14 @@ package lagatrix.server.tools.command;
 import lagatrix.server.exceptions.command.CommandBadExitCodeException;
 import lagatrix.server.exceptions.command.CommandException;
 import lagatrix.server.exceptions.command.CommandInOutException;
-import lagatrix.server.tools.command.CommandExecutor;
-import lagatrix.server.tools.command.CommandResponse;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  * This tests check if the CommandExecutor founds.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.1
  */
 public class CommandExecutorTest {
     private CommandExecutor executor;

@@ -1,12 +1,12 @@
-package lagatrix.server.tools.hawrdare_status;
+package lagatrix.server.tools.detectors;
 
 import lagatrix.server.manager.information.hardware.hardware_status.temperature.TemperatureManager;
 import lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu.NormalCPUTemperature;
 import lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu.RaspberryPiTemperature;
 import lagatrix.server.tools.command.CommandExecutor;
-import static lagatrix.server.tools.hawrdare_status.DevicesEnum.CPU;
-import static lagatrix.server.tools.hawrdare_status.DevicesEnum.DISK;
-import static lagatrix.server.tools.hawrdare_status.DevicesEnum.GPU;
+import static lagatrix.server.tools.detectors.DevicesEnum.CPU;
+import static lagatrix.server.tools.detectors.DevicesEnum.DISK;
+import static lagatrix.server.tools.detectors.DevicesEnum.GPU;
 
 /**
  * This class obtains the temperature manager of device.

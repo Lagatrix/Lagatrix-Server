@@ -41,8 +41,8 @@ public class PackageInsertion {
         try {
             executor.executeCommand(command); 
         } catch (CommandException ex) {
-            throw new PackageManagerException(String.format(
-                    "Error when %s the package %s", "install", packageName));
+            throw new PackageManagerException(PackageManagerException
+                    .getMessageFailPackage("install", packageName));
         } 
     }
 }

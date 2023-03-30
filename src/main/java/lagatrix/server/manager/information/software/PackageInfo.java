@@ -44,7 +44,8 @@ public class PackageInfo {
             
             return true;
         } catch (CommandException ex) {
-            throw new PackageManagerException(PackageManagerException.getMessageFailPackage("Is instaled", packageName));
+            throw new PackageManagerException(PackageManagerException
+                    .getMessageFailPackage("is instaled", packageName));
         }
     }
 }

@@ -41,7 +41,7 @@ public class PackageDeletion {
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
-            throw new PackageManagerException(PackageManagerException.getMessageFailPackage("Uninstall", packageName));
+            throw new PackageManagerException(PackageManagerException.getMessageFailPackage("uninstall", packageName));
         }
     }
 }
