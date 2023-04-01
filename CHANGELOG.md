@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Added
+- LASRV001 - 01/04/2023 - Add the Request and Response class.
 
 ### Changed
 
@@ -56,12 +57,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - LASRV001 - 21/03/2023 - Refactor code in the temperature detectors.
 - LASRV001 - 25/03/2023 - Quit CPUException in not important information of CPU.
-- LASRV000 - 28/03/2023 - Change the manager exceptions to give a standard description.
+- LASRVUCF - 28/03/2023 - Change the manager exceptions to give a standard description.
 - LASRV008 - 29/03/2023 - Refactor the exception message of the ManagerException.
 - LASRV001 - 29/03/2023 - Add components enum in CPUInfo.
 - LASRV003 - 29/03/2023 - Add components enum in RAMInfo.
 - LASRV002 - 29/03/2023 - Add components enum in GPUInfo.
-- LASRV000 - 30/03/2023 - Change in the docs of all files.
+- LASRVUCF - 30/03/2023 - Change in the docs of all files.
 
 ### Fixed
 - LASRV006 - 26/03/2023 - Fix add user bug.
@@ -69,4 +70,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 - LASRV001 - 29/03/2023 - Quit the device string in temperature and use managers.
 
-[unreleased]: https://github.com/Lagatrix/Lagatrix-Server
+0.1: https://github.com/Lagatrix/Lagatrix-Server/releases/tag/0.1
