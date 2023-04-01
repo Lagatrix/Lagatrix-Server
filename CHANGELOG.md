@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Added
-- LASRV001 - 01/04/2023 - Add the Request and Response class.
+- LASRV010 - 01/04/2023 - Add the Request and Response class.
+- LASRV010 - 01/04/2023 - Add the exception ConnectionException.
 
 ### Changed
 
