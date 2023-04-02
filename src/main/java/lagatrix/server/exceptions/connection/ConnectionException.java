@@ -19,9 +19,11 @@ public class ConnectionException extends LagatrixException {
      * 
      * @param failClass The class who fail.
      * @param message Description of action.
+     * @param ip The ip of teh client.
      * @return The message.
      */
-    public static String getMessage(Class failClass, String message) {
-        return String.format("Problem connection when %s in '%s' class", message, failClass.getSimpleName());
+    public static String getMessage(Class failClass, String message, String ip) {
+        return String.format("Problem connection because %s in '%s' class with client %s", 
+                message, failClass.getSimpleName(), ip);
     }
 }
