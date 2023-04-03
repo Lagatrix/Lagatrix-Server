@@ -19,6 +19,8 @@ public class RequestRAM extends RequestManager {
 
     public RequestRAM(AESCommunicator communicator, CommandExecutor executor) {
         super(communicator, executor);
+        
+        this.manager = new RAMManager(executor);
     }
 
     @Override
