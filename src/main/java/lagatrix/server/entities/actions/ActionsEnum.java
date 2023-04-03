@@ -1,12 +1,14 @@
 package lagatrix.server.entities.actions;
 
+import java.io.Serializable;
+
 /**
  * This enum represents the actions who can do it.
  * 
  * @author javierfh03
  * @since 0.1
  */
-public enum ActionsEnum {
+public enum ActionsEnum implements Serializable {
     INSERT("insert"),
     GET("get information"),
     DELETE("delete"),

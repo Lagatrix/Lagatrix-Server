@@ -1,5 +1,9 @@
 package lagatrix.server.connection.communicators;
 
+import lagatrix.server.entities.connection.Request;
+import lagatrix.server.entities.connection.Response;
+import lagatrix.server.exceptions.connection.BadClassFormatException;
+import lagatrix.server.exceptions.connection.ConnectionInOutException;
 import lagatrix.server.exceptions.connection.ObtainRequestException;
 import lagatrix.server.exceptions.connection.SendResponseException;
 
@@ -11,7 +15,27 @@ import lagatrix.server.exceptions.connection.SendResponseException;
  */
 public interface CommunicatorBase {
     
-    public void obtainRequest() throws ObtainRequestException;
+    /**
+     * This method obtain an request to the client.
+     * 
+     * @return The request of the client.
+     * @throws ObtainRequestException If can't obtain the request.
+     * @throws BadClassFormatException If client send an not valid class.
+     */
+    public Request obtainRequest() throws ObtainRequestException, BadClassFormatException;
     
-    public void sendResponse() throws SendResponseException;
+    /**
+     * This method send an response to the client.
+     * 
+     * @param response The response to send.
+     * @throws SendResponseException If can't send the response.
+     */
+    public void sendResponse(Response response) throws SendResponseException;
+    
+    /**
+     * Close the connector.
+     * 
+     * @throws ConnectionInOutException If the connector can't close.
+     */
+    public void close() throws ConnectionInOutException;
 }
