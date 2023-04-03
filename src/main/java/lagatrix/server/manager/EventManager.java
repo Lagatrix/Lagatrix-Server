@@ -96,7 +96,7 @@ public class EventManager {
      * @param event The username of user who delete.
      * @throws EventException If can't delete the event.
      */
-    public void deleteUser(Event event) throws EventException {
+    public void deleteEvent(Event event) throws EventException {
         deletion.deleteEvent(event.toString());
     }
 }
