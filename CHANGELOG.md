@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 02/04/2023 - Add the CommunicatorBase interface.
 - LASRV010 - 03/04/2023 - Add the AESCommunicator class.
 - LASRV010 - 03/04/2023 - Add the RequestManager class.
+- LASRV010 - 03/04/2023 - Add the RequestCPU class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.

@@ -1,6 +1,7 @@
 package lagatrix.server.connection.requester;
 
 import lagatrix.server.connection.communicators.AESCommunicator;
+import lagatrix.server.entities.connection.Request;
 import lagatrix.server.exceptions.LagatrixException;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -33,5 +34,5 @@ public abstract class RequestManager {
      * @param request The request to process.
      * @throws LagatrixException If an error ocurrs.
      */
-    public abstract void determineRequest(RequestManager request) throws LagatrixException;
+    public abstract void determineRequest(Request request) throws LagatrixException;
 }

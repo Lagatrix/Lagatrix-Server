@@ -13,9 +13,12 @@ public class Response implements Serializable {
     private boolean correctResult;
     private Object response;
 
-    public Response(boolean correctResult, Object response) {
-        this.correctResult = correctResult;
+    public Response(Object response) {
         this.response = response;
+    }
+
+    public void setCorrectResult(boolean correctResult) {
+        this.correctResult = correctResult;
     }
     
     public boolean isCorrectResult() {
