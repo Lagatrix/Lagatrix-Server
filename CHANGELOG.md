@@ -7,9 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - LASRV010 - 01/04/2023 - Add the Request and Response class.
 - LASRV010 - 01/04/2023 - Add the exception ConnectionException.
-- LASRV010 - 01/04/2023 - Add the CommunicatorBase interface.
+- LASRV010 - 02/04/2023 - Add the CommunicatorBase interface.
 
 ### Changed
+- LASRV010 - 03/04/2023 - Changes in Request class.
 
 ### Fixed
 
