@@ -6,7 +6,7 @@ import java.io.Serializable;
  * This class is used to send responses to the client.
  *
  * @author javier
- * @since 1.0
+ * @since 0.2
  */
 public class Response implements Serializable {
     

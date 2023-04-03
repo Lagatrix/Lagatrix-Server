@@ -24,7 +24,7 @@ import lagatrix.server.exceptions.connection.SendResponseException;
  * This class manage the Rquest and Response objects with RSA encryption.
  *
  * @author javier
- * @since 1.0
+ * @since 0.2
  */
 public class AESCommunicator implements CommunicatorBase {
     
