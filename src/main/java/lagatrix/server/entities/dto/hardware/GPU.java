@@ -1,12 +1,14 @@
 package lagatrix.server.entities.dto.hardware;
 
+import java.io.Serializable;
+
 /**
  * This entity reperents a GPU.
  *
  * @author javierfh03
  * @since 0.1
  */
-public class GPU {
+public class GPU implements Serializable {
     
     private String model, vendor;
 

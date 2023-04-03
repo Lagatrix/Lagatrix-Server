@@ -1,12 +1,14 @@
 package lagatrix.server.entities.dto.process;
 
+import java.io.Serializable;
+
 /**
  * This entoty represents an Linux process.
  *
  * @author javierfh03
  * @since 0.1
  */
-public class UnixProcess {
+public class UnixProcess implements Serializable {
     public int PID;
     public String command, username;
     public float useCPU, useRAM;

@@ -1,12 +1,14 @@
 package lagatrix.server.entities.dto.user;
 
+import java.io.Serializable;
+
 /**
  * THis entity represents an Linux user.
  *
  * @author javierfh03
  * @since 0.1
  */
-public class User {
+public class User implements Serializable {
     private String username, home, shell, group, password;
     private boolean isRoot;
 

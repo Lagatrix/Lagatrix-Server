@@ -1,5 +1,6 @@
 package lagatrix.server.entities.dto.partition;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
  * @author javierfh03
  * @since 0.1
  */
-public class Partition {
+public class Partition implements Serializable {
     
     private String fileSystem, mountPath, size, avatible, usedStorage;
     private int percentage;

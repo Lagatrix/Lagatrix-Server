@@ -1,12 +1,14 @@
 package lagatrix.server.entities.dto.hardware;
 
+import java.io.Serializable;
+
 /**
  * This entity reperents a RAM.
  *
  * @author javierfh03
  * @since 0.1
  */
-public class RAM {
+public class RAM implements Serializable {
     private String unitCapacity;
     private int capacity;
 

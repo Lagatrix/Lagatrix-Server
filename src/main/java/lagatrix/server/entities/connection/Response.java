@@ -1,12 +1,14 @@
 package lagatrix.server.entities.connection;
 
+import java.io.Serializable;
+
 /**
  * This class is used to send responses to the client.
  *
  * @author javier
  * @since 1.0
  */
-public class Response {
+public class Response implements Serializable {
     
     private boolean correctResult;
     private Object response;

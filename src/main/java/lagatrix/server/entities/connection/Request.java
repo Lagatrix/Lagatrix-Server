@@ -1,5 +1,6 @@
 package lagatrix.server.entities.connection;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import lagatrix.server.entities.actions.ActionsEnum;
 
@@ -9,7 +10,7 @@ import lagatrix.server.entities.actions.ActionsEnum;
  * @author javierfh03
  * @since 0.2
  */
-public class Request {
+public class Request implements Serializable {
     
     private ActionsEnum action;
     private Class objectWhoRequest;

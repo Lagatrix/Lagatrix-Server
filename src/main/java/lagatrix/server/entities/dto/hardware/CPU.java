@@ -1,12 +1,14 @@
 package lagatrix.server.entities.dto.hardware;
 
+import java.io.Serializable;
+
 /**
  * This entity reperents a CPU.
  * 
  * @author javierfh03
  * @since 0.1
  */
-public class CPU {
+public class CPU implements Serializable {
     private String model, cacheMemory;
     private int cores, threads;
     private float minSpeed, maxSpeed;

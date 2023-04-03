@@ -1,5 +1,6 @@
 package lagatrix.server.entities.dto.event;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
  * @author javierfh03
  * @since 0.1
  */
-public class Event {
+public class Event implements Serializable {
     private String command, minute, hour, dayMonth, month, dayWeek;
 
     public Event() {

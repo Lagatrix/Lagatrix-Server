@@ -1,12 +1,14 @@
 package lagatrix.server.entities.dto.os;
 
+import java.io.Serializable;
+
 /**
  * This entity represents a class of data of Linux OS.
  *
  * @author javierfh03
  * @since 0.1
  */
-public class OSInformation {
+public class OSInformation implements Serializable {
     private String distribution, distributionName, distributionFamily, kernel, hostname;
     private int distributionVersion;
 
