@@ -25,14 +25,14 @@ public class RequestProcess extends RequestManager {
 
     @Override
     public void determineRequest(Request request) throws LagatrixException {
-        Response response = new Response(false);
+        Response response = new Response();
         
-        // Determine the request.
+        // Determine the request of process.
         if (request.getAction() == ActionsEnum.GET){
             response = new Response(manager.getProcess(), true);
         } else if (request.getAction() == ActionsEnum.DELETE) {
             manager.killProcess((int) request.getParams()[0]);
-            response = new Response(true);
+            response.setCorrectResult(true);
         }
         
         communicator.sendResponse(response);

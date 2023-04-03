@@ -13,6 +13,10 @@ public class Response implements Serializable {
     private boolean correctResult;
     private Object response;
 
+    public Response() {
+        this(null, false);
+    }
+
     public Response(Object response) {
         this(response, true);
     }

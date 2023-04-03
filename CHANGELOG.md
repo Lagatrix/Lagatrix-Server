@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 04/04/2023 - Add the RequestPartition class.
 - LASRV010 - 04/04/2023 - Add the RequestOS class.
 - LASRV010 - 04/04/2023 - Add the RequestProcess class.
+- LASRV010 - 04/04/2023 - Add the RequestUser class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.
