@@ -23,25 +23,23 @@ public class RequestCPU extends RequestManager {
     
     @Override
     public void determineRequest(Request request) throws LagatrixException {
-        char c = (Character) request.getParams()[0];
         Response response;
+        char c;
         
         // Determine if obtain CPU info, temperature or use.
-        switch (c) {  
-            case 'U' | 'u':
+        if (request.getParams().length > 0){
+            c = (char) request.getParams()[0];
+            
+            if (c == 'U' || c == 'u') {
                 response = new Response((Float) manager.obtainUse());
-                break;
-                
-            case 'T' | 't':
+            } else {
                 response = new Response((Float) manager.obtainTemperature());
-                break;
-                
-            default:
-                response = new Response(manager.obtainCPU());
+            }
+        } else {
+            response = new Response(manager.obtainCPU());
         }
         
         response.setCorrectResult(true);
-        
         communicator.sendResponse(response);
     }
 }
