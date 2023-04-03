@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 03/04/2023 - Add the RequestCPU class.
 - LASRV010 - 03/04/2023 - Add the RequestRAM class.
 - LASRV010 - 04/04/2023 - Add the RequestGPU class.
+- LASRV010 - 04/04/2023 - Add the RequestPartition class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.
