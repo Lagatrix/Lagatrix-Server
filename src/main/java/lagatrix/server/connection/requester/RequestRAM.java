@@ -1,6 +1,7 @@
 package lagatrix.server.connection.requester;
 
 import lagatrix.server.connection.communicators.AESCommunicator;
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
@@ -19,22 +20,22 @@ public class RequestRAM extends RequestManager {
 
     public RequestRAM(AESCommunicator communicator, CommandExecutor executor) {
         super(communicator, executor);
-        
         this.manager = new RAMManager(executor);
     }
 
     @Override
     public void determineRequest(Request request) throws LagatrixException {
-        Response response;
+        Response response = new Response();
         
         // Determine if get use or RAM info.
-        if (request.getParams().length < 1) {
-            response = new Response(manager.obtainUse());
-        } else {
-            response = new Response(manager.obtainRAM());
+        if (request.getAction() == ActionsEnum.INSERT) {
+            if (request.getParams().length < 1) {
+                response.setResponse(manager.obtainUse());
+            } else {
+                response.setResponse(manager.obtainRAM());
+            }
         }
         
-        response.setCorrectResult(true);
         communicator.sendResponse(response);    
     }
 

@@ -1,6 +1,7 @@
 package lagatrix.server.connection.requester;
 
 import lagatrix.server.connection.communicators.AESCommunicator;
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
@@ -19,15 +20,17 @@ public class RequestGPU extends RequestManager {
 
     public RequestGPU(AESCommunicator communicator, CommandExecutor executor) {
         super(communicator, executor);
-        
         manager = new GPUManager(executor);
     }
 
     @Override
     public void determineRequest(Request request) throws LagatrixException {
-        Response response = new Response(manager.obtainGPU());
+        Response response = new Response();
         
-        response.setCorrectResult(true);
+        if (request.getAction() == ActionsEnum.GET) {
+            response.setResponse(manager.obtainGPU());
+        }
+        
         communicator.sendResponse(response);
     }
 

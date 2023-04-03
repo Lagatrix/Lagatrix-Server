@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.
 - LASRV010 - 03/04/2023 - Serialice class who send to the client.
+- LASRV010 - 04/04/2023 - Changes in the manage of response in the requests class.
 
 ### Fixed
 

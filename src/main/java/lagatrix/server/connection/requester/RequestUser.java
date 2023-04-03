@@ -34,7 +34,7 @@ public class RequestUser extends RequestManager {
                 response.setCorrectResult(true);
                 break;
             case GET:
-                response = new Response(manager.getUsers());
+                response.setResponse(manager.getUsers());
                 break;
             case DELETE:
                 manager.deleteUser((String) request.getParams()[0]);

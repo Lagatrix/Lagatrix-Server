@@ -1,6 +1,7 @@
 package lagatrix.server.connection.requester;
 
 import lagatrix.server.connection.communicators.AESCommunicator;
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
@@ -24,9 +25,12 @@ public class RequestOS extends RequestManager {
 
     @Override
     public void determineRequest(Request request) throws LagatrixException {
-        Response response = new Response(manager.obtainOSInformation());
+        Response response = new Response();
         
-        response.setCorrectResult(true);
+        if (request.getAction() == ActionsEnum.GET){
+            response.setResponse(manager.obtainOSInformation());
+        }
+        
         communicator.sendResponse(response);
     }
 }

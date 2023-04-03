@@ -34,7 +34,7 @@ public class RequestEvent extends RequestManager {
                 response.setCorrectResult(true);
                 break;
             case GET:
-                response = new Response(manager.getEvents());
+                response.setResponse(manager.getEvents());
                 break;
             case DELETE:
                 manager.deleteEvent((Event) request.getParams()[0]);

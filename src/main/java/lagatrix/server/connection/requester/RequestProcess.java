@@ -29,7 +29,7 @@ public class RequestProcess extends RequestManager {
         
         // Determine the request of process.
         if (request.getAction() == ActionsEnum.GET){
-            response = new Response(manager.getProcess(), true);
+            response.setResponse(manager.getProcess());
         } else if (request.getAction() == ActionsEnum.DELETE) {
             manager.killProcess((int) request.getParams()[0]);
             response.setCorrectResult(true);
