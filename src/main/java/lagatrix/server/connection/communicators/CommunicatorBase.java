@@ -38,4 +38,11 @@ public interface CommunicatorBase {
      * @throws ConnectionInOutException If the connector can't close.
      */
     public void close() throws ConnectionInOutException;
+    
+    /**
+     * Close the connector and client connection.
+     * 
+     * @throws ConnectionInOutException If the connector can't close.
+     */
+    public void closeClient() throws ConnectionInOutException;
 }

@@ -102,4 +102,15 @@ public class AESCommunicator implements CommunicatorBase {
         }
     }
 
+    @Override
+    public void closeClient() throws ConnectionInOutException {
+        try {
+            close();
+            socket.close();
+        } catch (IOException ex) {
+            throw new ConnectionInOutException(ConnectionInOutException.getMessage(this.getClass(), 
+                    "AES problem I/O when close the client connection", socket.getInetAddress().toString()));
+        }
+    }
+
 }

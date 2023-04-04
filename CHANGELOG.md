@@ -20,12 +20,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 04/04/2023 - Add the RequestEvent class.
 - LASRV010 - 04/04/2023 - Add the RequestPackage class.
 - LASRV010 - 04/04/2023 - Add the RaspberryDetector class.
+- LASRV011 - 04/04/2023 - Add the ClientManager class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.
 - LASRV010 - 03/04/2023 - Serialice class who send to the client.
 - LASRV010 - 04/04/2023 - Changes in the manage of response in the requests class.
-- LASRV010 - 04/04/2023 - Changes in the OSInformation, it have the package manager components.
+- LASRV005 - 04/04/2023 - Changes in the OSInformation, it have the package manager components.
 
 ### Fixed
 
