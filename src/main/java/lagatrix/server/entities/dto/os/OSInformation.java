@@ -1,6 +1,7 @@
 package lagatrix.server.entities.dto.os;
 
 import java.io.Serializable;
+import lagatrix.server.entities.components.PackageManagerComponents;
 
 /**
  * This entity represents a class of data of Linux OS.
@@ -9,8 +10,10 @@ import java.io.Serializable;
  * @since 0.1
  */
 public class OSInformation implements Serializable {
+    
     private String distribution, distributionName, distributionFamily, kernel, hostname;
     private int distributionVersion;
+    private PackageManagerComponents packageManager;
 
     public OSInformation() {
     }
@@ -63,8 +66,16 @@ public class OSInformation implements Serializable {
         this.distributionVersion = distributionVersion;
     }
 
+    public PackageManagerComponents getPackageManager() {
+        return packageManager;
+    }
+
+    public void setPackageManager(PackageManagerComponents packageManager) {
+        this.packageManager = packageManager;
+    }
+
     @Override
     public String toString() {
-        return "OSInformation{" + "distribution=" + distribution + ", distributionName=" + distributionName + ", distributionFamily=" + distributionFamily + ", kernel=" + kernel + ", hostname=" + hostname + ", distributionVersion=" + distributionVersion + '}';
+        return "OSInformation{" + "distribution=" + distribution + ", distributionName=" + distributionName + ", distributionFamily=" + distributionFamily + ", kernel=" + kernel + ", hostname=" + hostname + ", distributionVersion=" + distributionVersion + ", packageManager=" + packageManager + '}';
     }
 }
