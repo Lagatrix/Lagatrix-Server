@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 04/04/2023 - Add the RequestUser class.
 - LASRV010 - 04/04/2023 - Add the RequestEvent class.
 - LASRV010 - 04/04/2023 - Add the RequestPackage class.
+- LASRV010 - 04/04/2023 - Add the RaspberryDetector class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.

@@ -9,6 +9,7 @@ import lagatrix.server.manager.information.hardware.hardware_status.use.UseManag
 import lagatrix.server.manager.information.hardware.CPUInfo;
 import lagatrix.server.tools.command.CommandExecutor;
 import lagatrix.server.tools.detectors.DevicesEnum;
+import lagatrix.server.tools.detectors.RaspberryDetector;
 import lagatrix.server.tools.detectors.TemperatureDeviceDetector;
 import lagatrix.server.tools.detectors.UseDeviceDetector;
 
@@ -28,10 +29,12 @@ public class CPUManager {
      * The constructor of the class
      *
      * @param executor The executor of the class.
-     * @param isRaspberry If the machine is raspberry.
      */
-    public CPUManager(CommandExecutor executor, boolean isRaspberry) {
+    public CPUManager(CommandExecutor executor) {
+        boolean isRaspberry = RaspberryDetector.isRaspberry(executor);
+                
         this.information = new CPUInfo(executor);
+        
         this.temperature = new TemperatureDeviceDetector(DevicesEnum.CPU, executor, isRaspberry).getManager();
         this.use = new UseDeviceDetector(DevicesEnum.CPU, executor).getManager();
     }

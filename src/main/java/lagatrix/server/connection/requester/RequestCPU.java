@@ -18,9 +18,9 @@ public class RequestCPU extends RequestManager {
 
     private CPUManager manager;
 
-    public RequestCPU(AESCommunicator communicator, CommandExecutor executor, boolean isRaspberry) {
+    public RequestCPU(AESCommunicator communicator, CommandExecutor executor) {
         super(communicator, executor);
-        manager = CPUManager(executor, isRaspberry);
+        manager = CPUManager(executor);
     }
 
     @Override
@@ -47,6 +47,10 @@ public class RequestCPU extends RequestManager {
     }
 
     private CPUManager CPUManager(CommandExecutor executor, boolean raspberry) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private CPUManager CPUManager(CommandExecutor executor) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
