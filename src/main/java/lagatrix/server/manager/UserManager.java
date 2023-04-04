@@ -126,4 +126,14 @@ public class UserManager {
     public boolean authUser(String username, String password) {
         return auth.authUser(username, password);
     }
+    
+    /**
+     * This method check if user have a root permisson.
+     * 
+     * @param username The user to check.
+     * @return If have a root permisson.
+     */
+    public boolean isRoot(String username) {
+        return root.isRoot(username);
+    }
 }
