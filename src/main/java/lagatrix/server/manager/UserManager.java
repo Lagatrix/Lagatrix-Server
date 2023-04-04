@@ -5,6 +5,7 @@ import java.util.Set;
 import lagatrix.server.entities.dto.user.User;
 import lagatrix.server.exceptions.manager.user.UserException;
 import lagatrix.server.manager.deletion.user.UserDeletion;
+import lagatrix.server.manager.information.user.AuthUser;
 import lagatrix.server.manager.information.user.RootPermissionInfo;
 import lagatrix.server.manager.information.user.UserInfo;
 import lagatrix.server.manager.insertion.user.UserInsertion;
@@ -26,6 +27,7 @@ public class UserManager {
     private UserInsertion insertion;
     private PasswordModificator password;
     private RootPermissionInfo root;
+    private AuthUser auth;
 
     /**
      * The constructor of the class
@@ -39,6 +41,7 @@ public class UserManager {
         this.insertion = new UserInsertion(executor);
         this.password = new PasswordModificator(executor);
         this.root = new RootPermissionInfo(executor);
+        this.auth = new AuthUser(executor);
     }
     
     /**
@@ -113,4 +116,14 @@ public class UserManager {
         deletion.deleteUser(username);
     }
     
+    /**
+     * This method auth an user.
+     * 
+     * @param username The user to check.
+     * @param password The password of user.
+     * @return If the auth is correct.
+     */
+    public boolean authUser(String username, String password) {
+        return auth.authUser(username, password);
+    }
 }

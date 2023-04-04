@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 04/04/2023 - Add the RequestPackage class.
 - LASRV010 - 04/04/2023 - Add the RaspberryDetector class.
 - LASRV011 - 04/04/2023 - Add the ClientManager class.
+- LASRV011 - 04/04/2023 - Add the AuthUser class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.
