@@ -3,10 +3,7 @@ package lagatrix.server.connection.client;
 import lagatrix.server.connection.communicators.AESCommunicator;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
-import lagatrix.server.exceptions.connection.BadClassFormatException;
 import lagatrix.server.exceptions.connection.ConnectionException;
-import lagatrix.server.exceptions.connection.ObtainRequestException;
-import lagatrix.server.exceptions.connection.SendResponseException;
 import lagatrix.server.manager.UserManager;
 import lagatrix.server.tools.command.CommandExecutor;
 

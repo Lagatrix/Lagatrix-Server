@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 ### Removed
+- LASRV010 - 05/04/2023 - Removed the send and obtain exceptions.
 
 ## 0.1
 ### Added
