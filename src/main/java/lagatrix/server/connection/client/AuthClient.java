@@ -4,6 +4,7 @@ import lagatrix.server.connection.communicators.AESCommunicator;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.connection.BadClassFormatException;
+import lagatrix.server.exceptions.connection.ConnectionException;
 import lagatrix.server.exceptions.connection.ObtainRequestException;
 import lagatrix.server.exceptions.connection.SendResponseException;
 import lagatrix.server.manager.UserManager;
@@ -36,11 +37,9 @@ public class AuthClient {
     /**
      * This methos make the login of the user, it have 3 attempts.
      * 
-     * @throws ObtainRequestException If can't obtain the request of client.
-     * @throws BadClassFormatException If the request is invalid.
-     * @throws SendResponseException If have an problem when send the response.
+     * @throws ConnectionException If have ant error connection..
      */
-    public void makeLogin() throws ObtainRequestException, BadClassFormatException, SendResponseException {
+    public void makeLogin() throws ConnectionException {
         Request request;
         UserManager manager = new UserManager(executor);
         

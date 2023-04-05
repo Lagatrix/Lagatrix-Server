@@ -2,10 +2,9 @@ package lagatrix.server.connection.communicators;
 
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
+import lagatrix.server.exceptions.connection.AlgorithmException;
 import lagatrix.server.exceptions.connection.BadClassFormatException;
 import lagatrix.server.exceptions.connection.ConnectionInOutException;
-import lagatrix.server.exceptions.connection.ObtainRequestException;
-import lagatrix.server.exceptions.connection.SendResponseException;
 
 /**
  * This interface is used to apply method to create communication class.
@@ -19,18 +18,21 @@ public interface CommunicatorBase {
      * This method obtain an request to the client.
      * 
      * @return The request of the client.
-     * @throws ObtainRequestException If can't obtain the request.
-     * @throws BadClassFormatException If client send an not valid class.
+     * @throws ConnectionInOutException If have an I/O error in communication.
+     * @throws AlgorithmException If have an error related to the cipher.
+     * @throws BadClassFormatException If the class who send the client is not 
+     * valid.
      */
-    public Request obtainRequest() throws ObtainRequestException, BadClassFormatException;
+    public Request obtainRequest() throws ConnectionInOutException, AlgorithmException, BadClassFormatException;
     
     /**
      * This method send an response to the client.
      * 
      * @param response The response to send.
-     * @throws SendResponseException If can't send the response.
+     * @throws ConnectionInOutException If have an I/O error in communication.
+     * @throws AlgorithmException If have an error related to the cipher.
      */
-    public void sendResponse(Response response) throws SendResponseException;
+    public void sendResponse(Response response) throws ConnectionInOutException, AlgorithmException;
     
     /**
      * Close the connector.

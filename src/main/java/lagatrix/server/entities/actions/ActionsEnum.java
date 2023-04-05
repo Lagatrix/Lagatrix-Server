@@ -12,7 +12,11 @@ public enum ActionsEnum implements Serializable {
     INSERT("insert"),
     GET("get information"),
     DELETE("delete"),
-    MODIFY("modify");
+    MODIFY("modify"),
+    OPEN("open"),
+    CLOSE("close"),
+    SEND("send response"),
+    RECEIVE("receive request");
     
     private String correctName;
 

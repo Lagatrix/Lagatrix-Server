@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV010 - 03/04/2023 - Serialice class who send to the client.
 - LASRV010 - 04/04/2023 - Changes in the manage of response in the requests class.
 - LASRV005 - 04/04/2023 - Changes in the OSInformation, it have the package manager components.
+- LASRV010 - 05/04/2023 - Refractor in the communicators exceptions.
 
 ### Fixed
 

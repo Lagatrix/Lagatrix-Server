@@ -1,5 +1,7 @@
 package lagatrix.server.exceptions.connection;
 
+import lagatrix.server.entities.actions.ActionsEnum;
+
 /**
  * This exception repersents a connection with I/O problems.
  *
@@ -12,4 +14,14 @@ public class ConnectionInOutException extends ConnectionException {
         super(description);
     }
 
+    /**
+     * This method obtain the error message.
+     * 
+     * @param algorithm The algorithm who used.
+     * @param action The action who done.
+     * @return The message.
+     */
+    public static String getMessageIO(String algorithm, ActionsEnum action) {
+        return String.format("%s problem I/O when %s connection", algorithm, action);
+    }
 }
