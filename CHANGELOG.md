@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV011 - 05/04/2023 - Add the PlainCommunicator class.
 - LASRV011 - 10/04/2023 - Add the EstablishConnection class.
 - LASRV011 - 10/04/2023 - Add the ConnectionListener class.
+- LASRV012 - 11/04/2023 - Add the LogController class.
 
 ### Changed
 - LASRV010 - 03/04/2023 - Changes in Request class.
