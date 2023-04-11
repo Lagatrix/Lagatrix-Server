@@ -5,6 +5,7 @@ import lagatrix.server.entities.components.PackageManagerComponents;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
+import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.manager.PackageManager;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -18,8 +19,8 @@ public class RequestPackage extends RequestManager {
     
     private PackageManager manager;
 
-    public RequestPackage(AESCommunicator communicator, CommandExecutor executor, PackageManagerComponents component) {
-        super(communicator, executor);
+    public RequestPackage(AESCommunicator communicator, CommandExecutor executor, PackageManagerComponents component, LogContoller logger) {
+        super(communicator, executor, logger);
         this.manager = new PackageManager(executor, component);
     }
 
@@ -52,6 +53,7 @@ public class RequestPackage extends RequestManager {
                 break;
         }
         
+        logger.info(communicator.getClientIp(), request.getAction(), "package manager");
         communicator.sendResponse(response);
     }
 

@@ -63,9 +63,27 @@ public class LogContoller {
      * @param action The action who realice.
      * @param request The resource who use.
      */
-    public void info(String ip, ActionsEnum action, String request) {
-        logger.info(String.format("[%s] Make an %s action in the %s", 
-                ip, action.getCorrectName(), request));
+    public synchronized void info(String ip, ActionsEnum action, String request) {
+        info(ip, action, request, null);
+    }
+    
+    /**
+     * Display an action of the client in the program.
+     * 
+     * @param ip The ip of the client.
+     * @param action The action who realice.
+     * @param request The resource who use.
+     * @param description The description of action, is optional.
+     */
+    public synchronized void info(String ip, ActionsEnum action, String request, String description) {
+        String base = String.format("[%s] Make an %s action in the %s", 
+                ip, action.getCorrectName(), request);
+        
+        if (description == null) {
+            logger.info(base);
+        } else {
+            logger.info(String.format("%s, %s", base, description));
+        }
     }
     
     /**
@@ -73,7 +91,7 @@ public class LogContoller {
      * 
      * @param exception The exception who appear.
      */
-    public void warning(LagatrixException exception) {
+    public synchronized void warning(LagatrixException exception) {
         logger.warning(exception.toString());
     }
     

@@ -5,6 +5,7 @@ import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
+import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.manager.PartitionManager;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -18,8 +19,8 @@ public class RequestPartiton extends RequestManager {
     
     private PartitionManager manager;
 
-    public RequestPartiton(AESCommunicator communicator, CommandExecutor executor) {
-        super(communicator, executor);
+    public RequestPartiton(AESCommunicator communicator, CommandExecutor executor, LogContoller logger) {
+        super(communicator, executor, logger);
         this.manager = new PartitionManager(executor);
     }
 
@@ -31,6 +32,7 @@ public class RequestPartiton extends RequestManager {
             response.setResponse(manager.getPartitions());
         }
         
+        logger.info(communicator.getClientIp(), request.getAction(), "partition");
         communicator.sendResponse(response);
     }
 

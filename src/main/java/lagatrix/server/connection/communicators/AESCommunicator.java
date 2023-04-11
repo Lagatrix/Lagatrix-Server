@@ -92,6 +92,15 @@ public class AESCommunicator implements CommunicatorBase {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.SEND));
         }
     }
+    
+    /**
+     * Get the client IP.
+     * 
+     * @return The IP.
+     */
+    public String getClientIp() {
+        return socket.getInetAddress().toString();
+    }
 
     @Override
     public void close() throws ConnectionInOutException {
@@ -112,5 +121,4 @@ public class AESCommunicator implements CommunicatorBase {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.CLOSE));
         }
     }
-
 }

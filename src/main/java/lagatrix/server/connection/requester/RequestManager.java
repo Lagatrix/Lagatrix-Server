@@ -3,6 +3,7 @@ package lagatrix.server.connection.requester;
 import lagatrix.server.connection.communicators.AESCommunicator;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.exceptions.LagatrixException;
+import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
@@ -15,16 +16,19 @@ public abstract class RequestManager {
     
     protected AESCommunicator communicator;
     protected CommandExecutor executor;
+    protected LogContoller logger;
 
     /**
      * The constructor of the class.
      * 
      * @param communicator The communicator to communicate with client.
      * @param executor The command executor.
+     * @param logger The logger controller to save the actions.
      */
-    public RequestManager(AESCommunicator communicator, CommandExecutor executor) {
+    public RequestManager(AESCommunicator communicator, CommandExecutor executor, LogContoller logger) {
         this.communicator = communicator;
         this.executor = executor;
+        this.logger = logger;
     }
     
     /**

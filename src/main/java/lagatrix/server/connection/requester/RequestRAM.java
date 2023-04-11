@@ -5,6 +5,7 @@ import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
+import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.manager.RAMManager;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -18,8 +19,8 @@ public class RequestRAM extends RequestManager {
     
     private RAMManager manager;
 
-    public RequestRAM(AESCommunicator communicator, CommandExecutor executor) {
-        super(communicator, executor);
+    public RequestRAM(AESCommunicator communicator, CommandExecutor executor, LogContoller logger) {
+        super(communicator, executor, logger);
         this.manager = new RAMManager(executor);
     }
 
@@ -36,6 +37,7 @@ public class RequestRAM extends RequestManager {
             }
         }
         
+        logger.info(communicator.getClientIp(), request.getAction(), "RAM");
         communicator.sendResponse(response);    
     }
 

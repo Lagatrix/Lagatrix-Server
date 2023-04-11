@@ -5,6 +5,7 @@ import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
+import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.manager.CPUManager;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -18,9 +19,9 @@ public class RequestCPU extends RequestManager {
 
     private CPUManager manager;
 
-    public RequestCPU(AESCommunicator communicator, CommandExecutor executor) {
-        super(communicator, executor);
-        manager = CPUManager(executor);
+    public RequestCPU(AESCommunicator communicator, CommandExecutor executor, LogContoller logger) {
+        super(communicator, executor, logger);
+        manager = new CPUManager(executor);
     }
 
     @Override
@@ -40,17 +41,10 @@ public class RequestCPU extends RequestManager {
                 }
             } else {
                 response.setResponse(manager.obtainCPU());
+                logger.info(communicator.getClientIp(), request.getAction(), "CPU");
             }
         }
 
         communicator.sendResponse(response);
-    }
-
-    private CPUManager CPUManager(CommandExecutor executor, boolean raspberry) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private CPUManager CPUManager(CommandExecutor executor) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

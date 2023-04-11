@@ -5,6 +5,7 @@ import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.exceptions.LagatrixException;
+import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.manager.GPUManager;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -18,8 +19,8 @@ public class RequestGPU extends RequestManager {
     
     private GPUManager manager;
 
-    public RequestGPU(AESCommunicator communicator, CommandExecutor executor) {
-        super(communicator, executor);
+    public RequestGPU(AESCommunicator communicator, CommandExecutor executor, LogContoller logger) {
+        super(communicator, executor, logger);
         manager = new GPUManager(executor);
     }
 
@@ -29,6 +30,7 @@ public class RequestGPU extends RequestManager {
         
         if (request.getAction() == ActionsEnum.GET) {
             response.setResponse(manager.obtainGPU());
+            logger.info(communicator.getClientIp(), request.getAction(), "GPU");
         }
         
         communicator.sendResponse(response);
