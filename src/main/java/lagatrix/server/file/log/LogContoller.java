@@ -111,6 +111,8 @@ public class LogContoller {
      */
     private void create() throws CantCreateFile {
         try {
+            // Create the directory and create the new file.
+            logFile.getParentFile().mkdirs();
             logFile.createNewFile();
         } catch (IOException ex) {
             throw new CantCreateFile(String.format("Can't create the log file because: %s", 
