@@ -41,7 +41,7 @@ public class ConnectionListener extends Thread {
     @Override
     public void run() {
         AESCommunicator aesc;
-        Socket client;
+        Socket client = null;
         CommandExecutor executor;
 
         while (true) {
@@ -58,7 +58,11 @@ public class ConnectionListener extends Thread {
                     aesc.close();
                 }
             } catch (ConnectionException ex) {
-                logger.warning(ex);
+                if (client != null) {
+                    logger.warning(client.getInetAddress().toString(), ex);
+                } else {
+                    logger.warning("Unknown IP", ex);
+                }
             }
         }
     }

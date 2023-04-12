@@ -88,19 +88,21 @@ public class LogContoller {
     /**
      * Display exception if the error is minor.
      * 
+     * @param ip The ip of client who fail.
      * @param exception The exception who appear.
      */
-    public synchronized void warning(LagatrixException exception) {
-        logger.warning(exception.toString());
+    public synchronized void warning(String ip, LagatrixException exception) {
+        logger.warning(String.format("[%s] %s", ip, exception.toString()));
     }
     
     /**
      * Display exception if the error blocks the program.
      * 
+     * @param ip The ip of client who fail.
      * @param exception The exception who appear.
      */
-    public void error(LagatrixException exception) {
-        logger.severe(exception.toString());
+    public void error(String ip, LagatrixException exception) {
+        logger.severe(String.format("[%s] %s", ip, exception.toString()));
     }
     
     /**

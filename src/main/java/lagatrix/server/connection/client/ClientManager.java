@@ -121,11 +121,11 @@ public class ClientManager extends Thread {
      * @param ex The exception who raise.
      */
     private synchronized void makeWarning(LagatrixException ex) {
-        logger.warning(ex);
+        logger.warning(communicator.getClientIp(), ex);
         try {
             communicator.sendResponse(new Response(ex.toString(), false));
         } catch (ConnectionException ex1) {
-            logger.warning(ex1);
+            logger.warning(communicator.getClientIp(), ex1);
         }
     }
     

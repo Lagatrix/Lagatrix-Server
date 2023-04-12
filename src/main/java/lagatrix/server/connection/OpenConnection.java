@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import lagatrix.server.entities.components.PackageManagerComponents;
 import lagatrix.server.exceptions.NotValidFamilyException;
 import lagatrix.server.exceptions.connection.ConnectionInOutException;
 import lagatrix.server.exceptions.file.FileException;
@@ -62,16 +59,17 @@ public class OpenConnection {
             new ConnectionListener(socket, logger, 
                     new OSManager(new CommandExecutor()).obtainOSInformation().getPackageManager()).start();
         } catch (IOException ex) {
-            logger.error(new ConnectionInOutException("Can't open the server socket"));
+            logger.error("localhost", new ConnectionInOutException(
+                    String.format("Can't open the server socket because %s", ex)));
             System.exit(4);
         } catch (InvalidConfException ex) {
-            logger.error(ex);
+            logger.error("localhost", ex);
             System.exit(5);
         } catch (OSException ex) {
-            logger.error(ex);
+            logger.error("localhost", ex);
             System.exit(6);
         } catch (NotValidFamilyException ex) {
-            logger.error(ex);
+            logger.error("localhost", ex);
             System.exit(7);
         }
     }
