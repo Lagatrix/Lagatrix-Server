@@ -11,6 +11,7 @@ import lagatrix.server.connection.requester.RequestPartiton;
 import lagatrix.server.connection.requester.RequestProcess;
 import lagatrix.server.connection.requester.RequestRAM;
 import lagatrix.server.connection.requester.RequestUser;
+import lagatrix.server.entities.components.PackageManagerComponents;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
 import lagatrix.server.entities.dto.event.Event;
@@ -23,7 +24,6 @@ import lagatrix.server.exceptions.LagatrixException;
 import lagatrix.server.exceptions.NotSupportedOperation;
 import lagatrix.server.exceptions.connection.ConnectionException;
 import lagatrix.server.file.log.LogContoller;
-import lagatrix.server.manager.OSManager;
 import lagatrix.server.tools.command.CommandExecutor;
 
 /**
@@ -37,7 +37,7 @@ public class ClientManager extends Thread {
     private AESCommunicator communicator;
     private CommandExecutor executor;
     private LogContoller logger;
-    private OSInformation osInfo;
+    private PackageManagerComponents packageManager;
 
     /**
      * Constructor of the class.
@@ -51,19 +51,15 @@ public class ClientManager extends Thread {
         this.executor = executor;
         this.logger = logger;
     }
+
+    public void setPackageManager(PackageManagerComponents packageManager) {
+        this.packageManager = packageManager;
+    }
     
     @Override
     public void run() {
         Request request;
         RequestManager manager;
-        
-        // If can't obtain the os information.
-        try {
-            this.osInfo = new OSManager(executor).obtainOSInformation();
-        } catch (LagatrixException ex) {
-            logger.error(ex);
-            System.exit(1);
-        }
         
         /* The loop of request, if the client send an null object request, 
         the communication ends. */
@@ -112,7 +108,7 @@ public class ClientManager extends Thread {
         } else if (classItem.equals(Event.class)){
             return new RequestEvent(communicator, executor, logger);
         } else if (classItem.equals(String.class)){
-            return new RequestPackage(communicator, executor, osInfo.getPackageManager(), logger);
+            return new RequestPackage(communicator, executor, packageManager, logger);
         }
         
         throw new NotSupportedOperation(String.format("The request of class '%s' is not valid", 
