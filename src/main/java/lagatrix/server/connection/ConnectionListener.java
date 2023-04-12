@@ -27,9 +27,11 @@ public class ConnectionListener extends Thread {
      * Constructor of the class.
      * 
      * @param socket The socket who use.
+     * @param logger The LogController.
      */
-    public ConnectionListener(ServerSocket socket){
+    public ConnectionListener(ServerSocket socket, LogContoller logger){
         this.socket = socket;
+        this.logger = logger;
     }
 
     @Override

@@ -25,24 +25,23 @@ public class LogContoller {
     private Logger logger;
     private File logFile;
 
-    public LogContoller() throws CantCreateFile {
+    public LogContoller() {
         LocalDateTime date = LocalDateTime.now();  
         
         logFile = new File(String.format("/var/log/lagatrix/lagatrix_%s.log", 
                 date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH:mm:ss"))));
         logger = Logger.getLogger("Lagatrix");
-        
-        create();
     }
 
     /**
      * This method open the log file.
      * 
-     * @throws FileIOException If can't open the file.
-     * @throws FileException If have problem when use logger.
+     * @throws FileException If have problem when open the file.
      */
-    public void openLogFile() throws FileIOException, FileException {
+    public void open() throws FileException {
         FileHandler fh;
+        
+        create();
         
         try {
             fh = new FileHandler(logFile.getAbsolutePath());

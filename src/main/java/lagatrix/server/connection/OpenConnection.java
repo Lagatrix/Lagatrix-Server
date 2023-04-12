@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.Map;
 import lagatrix.server.exceptions.connection.ConnectionInOutException;
-import lagatrix.server.exceptions.file.CantCreateFile;
+import lagatrix.server.exceptions.file.FileException;
 import lagatrix.server.exceptions.file.InvalidConfException;
 import lagatrix.server.file.config.ConfigController;
 import lagatrix.server.file.log.LogContoller;
@@ -28,14 +28,16 @@ public class OpenConnection {
      * This method open the required files to make the connection.
      */
     public void openFiles() {
+         logger = new LogContoller();
+         config = new ConfigController();
+        
         try {
-            logger = new LogContoller();
-        } catch (CantCreateFile ex) {
+            config.open();
+            logger.open();
+        } catch (FileException ex) {
             System.err.println(ex.toString());
             System.exit(3);
         }
-        
-        config = new ConfigController();
     }
     
     /**
@@ -47,10 +49,10 @@ public class OpenConnection {
         
         try {
             properties = config.obtainProperties();
-            socket = new ServerSocket(Integer.parseInt((String) properties.get("port")), 0,
+            socket = new ServerSocket(Integer.parseInt(properties.get("port").toString()), 0,
                     (InetAddress) properties.get("ip"));
             
-            new ConnectionListener(socket).start();
+            new ConnectionListener(socket, logger).start();
         } catch (IOException ex) {
             logger.error(new ConnectionInOutException("Can't open the server socket"));
             System.exit(4);
