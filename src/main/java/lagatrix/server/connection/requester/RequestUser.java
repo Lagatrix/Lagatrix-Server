@@ -25,7 +25,7 @@ public class RequestUser extends RequestManager {
     }
 
     @Override
-    public void determineRequest(Request request) throws LagatrixException {
+    public synchronized void determineRequest(Request request) throws LagatrixException {
         Response response = new Response();
         String message = null;
         
