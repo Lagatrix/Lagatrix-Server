@@ -53,7 +53,8 @@ public class ConnectionListener extends Thread {
                 executor = new CommandExecutor();
 
                 if (auth(aesc, executor)){
-                    new ClientManager(aesc, logger, executor).start();
+                    new ClientManager(aesc, logger, executor, packageManager).start();
+                    
                 } else {
                     aesc.close();
                 }

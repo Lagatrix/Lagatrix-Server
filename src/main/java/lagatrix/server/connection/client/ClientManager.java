@@ -11,6 +11,7 @@ import lagatrix.server.connection.requester.RequestPartiton;
 import lagatrix.server.connection.requester.RequestProcess;
 import lagatrix.server.connection.requester.RequestRAM;
 import lagatrix.server.connection.requester.RequestUser;
+import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.components.PackageManagerComponents;
 import lagatrix.server.entities.connection.Request;
 import lagatrix.server.entities.connection.Response;
@@ -33,7 +34,7 @@ import lagatrix.server.tools.command.CommandExecutor;
  * @since 0.2
  */
 public class ClientManager extends Thread {
-    
+
     private AESCommunicator communicator;
     private CommandExecutor executor;
     private LogContoller logger;
@@ -41,32 +42,31 @@ public class ClientManager extends Thread {
 
     /**
      * Constructor of the class.
-     * 
+     *
      * @param communicator The communicator with client.
      * @param logger The LogController to monitor the actions of the client.
      * @param executor The executor of commands.
+     * @param packageManager The package manager of the system.
      */
-    public ClientManager(AESCommunicator communicator, LogContoller logger, CommandExecutor executor) {
+    public ClientManager(AESCommunicator communicator, LogContoller logger, CommandExecutor executor, PackageManagerComponents packageManager) {
         this.communicator = communicator;
         this.executor = executor;
         this.logger = logger;
     }
 
-    public void setPackageManager(PackageManagerComponents packageManager) {
-        this.packageManager = packageManager;
-    }
-    
     @Override
     public void run() {
         Request request;
         RequestManager manager;
-        
+
         /* The loop of request, if the client send an null object request, 
         the communication ends. */
         while (true) {
             try {
-                request = communicator.obtainRequest();
-                
+                synchronized (this) {
+                    request = communicator.obtainRequest();
+                }
+
                 if (request.getObjectWhoRequest() != null) {
                     manager = determineRequester(request.getObjectWhoRequest());
                     manager.determineRequest(request);
@@ -76,48 +76,51 @@ public class ClientManager extends Thread {
                 }
             } catch (LagatrixException ex) {
                 makeWarning(ex);
+            } catch (RuntimeException ex) {
+                makeWarning(new LagatrixException(ex.getMessage()));
             }
         }
+
     }
-    
+
     /**
      * This method determine the requester order by client.
-     * 
+     *
      * @param classItem The entity who client request.
      * @return The requester.
      * @throws NotSupportedOperation If the classItem is not valid.
      */
     private synchronized RequestManager determineRequester(Class classItem) throws NotSupportedOperation {
         CPU.class.getSimpleName();
-        
+
         // Determine the request.
-        if (classItem.equals(CPU.class)){
+        if (classItem.equals(CPU.class)) {
             return new RequestCPU(communicator, executor, logger);
-        } else if (classItem.equals(RAM.class)){
+        } else if (classItem.equals(RAM.class)) {
             return new RequestRAM(communicator, executor, logger);
-        } else if (classItem.equals(OSInformation.class)){
+        } else if (classItem.equals(OSInformation.class)) {
             return new RequestOS(communicator, executor, logger);
-        } else if (classItem.equals(GPU.class)){
+        } else if (classItem.equals(GPU.class)) {
             return new RequestGPU(communicator, executor, logger);
-        } else if (classItem.equals(Partition.class)){
+        } else if (classItem.equals(Partition.class)) {
             return new RequestPartiton(communicator, executor, logger);
-        } else if (classItem.equals(UnixProcess.class)){
+        } else if (classItem.equals(UnixProcess.class)) {
             return new RequestProcess(communicator, executor, logger);
-        } else if (classItem.equals(User.class)){
+        } else if (classItem.equals(User.class)) {
             return new RequestUser(communicator, executor, logger);
-        } else if (classItem.equals(Event.class)){
+        } else if (classItem.equals(Event.class)) {
             return new RequestEvent(communicator, executor, logger);
-        } else if (classItem.equals(String.class)){
+        } else if (classItem.equals(String.class)) {
             return new RequestPackage(communicator, executor, packageManager, logger);
         }
-        
-        throw new NotSupportedOperation(String.format("The request of class '%s' is not valid", 
+
+        throw new NotSupportedOperation(String.format("The request of class '%s' is not valid",
                 classItem.getSimpleName()));
-    } 
-    
+    }
+
     /**
      * This method make the warning if error ocurred.
-     * 
+     *
      * @param ex The exception who raise.
      */
     private synchronized void makeWarning(LagatrixException ex) {
@@ -128,5 +131,5 @@ public class ClientManager extends Thread {
             logger.warning(communicator.getClientIp(), ex1);
         }
     }
-    
+
 }
