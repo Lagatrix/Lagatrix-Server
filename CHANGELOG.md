@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [0.2]
+### Added
 - LASRV010 - 01/04/2023 - Add the Request and Response class.
 - LASRV010 - 01/04/2023 - Add the exception ConnectionException.
 - LASRV010 - 02/04/2023 - Add the CommunicatorBase interface.
@@ -55,7 +64,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 - LASRV010 - 05/04/2023 - Removed the send and obtain exceptions.
 
-## 0.1
+## [0.1]
 ### Added
 - LASRV001 - 20/03/2023 - Add the class to exec commands and the response object.
 - LASRV001 - 21/03/2023 - Add CPUInfo class to obtain information of CPU.
@@ -104,7 +113,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 29/03/2023 - Add components enum in CPUInfo.
 - LASRV003 - 29/03/2023 - Add components enum in RAMInfo.
 - LASRV002 - 29/03/2023 - Add components enum in GPUInfo.
-- LASRVUCF - 30/03/2023 - Change in the docs of all files.
 
 ### Fixed
 - LASRV006 - 26/03/2023 - Fix add user bug.
@@ -112,4 +120,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 - LASRV001 - 29/03/2023 - Quit the device string in temperature and use managers.
 
-0.1: https://github.com/Lagatrix/Lagatrix-Server/releases/tag/0.1
+[Unreleased]: https://github.com/Lagatrix/Lagatrix-Server
+[0.2]: https://github.com/Lagatrix/Lagatrix-Server/releases/tag/0.2
+[0.1]: https://github.com/Lagatrix/Lagatrix-Server/releases/tag/0.1
