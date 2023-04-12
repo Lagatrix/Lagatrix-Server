@@ -41,7 +41,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV011 - 12/04/2023 - Implements the AuthUser class in the program.
 - LASRV013 - 12/04/2023 - Implements the ConfigController class in the program.
 - LASRV010 - 12/04/2023 - Change CommunicatorBase from interface to abstract class.
-- LASRV011 - 12/04/2023 - Change in obtain the package manager in the connetion class.
 
 ### Fixed
 - LASRV012 - 12/04/2023 - Improve file organization in logs.
