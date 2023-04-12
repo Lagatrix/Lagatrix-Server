@@ -25,7 +25,7 @@ public class RequestOS extends RequestManager {
     }
 
     @Override
-    public void determineRequest(Request request) throws LagatrixException {
+    public synchronized void determineRequest(Request request) throws LagatrixException {
         Response response = new Response();
         
         if (request.getAction() == ActionsEnum.GET){
