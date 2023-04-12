@@ -31,7 +31,7 @@ public abstract class CommunicatorBase {
             this.in = new ObjectInputStream(socket.getInputStream());
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.OPEN));
+                    this.getClass(), ActionsEnum.OPEN, ex));
         }
     }
     
@@ -66,7 +66,7 @@ public abstract class CommunicatorBase {
             in.close();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.CLOSE));
+                    this.getClass(), ActionsEnum.CLOSE, ex));
         }
     }
     
@@ -81,7 +81,7 @@ public abstract class CommunicatorBase {
             socket.close();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.CLOSE));
+                    this.getClass(), ActionsEnum.CLOSE, ex));
         }
     }
     

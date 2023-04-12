@@ -1,8 +1,6 @@
 package lagatrix.server.connection.communicators;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
 import java.security.InvalidKeyException;
@@ -59,10 +57,10 @@ public class AESCommunicator extends CommunicatorBase {
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
             throw new AlgorithmException(AlgorithmException.getMessageAlgorithm(ex, "AES"));
         } catch (ClassNotFoundException | BadPaddingException ex) {
-            throw new BadClassFormatException("unexpected class");
+            throw new BadClassFormatException();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.RECEIVE));
+                    this.getClass(), ActionsEnum.RECEIVE, ex));
         }
     }
 
@@ -82,7 +80,7 @@ public class AESCommunicator extends CommunicatorBase {
             throw new AlgorithmException("AES");
         }  catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.SEND));
+                    this.getClass(), ActionsEnum.SEND, ex));
         }
     }
 }

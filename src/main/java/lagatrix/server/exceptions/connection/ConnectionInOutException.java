@@ -1,5 +1,6 @@
 package lagatrix.server.exceptions.connection;
 
+import java.io.IOException;
 import lagatrix.server.entities.actions.ActionsEnum;
 
 /**
@@ -19,10 +20,11 @@ public class ConnectionInOutException extends ConnectionException {
      * 
      * @param communicatorClass The communicator who use.
      * @param action The action who done.
+     * @param ex The IOException.
      * @return The message.
      */
-    public static String getMessageIO(Class communicatorClass, ActionsEnum action) {
-        return String.format("I/O problem when use %s connector and execute %s connection", 
-                communicatorClass.getSimpleName(), action);
+    public static String getMessageIO(Class communicatorClass, ActionsEnum action, IOException ex) {
+        return String.format("I/O problem when use %s connector and execute %s connection because %s", 
+                communicatorClass.getSimpleName(), action, ex.getMessage());
     }
 }

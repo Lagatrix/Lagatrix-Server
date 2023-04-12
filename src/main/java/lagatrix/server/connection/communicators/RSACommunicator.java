@@ -60,10 +60,10 @@ public class RSACommunicator extends CommunicatorBase {
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
             throw new AlgorithmException(AlgorithmException.getMessageAlgorithm(ex, "RSA"));
         } catch (ClassNotFoundException | BadPaddingException ex) {
-            throw new BadClassFormatException("unexpected class");
+            throw new BadClassFormatException();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.RECEIVE));
+                    this.getClass(), ActionsEnum.RECEIVE, ex));
         }
         
     }
@@ -84,7 +84,7 @@ public class RSACommunicator extends CommunicatorBase {
             throw new AlgorithmException("RSA");
         }  catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.SEND));
+                    this.getClass(), ActionsEnum.SEND, ex));
         }
     }
 }

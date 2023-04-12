@@ -27,9 +27,9 @@ public class PlainCommunicator extends CommunicatorBase {
             return (Request) in.readObject();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.RECEIVE));
+                    this.getClass(), ActionsEnum.RECEIVE, ex));
         } catch (ClassNotFoundException ex) {
-            throw new BadClassFormatException("unexpected class");
+            throw new BadClassFormatException();
         }
     }
 
@@ -39,7 +39,7 @@ public class PlainCommunicator extends CommunicatorBase {
             out.writeObject(response);
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.SEND));
+                    this.getClass(), ActionsEnum.SEND, ex));
         }
     }
 }
