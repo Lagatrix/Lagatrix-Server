@@ -7,6 +7,7 @@ import lagatrix.server.connection.client.AuthClient;
 import lagatrix.server.connection.client.ClientManager;
 import lagatrix.server.connection.client.EstablishConnection;
 import lagatrix.server.connection.communicators.AESCommunicator;
+import lagatrix.server.entities.components.PackageManagerComponents;
 import lagatrix.server.exceptions.connection.ConnectionException;
 import lagatrix.server.exceptions.connection.ConnectionInOutException;
 import lagatrix.server.file.log.LogContoller;
@@ -22,16 +23,19 @@ public class ConnectionListener extends Thread {
 
     private ServerSocket socket;
     private LogContoller logger;
+    private PackageManagerComponents packageManager;
 
     /**
      * Constructor of the class.
      * 
      * @param socket The socket who use.
      * @param logger The LogController.
+     * @param packageManager The PackageManager of the system.
      */
-    public ConnectionListener(ServerSocket socket, LogContoller logger){
+    public ConnectionListener(ServerSocket socket, LogContoller logger, PackageManagerComponents packageManager){
         this.socket = socket;
         this.logger = logger;
+        this.packageManager = packageManager;
     }
 
     @Override
