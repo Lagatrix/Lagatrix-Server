@@ -28,13 +28,10 @@ import lagatrix.server.exceptions.connection.ConnectionInOutException;
  * @author javierfh03
  * @since 0.2
  */
-public class RSACommunicator implements CommunicatorBase {
+public class RSACommunicator extends CommunicatorBase {
     
-    private Socket socket;
     private PrivateKey privateKey;
     private PublicKey publicKey;
-    private ObjectOutputStream out;
-    private ObjectInputStream in;
 
     /**
      * The constructor of the class.
@@ -45,16 +42,9 @@ public class RSACommunicator implements CommunicatorBase {
      * connection.
      */
     public RSACommunicator(Socket socket, KeyPair pair) throws ConnectionInOutException {
-        this.socket = socket;
+        super(socket);
         this.privateKey = pair.getPrivate();
         this.publicKey = pair.getPublic();
-        
-        try {
-            this.in = new ObjectInputStream(socket.getInputStream());
-            this.out = new ObjectOutputStream(socket.getOutputStream());
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("RSA", ActionsEnum.OPEN));
-        }
     }
 
     @Override
@@ -74,7 +64,8 @@ public class RSACommunicator implements CommunicatorBase {
         } catch (ClassNotFoundException | BadPaddingException ex) {
             throw new BadClassFormatException("unexpected class");
         } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("RSA", ActionsEnum.RECEIVE));
+            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
+                    this.getClass(), ActionsEnum.RECEIVE));
         }
         
     }
@@ -94,28 +85,8 @@ public class RSACommunicator implements CommunicatorBase {
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
             throw new AlgorithmException("RSA");
         }  catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("RSA", ActionsEnum.SEND));
+            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
+                    this.getClass(), ActionsEnum.SEND));
         }
     }
-
-    @Override
-    public void close() throws ConnectionInOutException {
-        try {
-            out.close();
-            in.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("RSA", ActionsEnum.CLOSE));
-        }
-    }
-
-    @Override
-    public void closeClient() throws ConnectionInOutException {
-        try {
-            close();
-            socket.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("RSA", ActionsEnum.CLOSE));
-        }
-    }
-
 }

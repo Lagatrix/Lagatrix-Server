@@ -49,7 +49,7 @@ public class OpenConnection {
         
         try {
             properties = config.obtainProperties();
-            socket = new ServerSocket(Integer.parseInt(properties.get("port").toString()), 0,
+            socket = new ServerSocket(Integer.parseInt(properties.get("port").toString()), 50,
                     (InetAddress) properties.get("ip"));
             
             new ConnectionListener(socket, logger).start();

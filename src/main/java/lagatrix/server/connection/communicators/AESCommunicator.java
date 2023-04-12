@@ -26,12 +26,9 @@ import lagatrix.server.exceptions.connection.ConnectionInOutException;
  * @author javierfh03
  * @since 0.2
  */
-public class AESCommunicator implements CommunicatorBase {
+public class AESCommunicator extends CommunicatorBase {
     
-    private Socket socket;
     private SecretKey key;
-    private ObjectOutputStream out;
-    private ObjectInputStream in;
 
     /**
      * The constructor of the class.
@@ -42,15 +39,9 @@ public class AESCommunicator implements CommunicatorBase {
      * connection.
      */
     public AESCommunicator(Socket socket, SecretKey key) throws ConnectionInOutException {
+        super(socket);
         this.key = key;
         this.socket = socket;
-        
-        try {
-            this.in = new ObjectInputStream(socket.getInputStream());
-            this.out = new ObjectOutputStream(socket.getOutputStream());
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.OPEN));
-        }
     }
 
     @Override
@@ -70,7 +61,8 @@ public class AESCommunicator implements CommunicatorBase {
         } catch (ClassNotFoundException | BadPaddingException ex) {
             throw new BadClassFormatException("unexpected class");
         } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.RECEIVE));
+            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
+                    this.getClass(), ActionsEnum.RECEIVE));
         }
     }
 
@@ -89,36 +81,8 @@ public class AESCommunicator implements CommunicatorBase {
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
             throw new AlgorithmException("AES");
         }  catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.SEND));
-        }
-    }
-    
-    /**
-     * Get the client IP.
-     * 
-     * @return The IP.
-     */
-    public String getClientIp() {
-        return socket.getInetAddress().toString();
-    }
-
-    @Override
-    public void close() throws ConnectionInOutException {
-        try {
-            out.close();
-            in.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.CLOSE));
-        }
-    }
-
-    @Override
-    public void closeClient() throws ConnectionInOutException {
-        try {
-            close();
-            socket.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("AES", ActionsEnum.CLOSE));
+            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
+                    this.getClass(), ActionsEnum.SEND));
         }
     }
 }

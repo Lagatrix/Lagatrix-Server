@@ -5,8 +5,8 @@ import lagatrix.server.entities.actions.ActionsEnum;
 /**
  * This exception repersents a connection with I/O problems.
  *
- * @author javier
- * @since 1.0
+ * @author javierfh03
+ * @since 0.2
  */
 public class ConnectionInOutException extends ConnectionException {
 
@@ -17,11 +17,12 @@ public class ConnectionInOutException extends ConnectionException {
     /**
      * This method obtain the error message.
      * 
-     * @param algorithm The algorithm who used.
+     * @param communicatorClass The communicator who use.
      * @param action The action who done.
      * @return The message.
      */
-    public static String getMessageIO(String algorithm, ActionsEnum action) {
-        return String.format("%s problem I/O when %s connection", algorithm, action);
+    public static String getMessageIO(Class communicatorClass, ActionsEnum action) {
+        return String.format("I/O problem when use %s connector and execute %s connection", 
+                communicatorClass.getSimpleName(), action);
     }
 }

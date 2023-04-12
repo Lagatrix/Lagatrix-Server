@@ -1,8 +1,6 @@
 package lagatrix.server.connection.communicators;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 import lagatrix.server.entities.actions.ActionsEnum;
 import lagatrix.server.entities.connection.Request;
@@ -17,21 +15,10 @@ import lagatrix.server.exceptions.connection.ConnectionInOutException;
  * @author javierfh03
  * @since 0.2
  */
-public class PlainCommunicator implements CommunicatorBase {
-    
-    private Socket socket;
-    private ObjectOutputStream out;
-    private ObjectInputStream in;
+public class PlainCommunicator extends CommunicatorBase {
 
     public PlainCommunicator(Socket socket) throws ConnectionInOutException {
-        this.socket = socket;
-        
-        try {
-            this.in = new ObjectInputStream(socket.getInputStream());
-            this.out = new ObjectOutputStream(socket.getOutputStream());
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("plain text", ActionsEnum.OPEN));
-        }
+        super(socket);
     }
     
     @Override
@@ -39,7 +26,8 @@ public class PlainCommunicator implements CommunicatorBase {
         try {
             return (Request) in.readObject();
         } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("plain text", ActionsEnum.RECEIVE));
+            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
+                    this.getClass(), ActionsEnum.RECEIVE));
         } catch (ClassNotFoundException ex) {
             throw new BadClassFormatException("unexpected class");
         }
@@ -50,28 +38,8 @@ public class PlainCommunicator implements CommunicatorBase {
         try {
             out.writeObject(response);
         } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("plain text", ActionsEnum.SEND));
+            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
+                    this.getClass(), ActionsEnum.SEND));
         }
     }
-
-    @Override
-    public void close() throws ConnectionInOutException {
-        try {
-            out.close();
-            in.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("plain text", ActionsEnum.CLOSE));
-        }
-    }
-
-    @Override
-    public void closeClient() throws ConnectionInOutException {
-        try {
-            close();
-            socket.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO("plain text", ActionsEnum.CLOSE));
-        }
-    }
-
 }
