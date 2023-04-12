@@ -1,6 +1,5 @@
 package lagatrix.server.connection.client;
 
-import java.net.Socket;
 import lagatrix.server.connection.communicators.AESCommunicator;
 import lagatrix.server.connection.requester.RequestCPU;
 import lagatrix.server.connection.requester.RequestEvent;

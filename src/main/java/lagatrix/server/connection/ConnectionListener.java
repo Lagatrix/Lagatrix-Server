@@ -9,7 +9,6 @@ import lagatrix.server.connection.client.EstablishConnection;
 import lagatrix.server.connection.communicators.AESCommunicator;
 import lagatrix.server.exceptions.connection.ConnectionException;
 import lagatrix.server.exceptions.connection.ConnectionInOutException;
-import lagatrix.server.exceptions.file.CantCreateFile;
 import lagatrix.server.file.log.LogContoller;
 import lagatrix.server.tools.command.CommandExecutor;
 
@@ -26,21 +25,11 @@ public class ConnectionListener extends Thread {
 
     /**
      * Constructor of the class.
+     * 
+     * @param socket The socket who use.
      */
-    public ConnectionListener(){
-        try {
-            logger = new LogContoller();
-        } catch (CantCreateFile ex) {
-            System.err.println(ex.toString());
-            System.exit(4);
-        }
-
-        try {
-            socket = new ServerSocket(8000);
-        } catch (IOException ex) {
-            logger.error(new ConnectionInOutException("Can't open the server socket"));
-            System.exit(3);
-        }
+    public ConnectionListener(ServerSocket socket){
+        this.socket = socket;
     }
 
     @Override

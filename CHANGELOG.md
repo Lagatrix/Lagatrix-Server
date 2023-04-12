@@ -39,6 +39,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV012 - 11/04/2023 - Implements LogController class in the program.
 - LASRV012 - 11/04/2023 - Changes when create the log file.
 - LASRV011 - 04/04/2023 - Implements the AuthUser class in the program.
+- LASRV013 - 04/04/2023 - Implements the ConfigController class in the program.
 
 ### Fixed
 
