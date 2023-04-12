@@ -45,10 +45,11 @@ public class ClientManager extends Thread {
      * 
      * @param communicator The communicator with client.
      * @param logger The LogController to monitor the actions of the client.
+     * @param executor The executor of commands.
      */
-    public ClientManager(AESCommunicator communicator, LogContoller logger) {
+    public ClientManager(AESCommunicator communicator, LogContoller logger, CommandExecutor executor) {
         this.communicator = communicator;
-        this.executor = new CommandExecutor();
+        this.executor = executor;
         this.logger = logger;
     }
     

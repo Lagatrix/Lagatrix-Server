@@ -34,9 +34,10 @@ public class AuthClient {
     /**
      * This methos make the login of the user, it have 3 attempts.
      * 
+     * @return If auth the user.
      * @throws ConnectionException If have ant error connection..
      */
-    public void makeLogin() throws ConnectionException {
+    public boolean makeLogin() throws ConnectionException {
         Request request;
         UserManager manager = new UserManager(executor);
         
@@ -46,6 +47,7 @@ public class AuthClient {
             if (manager.authUser((String) request.getParams()[0], (String) request.getParams()[1])){
                 if (manager.isRoot((String) request.getParams()[0])){
                     communicator.sendResponse(new Response("Correct login", true));
+                    return true;
                 } else {
                     communicator.sendResponse(new Response("User not have root permissions", false));
                 }
@@ -55,6 +57,7 @@ public class AuthClient {
             
             attempt--;
         }
+        return false;
     }
     
 }

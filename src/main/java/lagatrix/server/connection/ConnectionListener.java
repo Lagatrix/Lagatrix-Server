@@ -3,6 +3,7 @@ package lagatrix.server.connection;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import lagatrix.server.connection.client.AuthClient;
 import lagatrix.server.connection.client.ClientManager;
 import lagatrix.server.connection.client.EstablishConnection;
 import lagatrix.server.connection.communicators.AESCommunicator;
@@ -10,6 +11,7 @@ import lagatrix.server.exceptions.connection.ConnectionException;
 import lagatrix.server.exceptions.connection.ConnectionInOutException;
 import lagatrix.server.exceptions.file.CantCreateFile;
 import lagatrix.server.file.log.LogContoller;
+import lagatrix.server.tools.command.CommandExecutor;
 
 /**
  * This class create the connextion. wait an client, auth this and set manager.
@@ -45,27 +47,33 @@ public class ConnectionListener extends Thread {
     public void run() {
         AESCommunicator aesc;
         Socket client;
+        CommandExecutor executor;
 
         while (true) {
             try {
                 client = getClient();
 
                 aesc = establishConnection(client);
+                
+                executor = new CommandExecutor();
 
-                new ClientManager(aesc, logger).start();
+                if (auth(aesc, executor)){
+                    new ClientManager(aesc, logger, executor).start();
+                } else {
+                    aesc.close();
+                }
             } catch (ConnectionException ex) {
                 logger.warning(ex);
             }
         }
-
     }
 
     /**
      * This method make the exchanging the keys RSA and AES with client.
      *
-     * @param client
-     * @return
-     * @throws ConnectionException
+     * @param client The client to establish the connection.
+     * @return The AESCommunicator.
+     * @throws ConnectionException If raise an connection error.
      */
     private synchronized AESCommunicator establishConnection(Socket client) throws ConnectionException {
         EstablishConnection ec = new EstablishConnection(client);
@@ -73,6 +81,20 @@ public class ConnectionListener extends Thread {
         ec.sendRSA();
 
         return ec.obtainAES();
+    }
+    
+    /**
+     * This method auth the user.
+     * 
+     * @param communicator The communicator with the client.
+     * @param executor The executor who use the client.
+     * @return If the user auth.
+     * @throws ConnectionException If have an connection error. 
+     */
+    private synchronized boolean auth(AESCommunicator communicator, CommandExecutor executor) throws ConnectionException {
+        AuthClient auth = new AuthClient(communicator, executor);
+        
+        return auth.makeLogin();
     }
 
     /**
