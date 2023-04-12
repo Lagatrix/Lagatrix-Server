@@ -1,16 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package lagatrix.server;
 
-/**
- *
- * @author javier
- */
+import lagatrix.server.connection.OpenConnection;
+import lagatrix.server.exceptions.manager.software.PackageManagerException;
+
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws PackageManagerException {
+        OpenConnection connection = new OpenConnection();
+        
+        connection.openFiles();
+        connection.startConnection();
     }
 }

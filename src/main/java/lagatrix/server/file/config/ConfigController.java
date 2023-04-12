@@ -89,7 +89,7 @@ public class ConfigController {
      * @throws InvalidConfException If the propertie is invalid.
      */
     private int obtainPort() throws InvalidConfException {
-        int port = Integer.parseInt((String) confLector.get("port"));
+        int port = Integer.parseInt(confLector.get("port").toString());
         
         if (port > 1023 && port < 49152) {
             return port;
@@ -105,7 +105,7 @@ public class ConfigController {
      * @throws InvalidConfException If the propertie is invalid.
      */
     private boolean rootAccess() throws InvalidConfException {
-        String allowRoot = (String) confLector.get("root_access");
+        String allowRoot = confLector.get("root_access").toString();
         
         if (allowRoot.equals("YES")) {
             return true;

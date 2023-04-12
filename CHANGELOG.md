@@ -43,6 +43,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 - LASRV012 - 12/04/2023 - Improve file organization in logs.
+- LASRV013 - 12/04/2023 - Improve file organization in config.
 
 ### Removed
 - LASRV010 - 05/04/2023 - Removed the send and obtain exceptions.
