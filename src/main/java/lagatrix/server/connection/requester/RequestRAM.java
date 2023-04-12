@@ -25,7 +25,7 @@ public class RequestRAM extends RequestManager {
     }
 
     @Override
-    public synchronized void determineRequest(Request request) throws LagatrixException {
+    public void determineRequest(Request request) throws LagatrixException {
         Response response = new Response();
         
         // Determine if get use or RAM info.
