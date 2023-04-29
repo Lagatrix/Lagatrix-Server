@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 ### Fixed
+- LASRVUCF - 29/04/2023 - Quit server file.
 
 ### Removed
 

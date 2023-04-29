@@ -1,10 +1,10 @@
 package lagatrix.server.tools.detectors;
 
-import lagatrix.server.tools.detectors.DevicesEnum;
-import lagatrix.server.tools.detectors.TemperatureDeviceDetector;
-import lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu.NormalCPUTemperature;
-import lagatrix.server.manager.information.hardware.hardware_status.temperature.cpu.RaspberryPiTemperature;
-import lagatrix.server.tools.command.CommandExecutor;
+import lagatrix.tools.detectors.DevicesEnum;
+import lagatrix.tools.detectors.TemperatureDeviceDetector;
+import lagatrix.manager.information.hardware.hardware_status.temperature.cpu.NormalCPUTemperature;
+import lagatrix.manager.information.hardware.hardware_status.temperature.cpu.RaspberryPiTemperature;
+import lagatrix.tools.command.CommandExecutor;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

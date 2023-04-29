@@ -1,8 +1,10 @@
 package lagatrix.server.tools.command;
 
-import lagatrix.server.exceptions.command.CommandBadExitCodeException;
-import lagatrix.server.exceptions.command.CommandException;
-import lagatrix.server.exceptions.command.CommandInOutException;
+import lagatrix.tools.command.CommandExecutor;
+import lagatrix.tools.command.CommandResponse;
+import lagatrix.exceptions.command.CommandBadExitCodeException;
+import lagatrix.exceptions.command.CommandException;
+import lagatrix.exceptions.command.CommandInOutException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

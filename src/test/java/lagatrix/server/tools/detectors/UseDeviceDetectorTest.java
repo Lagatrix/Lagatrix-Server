@@ -1,9 +1,9 @@
 package lagatrix.server.tools.detectors;
 
-import lagatrix.server.manager.information.hardware.hardware_status.use.UseCPU;
-import lagatrix.server.tools.command.CommandExecutor;
-import lagatrix.server.tools.detectors.DevicesEnum;
-import lagatrix.server.tools.detectors.UseDeviceDetector;
+import lagatrix.manager.information.hardware.hardware_status.use.UseCPU;
+import lagatrix.tools.command.CommandExecutor;
+import lagatrix.tools.detectors.DevicesEnum;
+import lagatrix.tools.detectors.UseDeviceDetector;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 

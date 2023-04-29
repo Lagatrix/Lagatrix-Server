@@ -1,7 +1,8 @@
 package lagatrix.server.tools.detectors;
 
-import lagatrix.server.entities.components.PackageManagerComponents;
-import lagatrix.server.exceptions.NotValidFamilyException;
+import lagatrix.tools.detectors.PackageManagerDetector;
+import lagatrix.entities.components.PackageManagerComponents;
+import lagatrix.exceptions.NotValidFamilyException;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
