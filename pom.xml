@@ -60,7 +60,7 @@
               <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>lagatrix.server.Main</mainClass>
+                <mainClass>lagatrix.Main</mainClass>
               </manifest>
             </archive>
           </configuration>

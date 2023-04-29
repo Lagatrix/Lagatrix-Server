@@ -15,6 +15,9 @@ import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
 import lagatrix.entities.dto.event.Event;
+import lagatrix.entities.dto.hardware.CPU;
+import lagatrix.entities.dto.hardware.GPU;
+import lagatrix.entities.dto.hardware.RAM;
 import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.entities.dto.partition.Partition;
 import lagatrix.entities.dto.process.UnixProcess;
@@ -24,7 +27,6 @@ import lagatrix.exceptions.NotSupportedOperation;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.file.log.LogContoller;
 import lagatrix.tools.command.CommandExecutor;
-import static lagatrix.tools.detectors.DevicesEnum.*;
 
 /**
  * This class manage the client request.
@@ -70,7 +72,7 @@ public class ClientManager extends Thread {
                     manager = determineRequester(request.getObjectWhoRequest());
                     manager.determineRequest(request);
                 } else {
-                    communicator.closeClient();
+                    communicator.close();
                     break;
                 }
             } catch (LagatrixException ex) {

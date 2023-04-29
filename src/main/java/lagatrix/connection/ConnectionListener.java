@@ -6,6 +6,7 @@ import java.net.Socket;
 import lagatrix.connection.client.AuthClient;
 import lagatrix.connection.client.ClientManager;
 import lagatrix.connection.client.EstablishConnection;
+import lagatrix.connection.client.ObjectSocket;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -48,7 +49,7 @@ public class ConnectionListener extends Thread {
             try {
                 client = getClient();
 
-                aesc = establishConnection(client);
+                aesc = establishConnection(new ObjectSocket(client));
                 
                 executor = new CommandExecutor();
 
@@ -75,7 +76,7 @@ public class ConnectionListener extends Thread {
      * @return The AESCommunicator.
      * @throws ConnectionException If raise an connection error.
      */
-    private synchronized AESCommunicator establishConnection(Socket client) throws ConnectionException {
+    private synchronized AESCommunicator establishConnection(ObjectSocket client) throws ConnectionException {
         EstablishConnection ec = new EstablishConnection(client);
 
         ec.sendRSA();

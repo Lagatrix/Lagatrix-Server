@@ -1,6 +1,5 @@
 package lagatrix.connection.client;
 
-import java.net.Socket;
 import java.security.KeyPair;
 import javax.crypto.SecretKey;
 import lagatrix.connection.communicators.AESCommunicator;
@@ -22,7 +21,7 @@ import lagatrix.tools.generator.RSAGenerator;
  */
 public class EstablishConnection {
 
-    private Socket socket;
+    private ObjectSocket socket;
     private KeyPair pair;
 
     /**
@@ -31,7 +30,7 @@ public class EstablishConnection {
      * @param socket The socket of the client.
      * @throws AlgorithmException If can't create an pair.
      */
-    public EstablishConnection(Socket socket) throws AlgorithmException {
+    public EstablishConnection(ObjectSocket socket) throws AlgorithmException {
         this.socket = socket;
         this.pair = RSAGenerator.generatePair();
     }
@@ -49,7 +48,6 @@ public class EstablishConnection {
         res.setResponse(pair.getPublic());
         
         pc.sendResponse(res);
-        pc.close();
     }
     
     /**
@@ -66,7 +64,6 @@ public class EstablishConnection {
         Request request;
         
         request = rsac.obtainRequest();
-        rsac.close();
         
         return new AESCommunicator(socket, (SecretKey) request.getParams()[0]);
     }

@@ -13,6 +13,7 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SealedObject;
+import lagatrix.connection.client.ObjectSocket;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
@@ -39,7 +40,7 @@ public class RSACommunicator extends CommunicatorBase {
      * @throws ConnectionInOutException If have an I/O error when create 
      * connection.
      */
-    public RSACommunicator(Socket socket, KeyPair pair) throws ConnectionInOutException {
+    public RSACommunicator(ObjectSocket socket, KeyPair pair) throws ConnectionInOutException {
         super(socket);
         this.privateKey = pair.getPrivate();
         this.publicKey = pair.getPublic();
@@ -54,7 +55,7 @@ public class RSACommunicator extends CommunicatorBase {
             encryptCipher = Cipher.getInstance("RSA");
             encryptCipher.init(Cipher.DECRYPT_MODE, privateKey);
 
-            sealedObject = (SealedObject) in.readObject();
+            sealedObject = (SealedObject) socket.getIn().readObject();
 
             return (Request) sealedObject.getObject(encryptCipher);
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
@@ -79,7 +80,7 @@ public class RSACommunicator extends CommunicatorBase {
             
             sealedObject = new SealedObject( (Serializable) response, encryptCipher);
             
-            out.writeObject(sealedObject);
+            socket.getOut().writeObject(sealedObject);
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
             throw new AlgorithmException("RSA");
         }  catch (IOException ex) {

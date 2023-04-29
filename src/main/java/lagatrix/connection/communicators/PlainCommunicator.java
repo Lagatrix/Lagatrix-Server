@@ -2,6 +2,7 @@ package lagatrix.connection.communicators;
 
 import java.io.IOException;
 import java.net.Socket;
+import lagatrix.connection.client.ObjectSocket;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
@@ -17,14 +18,14 @@ import lagatrix.exceptions.connection.ConnectionInOutException;
  */
 public class PlainCommunicator extends CommunicatorBase {
 
-    public PlainCommunicator(Socket socket) throws ConnectionInOutException {
+    public PlainCommunicator(ObjectSocket socket) throws ConnectionInOutException {
         super(socket);
     }
     
     @Override
     public Request obtainRequest() throws ConnectionInOutException, AlgorithmException, BadClassFormatException {
         try {
-            return (Request) in.readObject();
+            return (Request) socket.getIn().readObject();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
                     this.getClass(), ActionsEnum.RECEIVE, ex));
@@ -36,7 +37,7 @@ public class PlainCommunicator extends CommunicatorBase {
     @Override
     public void sendResponse(Response response) throws ConnectionInOutException, AlgorithmException {
         try {
-            out.writeObject(response);
+            socket.getOut().writeObject(response);
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
                     this.getClass(), ActionsEnum.SEND, ex));

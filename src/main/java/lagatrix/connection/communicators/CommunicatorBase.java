@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import lagatrix.connection.client.ObjectSocket;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
@@ -19,20 +20,10 @@ import lagatrix.exceptions.connection.ConnectionInOutException;
  */
 public abstract class CommunicatorBase {
     
-    protected Socket socket;
-    protected ObjectOutputStream out;
-    protected ObjectInputStream in;
+    protected ObjectSocket socket;
 
-    public CommunicatorBase(Socket socket) throws ConnectionInOutException {
+    public CommunicatorBase(ObjectSocket socket) {
         this.socket = socket;
-        
-        try {
-            this.out = new ObjectOutputStream(socket.getOutputStream());
-            this.in = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.OPEN, ex));
-        }
     }
     
     /**
@@ -62,23 +53,8 @@ public abstract class CommunicatorBase {
      */
     public void close() throws ConnectionInOutException {
         try {
-            out.close();
-            in.close();
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.CLOSE, ex));
-        }
-    }
-    
-    /**
-     * Close the connector and client connection.
-     * 
-     * @throws ConnectionInOutException If the connector can't close.
-     */
-    public void closeClient() throws ConnectionInOutException {
-        try {
-            close();
-            socket.close();
+            socket.getOut().close();
+            socket.getIn().close();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
                     this.getClass(), ActionsEnum.CLOSE, ex));
@@ -91,6 +67,6 @@ public abstract class CommunicatorBase {
      * @return The IP.
      */
     public String getClientIp() {
-        return socket.getInetAddress().toString();
+        return socket.getSocket().getInetAddress().toString();
     }
 }
