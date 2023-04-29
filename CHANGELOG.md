@@ -10,8 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
-- LACLI006 - 29/04/2023 - Fix close the streams of socket.
-- LACLI006 - 29/04/2023 - Fix small RSA key.
+- LACLI011 - 29/04/2023 - Fix close the streams of socket.
+- LACLI011 - 29/04/2023 - Fix small RSA key.
+- LACLI011 - 29/04/2023 - Fix infinite while in connection when have I/O error.
 
 ### Removed
 

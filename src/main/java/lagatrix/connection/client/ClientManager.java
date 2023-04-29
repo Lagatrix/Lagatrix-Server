@@ -25,6 +25,7 @@ import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.LagatrixException;
 import lagatrix.exceptions.NotSupportedOperation;
 import lagatrix.exceptions.connection.ConnectionException;
+import lagatrix.exceptions.connection.ConnectionInOutException;
 import lagatrix.file.log.LogContoller;
 import lagatrix.tools.command.CommandExecutor;
 
@@ -75,6 +76,9 @@ public class ClientManager extends Thread {
                     communicator.close();
                     break;
                 }
+            } catch (ConnectionInOutException ex) {
+                makeWarning(ex);
+                break;
             } catch (LagatrixException ex) {
                 makeWarning(ex);
             } catch (RuntimeException ex) {
@@ -92,8 +96,6 @@ public class ClientManager extends Thread {
      * @throws NotSupportedOperation If the classItem is not valid.
      */
     private synchronized RequestManager determineRequester(Class classItem) throws NotSupportedOperation {
-        CPU.class.getSimpleName();
-
         // Determine the request.
         if (classItem.equals(CPU.class)) {
             return new RequestCPU(communicator, executor, logger);
