@@ -25,7 +25,7 @@ public class RSAGenerator {
         try {
             keyGen = KeyPairGenerator.getInstance("RSA");
             
-            keyGen.initialize(2048);
+            keyGen.initialize(4092);
             return keyGen.genKeyPair();
         } catch (NoSuchAlgorithmException ex) {
            throw new AlgorithmException("Can't create RSA keys");
