@@ -33,7 +33,7 @@ public class RequestProcess extends RequestManager {
         if (request.getAction() == ActionsEnum.GET){
             response.setResponse(manager.getProcess());
         } else if (request.getAction() == ActionsEnum.DELETE) {
-            manager.killProcess((int) request.getParams()[0]);
+            manager.killProcess((Integer) request.getParams()[0]);
             message = String.format("the PID of process who kill is %d", request.getParams()[0]);
             response.setCorrectResult(true);
         }

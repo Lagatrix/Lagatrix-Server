@@ -26,6 +26,7 @@ public class ProcessManager {
      */
     public ProcessManager(CommandExecutor executor) {
         this.information = new ProcessInfo(executor);
+        this.deletion = new ProcessDeletion(executor);
     }
     
     /**
