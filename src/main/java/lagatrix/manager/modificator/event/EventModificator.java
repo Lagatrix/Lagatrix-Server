@@ -34,7 +34,8 @@ public class EventModificator {
      * command.
      */
     public void modifyEvent(String eventOld, String eventNew) throws EventException {
-        String command = String.format("crontab -l | sed '/%s/c %s' | sudo crontab -", eventOld, eventNew);
+        String command = String.format("crontab -l | sed 's/%s/%s/' | sudo crontab -", 
+                sedEventFormater(eventOld), sedEventFormater(eventNew));
         
         try {
             executor.executeCommand(command, true); 
@@ -43,4 +44,27 @@ public class EventModificator {
                     this.getClass(), ActionsEnum.MODIFY, ex.getMessage()));
         }
     } 
+    
+    /**
+     * Fortam the command if have special characters.
+     * 
+     * @param command The command who use.
+     * @return The command.
+     */
+    private String sedEventFormater(String command) {
+        StringBuilder sb = new StringBuilder("");
+        char commandChar;
+        
+        for (int i = 0; i < command.length(); i++) {
+            commandChar = command.charAt(i);
+            
+            if (commandChar == '/' || commandChar == '*') {
+                sb.append('\\');
+            }
+            
+            sb.append(commandChar);
+        }
+        
+        return sb.toString();
+    }
 }
