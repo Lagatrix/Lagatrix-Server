@@ -33,13 +33,13 @@ public class PasswordModificator {
      * command.
      */
     public void modifyPassword(String username, String newPassword) throws UserException {
-        String command = String.format("printf '%s\n%s' | passwd %s", newPassword, newPassword, username);
+        String command = String.format("printf '%s\\n%s' | sudo passwd %s", newPassword, newPassword, username);
         
         try {
             executor.executeCommand(command, true); 
         } catch (CommandException ex) {
             throw new UserException(UserException.getMessage(
-                    this.getClass(), ActionsEnum.INSERT, ex.getMessage()));
+                    this.getClass(), ActionsEnum.MODIFY, ex.getMessage()));
         }
     }
 }

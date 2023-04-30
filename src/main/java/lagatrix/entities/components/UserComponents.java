@@ -10,7 +10,7 @@ public enum UserComponents {
     USERNAME("Username", 1, "-l"),
     HOME("Home path", 6, "-d"),
     GROUP("Main group", 4, "-G"),
-    SHELL("Password", 7, "-p");
+    SHELL("Shell", 7, "-s");
     
     
     private String name, valueUserMod;

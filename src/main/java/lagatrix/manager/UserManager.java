@@ -96,7 +96,7 @@ public class UserManager {
      * @throws UserException If can't modify the user.
      */
     public void modifyUser(String username, User newUser) throws UserException {
-        if (newUser.getPassword() != null){
+        if (!newUser.getPassword().equals("")){
             password.modifyPassword(username, newUser.getPassword());
         }
         

@@ -63,10 +63,10 @@ public class UserInsertion {
      * command.
      */
     private void executeCommand(String name, String home, String shell, String mainGroup) throws UserException {
-        String command = String.format("sudo useradd %s -m -d %s  -s %s", name, home, shell);
+        String command = String.format("useradd %s -m -d %s -s %s", name, home, shell);
         
         // Check if you don't want to be added to existing group.
-        if (mainGroup != null){
+        if (!mainGroup.equals("")){
             command = String.format("%s -G %s", command, mainGroup);
         }
         

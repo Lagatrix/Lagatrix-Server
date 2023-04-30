@@ -46,7 +46,7 @@ public class UserModificator {
      * command.
      */
     public void modifyHome(String username, String newHome) throws UserException{
-        executeCommand(username, newHome, UserComponents.USERNAME);
+        executeCommand(username, newHome, UserComponents.HOME);
     }
     
     /**
@@ -58,7 +58,7 @@ public class UserModificator {
      * command.
      */
     public void modifyShell(String username, String newShell) throws UserException{
-        executeCommand(username, newShell, UserComponents.USERNAME);
+        executeCommand(username, newShell, UserComponents.SHELL);
     }
     
     /**
@@ -70,7 +70,7 @@ public class UserModificator {
      * command.
      */
     public void modifyMainGroup(String username, String newMainGroup) throws UserException{
-        executeCommand(username, newMainGroup, UserComponents.USERNAME);
+        executeCommand(username, newMainGroup, UserComponents.GROUP);
     }
     
     /**

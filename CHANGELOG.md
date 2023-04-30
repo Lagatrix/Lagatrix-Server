@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI008 - 30/04/2023 - Fix gets event command.
 - LACLI008 - 30/04/2023 - Fix modify event command.
 - LACLI008 - 30/04/2023 - Fix delete event command.
+- LACLI006 - 01/05/2023 - Fix add and modify users.
 
 ### Removed
 
