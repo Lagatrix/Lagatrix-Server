@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI011 - 29/04/2023 - Fix small RSA key.
 - LACLI011 - 29/04/2023 - Fix infinite while in connection when have I/O error.
 - LACLI002 - 29/04/2023 - Fix model error in GPU.
+- LACLI008 - 30/04/2023 - Fix gets event command.
 
 ### Removed
 

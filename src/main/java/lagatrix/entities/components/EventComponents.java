@@ -12,7 +12,7 @@ public enum EventComponents {
     DAY_MONTH("Day month", "3"),
     MONTH("Month", "4"),
     DAY_WEEK("Day week", "5"),
-    COMMAND("Command", "6");
+    COMMAND("Command", "6-");
     
     private String name;
     private String value;
