@@ -7,7 +7,7 @@ package lagatrix.entities.components;
  * @since 0.1
  */
 public enum GPUComponents {
-    MODEL("Model", "Model"),
+    MODEL("Model", "Device:"),
     VENDOR("Vendor", "Vendor:");
     
     private String name;
