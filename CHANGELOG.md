@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 29/04/2023 - Fix model error in GPU.
 - LACLI008 - 30/04/2023 - Fix gets event command.
 - LACLI008 - 30/04/2023 - Fix modify event command.
+- LACLI008 - 30/04/2023 - Fix delete event command.
 
 ### Removed
 

@@ -4,6 +4,7 @@ import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.exceptions.command.CommandException;
 import lagatrix.exceptions.manager.event.EventException;
 import lagatrix.tools.command.CommandExecutor;
+import lagatrix.tools.formater.CommandFormater;
 
 /**
  * This class modify event in the root crontab file.
@@ -35,7 +36,8 @@ public class EventModificator {
      */
     public void modifyEvent(String eventOld, String eventNew) throws EventException {
         String command = String.format("crontab -l | sed 's/%s/%s/' | sudo crontab -", 
-                sedEventFormater(eventOld), sedEventFormater(eventNew));
+                CommandFormater.sedEventFormater(eventOld), 
+                CommandFormater.sedEventFormater(eventNew));
         
         try {
             executor.executeCommand(command, true); 
@@ -44,27 +46,4 @@ public class EventModificator {
                     this.getClass(), ActionsEnum.MODIFY, ex.getMessage()));
         }
     } 
-    
-    /**
-     * Fortam the command if have special characters.
-     * 
-     * @param command The command who use.
-     * @return The command.
-     */
-    private String sedEventFormater(String command) {
-        StringBuilder sb = new StringBuilder("");
-        char commandChar;
-        
-        for (int i = 0; i < command.length(); i++) {
-            commandChar = command.charAt(i);
-            
-            if (commandChar == '/' || commandChar == '*') {
-                sb.append('\\');
-            }
-            
-            sb.append(commandChar);
-        }
-        
-        return sb.toString();
-    }
 }

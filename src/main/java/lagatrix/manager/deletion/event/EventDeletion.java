@@ -4,6 +4,7 @@ import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.exceptions.command.CommandException;
 import lagatrix.exceptions.manager.event.EventException;
 import lagatrix.tools.command.CommandExecutor;
+import lagatrix.tools.formater.CommandFormater;
 
 /**
  * This class delete event in the root crontab file.
@@ -32,7 +33,8 @@ public class EventDeletion {
      * command.
      */
     public void deleteEvent(String event) throws EventException {
-        String command = String.format("crontab -l | grep -v \"%s\"  | sudo crontab -", event);
+        String command = String.format("crontab -l | grep -v \"%s\" | sudo crontab -", 
+                CommandFormater.sedEventFormater(event));
         
         try {
             executor.executeCommand(command, true); 
