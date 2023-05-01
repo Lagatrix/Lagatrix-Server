@@ -39,7 +39,7 @@ public class PackageInsertion {
                 component.getCommand(), component.getInstall(), component.getNoConfirm(), packageName);
         
         try {
-            executor.executeCommand(command); 
+            executor.executeCommand(command, true); 
         } catch (CommandException ex) {
             throw new PackageManagerException(PackageManagerException
                     .getMessageFailPackage("install", packageName));

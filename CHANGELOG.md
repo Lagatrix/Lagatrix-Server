@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI008 - 30/04/2023 - Fix delete event command.
 - LACLI006 - 01/05/2023 - Fix add and modify users.
 - LACLI007 - 01/05/2023 - Fix kill process.
+- LACLI009 - 01/05/2023 - Fix manage APT packages.
 
 ### Removed
 

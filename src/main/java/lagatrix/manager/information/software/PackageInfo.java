@@ -36,8 +36,8 @@ public class PackageInfo {
      * of the command.
      */
     public boolean isInstaled(String packageName) throws PackageManagerException{
-        String command = String.format("%s %s %s %s", 
-                component.getCommand(), component.getList(), component.getNoConfirm(), packageName);
+        String command = String.format("%s %s %s", 
+                component.getCommand(), component.getList(), packageName);
         
         try {
             executor.executeCommand(command, true);

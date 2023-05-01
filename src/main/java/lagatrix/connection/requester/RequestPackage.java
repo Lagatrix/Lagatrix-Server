@@ -32,6 +32,7 @@ public class RequestPackage extends RequestManager {
         switch (request.getAction()) {
             case INSERT:
                 manager.installPackage((String) request.getParams()[0]);
+                response.setCorrectResult(true);
                 break;
             case MODIFY:
                 switch ((String) request.getParams()[0]){
@@ -44,12 +45,14 @@ public class RequestPackage extends RequestManager {
                     default:
                         manager.upgradePackage((String) request.getParams()[0]);
                 }
+                response.setCorrectResult(true);
                 break;
             case DELETE:
                 manager.uninstallPackage((String) request.getParams()[0]);
+                response.setCorrectResult(true);
                 break;
             case GET:
-                response.setCorrectResult((Boolean) manager.isPackageInstaled((String) request.getParams()[0]));
+                response.setResponse((Boolean) manager.isPackageInstaled((String) request.getParams()[0]));
                 break;
         }
         

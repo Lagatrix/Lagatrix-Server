@@ -54,6 +54,7 @@ public class ClientManager extends Thread {
         this.communicator = communicator;
         this.executor = executor;
         this.logger = logger;
+        this.packageManager = packageManager;
     }
 
     @Override
@@ -113,7 +114,7 @@ public class ClientManager extends Thread {
             return new RequestUser(communicator, executor, logger);
         } else if (classItem.equals(Event.class)) {
             return new RequestEvent(communicator, executor, logger);
-        } else if (classItem.equals(String.class)) {
+        } else if (classItem.equals(PackageManagerComponents.class)) {
             return new RequestPackage(communicator, executor, packageManager, logger);
         }
 
