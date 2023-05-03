@@ -29,15 +29,15 @@ public class RequestRAM extends RequestManager {
         Response response = new Response();
         
         // Determine if get use or RAM info.
-        if (request.getAction() == ActionsEnum.INSERT) {
-            if (request.getParams().length < 1) {
+        if (request.getAction() == ActionsEnum.GET) {
+            if (request.getParams().length > 0) {
                 response.setResponse(manager.obtainUse());
             } else {
                 response.setResponse(manager.obtainRAM());
+                logger.info(communicator.getClientIp(), request.getAction(), "RAM");
             }
         }
         
-        logger.info(communicator.getClientIp(), request.getAction(), "RAM");
         communicator.sendResponse(response);    
     }
 

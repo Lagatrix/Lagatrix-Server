@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 - LASRV007 - 03/05/2023 - Not see root process.
+- LASRV009 - 03/05/2023 - Put autoremove.
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
@@ -22,7 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV007 - 01/05/2023 - Fix kill process.
 - LASRV009 - 01/05/2023 - Fix manage APT packages.
 - LASRV006 - 03/05/2023 - Actions in user not send good response.
-- LASRV009 - 03/05/2023 - Put autoremove.
+- LASRV004 - 03/05/2023 - Fix obtain RAM use.
 
 ### Removed
 
