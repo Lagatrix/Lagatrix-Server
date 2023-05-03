@@ -1,0 +1,9 @@
+[Unit]
+Description=Lagatrix Server
+[Service]
+Type=Simple
+RestartSec=1
+User=lagatrix
+ExecStart=/usr/sbin/lagatrix-server.sh
+[Install]
+WantedBy=multi-user.target
