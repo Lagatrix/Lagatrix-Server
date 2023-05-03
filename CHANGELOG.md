@@ -7,19 +7,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 ### Changed
+- LASRV007 - 03/05/2023 - Not see root process.
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
-- LACLI011 - 29/04/2023 - Fix close the streams of socket.
-- LACLI011 - 29/04/2023 - Fix small RSA key.
-- LACLI011 - 29/04/2023 - Fix infinite while in connection when have I/O error.
-- LACLI002 - 29/04/2023 - Fix model error in GPU.
-- LACLI008 - 30/04/2023 - Fix gets event command.
-- LACLI008 - 30/04/2023 - Fix modify event command.
-- LACLI008 - 30/04/2023 - Fix delete event command.
-- LACLI006 - 01/05/2023 - Fix add and modify users.
-- LACLI007 - 01/05/2023 - Fix kill process.
-- LACLI009 - 01/05/2023 - Fix manage APT packages.
+- LASRV011 - 29/04/2023 - Fix close the streams of socket.
+- LASRV011 - 29/04/2023 - Fix small RSA key.
+- LASRV011 - 29/04/2023 - Fix infinite while in connection when have I/O error.
+- LASRV002 - 29/04/2023 - Fix model error in GPU.
+- LASRV008 - 30/04/2023 - Fix gets event command.
+- LASRV008 - 30/04/2023 - Fix modify event command.
+- LASRV008 - 30/04/2023 - Fix delete event command.
+- LASRV006 - 01/05/2023 - Fix add and modify users.
+- LASRV007 - 01/05/2023 - Fix kill process.
+- LASRV009 - 01/05/2023 - Fix manage APT packages.
 
 ### Removed
 

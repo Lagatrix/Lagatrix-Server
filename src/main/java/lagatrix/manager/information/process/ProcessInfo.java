@@ -96,7 +96,7 @@ public class ProcessInfo {
      * command.
      */
     private CommandResponse executeCommand(int numProcess, ProcessComponents component) throws ProcessException {
-        String command = String.format("ps aux --no-headers | awk '{print $%s}' | sed -n %dp", 
+        String command = String.format("ps aux --no-headers | grep -v root | awk '{print $%s}' | sed -n %dp", 
                 component.getValue(), numProcess);
         String msgError = ProcessException.getMessage(this.getClass(), 
                 component.getName(), ActionsEnum.GET);
