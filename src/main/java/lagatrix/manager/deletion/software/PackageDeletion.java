@@ -35,11 +35,14 @@ public class PackageDeletion {
      * of the command.
      */
     public void uninstallPackage(String packageName) throws PackageManagerException{
-         String command = String.format("%s %s %s %s", 
-                component.getCommand(), component.getUninstall(), component.getNoConfirm(), packageName);
+         String commandPackage = String.format("%s %s %s %s", 
+                component.getCommand(), component.getUninstall(), component.getNoConfirm(), packageName),
+         commandClean = String.format("%s %s %s", 
+                component.getCommand(),  component.getClean(), component.getNoConfirm());
         
         try {
-            executor.executeCommand(command, true); 
+            executor.executeCommand(commandPackage, true);
+            executor.executeCommand(commandClean, true);
         } catch (CommandException ex) {
             throw new PackageManagerException(PackageManagerException.getMessageFailPackage("uninstall", packageName));
         }

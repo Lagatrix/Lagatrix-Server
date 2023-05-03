@@ -7,10 +7,10 @@ package lagatrix.entities.components;
  * @since 0.1
  */
 public enum PackageManagerComponents {
-    APT("apt", new String[] {"install", "purge", "update", "upgrade", "list --installed | grep"}, "-y"),
-    YUM("yum", new String[] {"install", "remove", "update", "upgrade", "list"}, "-y"),
-    ZYPPER("zypper", new String[] {"install", "purge", "refresh", "update", "se"}, "-n"),
-    PACMAN("pacman", new String[] {"-S", "-R", "-Sy", "-Syu", "-Q"}, "--noconfirm");
+    APT("apt", new String[] {"install", "purge", "update", "upgrade", "autoremove", "list --installed | grep"}, "-y"),
+    YUM("yum", new String[] {"install", "remove", "update", "upgrade", "autoremove", "list"}, "-y"),
+    ZYPPER("zypper", new String[] {"install", "purge", "refresh", "update", "clean --all", "se"}, "-n"),
+    PACMAN("pacman", new String[] {"-S", "-R", "-Sy", "-Syu", "-Qdtq", "-Q"}, "--noconfirm");
 
     private String command;
     private String[] options;
@@ -49,8 +49,12 @@ public enum PackageManagerComponents {
         return options[3];
     }
     
-    public String getList() {
+    public String getClean() {
         return options[4];
+    }
+    
+    public String getList() {
+        return options[5];
     }
 
     public String getNoConfirm() {

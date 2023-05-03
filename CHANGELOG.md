@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV007 - 01/05/2023 - Fix kill process.
 - LASRV009 - 01/05/2023 - Fix manage APT packages.
 - LASRV006 - 03/05/2023 - Actions in user not send good response.
+- LASRV009 - 03/05/2023 - Put autoremove.
 
 ### Removed
 
