@@ -22,7 +22,7 @@ if [ -f "/usr/bin/java" ]; then
     if (( $(echo "$java_version > 1.7" | bc -l) )); then
         if [ -f "/usr/sbin/lagatrix-server.jar" ]; then
             logo
-            /usr/bin/java /usr/sbin/lagatrix-server.jar
+            /usr/bin/java -jar /usr/sbin/lagatrix-server.jar
         else 
             error_msg "The executable JAR of lagatrix server not exist or not found in /usr/sbin/"
         fi
