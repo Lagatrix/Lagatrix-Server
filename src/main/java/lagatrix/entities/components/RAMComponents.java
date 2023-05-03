@@ -8,7 +8,7 @@ package lagatrix.entities.components;
  */
 public enum RAMComponents {
     CAPACITY("Memory capacity", "'[A-Z]' '{print $1}'"),
-    UNIT_CAPACITY("UnitCapacity", "'[0-9].' '{print $2}'");
+    UNIT_CAPACITY("UnitCapacity", "'[0-9]+' '{print $2}'");
     
     
     private String name;
