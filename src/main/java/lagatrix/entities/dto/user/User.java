@@ -1,6 +1,7 @@
 package lagatrix.entities.dto.user;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * THis entity represents an Linux user.
@@ -65,6 +66,27 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "username=" + username + ", home=" + home + ", shell=" + shell + ", group=" + group + ", password=" + password + ", isRoot=" + isRoot + '}';
+        return username;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        return Objects.equals(this.username, other.username);
     }
 }
