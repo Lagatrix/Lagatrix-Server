@@ -8,8 +8,8 @@ package lagatrix.entities.components;
  */
 public enum PackageManagerComponents {
     APT("apt", new String[] {"install", "purge", "update", "upgrade", "autoremove", "list --installed | grep"}, "-y"),
-    YUM("yum", new String[] {"install", "remove", "update", "upgrade", "autoremove", "list"}, "-y"),
-    ZYPPER("zypper", new String[] {"install", "purge", "refresh", "update", "clean --all", "se"}, "-n"),
+    YUM("yum", new String[] {"install", "remove", "update", "upgrade", "autoremove", "list installed"}, "-y"),
+    ZYPPER("zypper", new String[] {"install", "purge", "refresh", "update", "clean --all", "search -i"}, "-n"),
     PACMAN("pacman", new String[] {"-S", "-R", "-Sy", "-Syu", "-Qdtq", "-Q"}, "--noconfirm");
 
     private String command;
