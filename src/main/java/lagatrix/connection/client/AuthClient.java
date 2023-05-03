@@ -18,17 +18,20 @@ public class AuthClient {
     private AESCommunicator communicator;
     private CommandExecutor executor;
     private int attempt;
+    private boolean rootAccess;
 
     /**
      * The constructor of the class.
      * 
      * @param communicator The AES Communicator.
      * @param executor The command executor.
+     * @param rootAccess If root can access.
      */
-    public AuthClient(AESCommunicator communicator, CommandExecutor executor) {
+    public AuthClient(AESCommunicator communicator, CommandExecutor executor, boolean rootAccess) {
         this.communicator = communicator;
         this.executor = executor;
         this.attempt = 3;
+        this.rootAccess = rootAccess;
     }
     
     /**
@@ -45,6 +48,13 @@ public class AuthClient {
             request = communicator.obtainRequest();
             
             if (manager.authUser((String) request.getParams()[0], (String) request.getParams()[1])){
+                if (rootAccess) {
+                    if (((String) request.getParams()[0]).equals("root")) {
+                        communicator.sendResponse(new Response("Root can't access", true));
+                        return true;
+                    }
+                }
+                
                 if (manager.isRoot((String) request.getParams()[0])){
                     communicator.sendResponse(new Response("Correct login", true));
                     return true;

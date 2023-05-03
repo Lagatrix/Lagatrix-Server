@@ -25,6 +25,7 @@ public class ConnectionListener extends Thread {
     private ServerSocket socket;
     private LogContoller logger;
     private PackageManagerComponents packageManager;
+    private boolean rootAccess;
 
     /**
      * Constructor of the class.
@@ -32,11 +33,13 @@ public class ConnectionListener extends Thread {
      * @param socket The socket who use.
      * @param logger The LogController.
      * @param packageManager The PackageManager of the system.
+     * @param rootAccess If root can access.
      */
-    public ConnectionListener(ServerSocket socket, LogContoller logger, PackageManagerComponents packageManager){
+    public ConnectionListener(ServerSocket socket, LogContoller logger, PackageManagerComponents packageManager, boolean rootAccess){
         this.socket = socket;
         this.logger = logger;
         this.packageManager = packageManager;
+        this.rootAccess = rootAccess;
     }
 
     @Override
@@ -48,7 +51,7 @@ public class ConnectionListener extends Thread {
         while (true) {
             try {
                 client = getClient();
-
+                
                 aesc = establishConnection(new ObjectSocket(client));
                 
                 executor = new CommandExecutor();
@@ -93,7 +96,7 @@ public class ConnectionListener extends Thread {
      * @throws ConnectionException If have an connection error. 
      */
     private synchronized boolean auth(AESCommunicator communicator, CommandExecutor executor) throws ConnectionException {
-        AuthClient auth = new AuthClient(communicator, executor);
+        AuthClient auth = new AuthClient(communicator, executor, rootAccess);
         
         return auth.makeLogin();
     }

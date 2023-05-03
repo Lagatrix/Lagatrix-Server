@@ -50,7 +50,7 @@ public class RootPermissionInfo {
      * command.
      */
     private CommandResponse executeCommand(String username) throws UserException {
-        String command = String.format("groups %s | grep 'sudo'", username);
+        String command = String.format("groups %s | grep 'sudo\\|wheel'", username);
         CommandResponse response = null;
         
         try {
