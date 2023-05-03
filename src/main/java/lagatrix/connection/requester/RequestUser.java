@@ -48,6 +48,7 @@ public class RequestUser extends RequestManager {
                 manager.modifyUser((String) request.getParams()[0], (User) request.getParams()[1]);
                 message = String.format("the user who changed is %s", 
                         request.getParams()[0]);
+                response.setCorrectResult(true);
                 break;
         }
         
