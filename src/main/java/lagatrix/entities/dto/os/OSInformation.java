@@ -12,7 +12,7 @@ import lagatrix.entities.components.PackageManagerComponents;
 public class OSInformation implements Serializable {
     
     private String distribution, distributionName, distributionFamily, kernel, hostname;
-    private int distributionVersion;
+    private float distributionVersion;
     private PackageManagerComponents packageManager;
 
     public OSInformation() {
@@ -58,11 +58,11 @@ public class OSInformation implements Serializable {
         this.hostname = hostname;
     }
 
-    public int getDistributionVersion() {
+    public float getDistributionVersion() {
         return distributionVersion;
     }
 
-    public void setDistributionVersion(int distributionVersion) {
+    public void setDistributionVersion(float distributionVersion) {
         this.distributionVersion = distributionVersion;
     }
 

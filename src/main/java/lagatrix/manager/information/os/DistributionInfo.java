@@ -58,13 +58,13 @@ public class DistributionInfo {
     }
     
     /**
-    * This method obtain the only version distribution of the machine.
+     * This method obtain the only version distribution of the machine.
      * 
      * @return The version.
      * @throws OSException If can't obtain the distribution.
      */
-    public int obtainDistributionVersion() throws OSException{
-        return Integer.parseInt(executeCommand(OSComponents.DISTRIBUTION_VERSION).getFirstLine());
+    public float obtainDistributionVersion() throws OSException{
+        return Float.parseFloat(executeCommand(OSComponents.DISTRIBUTION_VERSION).getFirstLine());
     }
     
     /**

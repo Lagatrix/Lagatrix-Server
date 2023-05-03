@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV006 - 03/05/2023 - Actions in user not send good response.
 - LASRV004 - 03/05/2023 - Fix obtain RAM use.
 - LASRV004 - 03/05/2023 - Fix obtain RAM unit capacity.
+- LASRV005 - 03/05/2023 - Fix float versions.
 
 ### Removed
 
