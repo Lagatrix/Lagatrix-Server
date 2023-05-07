@@ -1,6 +1,7 @@
 package lagatrix.entities.dto.os;
 
 import java.io.Serializable;
+import javax.swing.ImageIcon;
 import lagatrix.entities.components.PackageManagerComponents;
 
 /**
@@ -14,6 +15,7 @@ public class OSInformation implements Serializable {
     private String distribution, distributionName, distributionFamily, kernel, hostname;
     private float distributionVersion;
     private PackageManagerComponents packageManager;
+    private ImageIcon distroImage;
 
     public OSInformation() {
     }
@@ -72,6 +74,14 @@ public class OSInformation implements Serializable {
 
     public void setPackageManager(PackageManagerComponents packageManager) {
         this.packageManager = packageManager;
+    }
+
+    public ImageIcon getDistroImage() {
+        return distroImage;
+    }
+
+    public void setDistroImage(ImageIcon distroImage) {
+        this.distroImage = distroImage;
     }
 
     @Override
