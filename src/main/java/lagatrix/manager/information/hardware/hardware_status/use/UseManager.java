@@ -46,6 +46,6 @@ public abstract class UseManager {
             throw new UseException(msgError);
         }
         
-        return Float.parseFloat(response.getFirstLine());
+        return Float.parseFloat(response.getFirstLine().replace(',', '.'));
     }
 }
