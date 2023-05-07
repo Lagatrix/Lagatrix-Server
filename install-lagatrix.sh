@@ -3,8 +3,9 @@
 add_service_user() {
     useradd -r -s /usr/sbin/nologin lagatrix
     passwd -d lagatrix
-    usermod -aG sudo lagatrix
-    usermod -aG wheel lagatrix
+
+    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /usr/sbin/deluser \
+    /usr/bin/crontab, /bin/kill, /usr/bin/$1, /sbin/poweroff, /sbin/reboot, !/usr/sbin/usermod root >> /etc/sudoers
 }
 
 set_jar_executable() {
@@ -40,7 +41,7 @@ install_components() {
     $1 $4 $2 $5
 }
 
-family=$(cat /etc/os-release | grep -w 'ID_LIKE' | awk -F = '{print $2}' | xargs)
+family=$(cat /etc/os-release | grep -w 'ID_LIKE\|ID' | awk -F = '{print $2}' | xargs)
 
 case "${family}" in
     *rhel*)
@@ -87,7 +88,7 @@ fi
 
 install_components $package_manager $install_param $update_param $no_confirm "$packages"
 
-add_service_user
+add_service_user $package_manager
 
 set_jar_executable
 set_bash_executable
