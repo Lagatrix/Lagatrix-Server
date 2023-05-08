@@ -4,8 +4,8 @@ add_service_user() {
     useradd -r -s /usr/sbin/nologin lagatrix
     passwd -d lagatrix
 
-    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /usr/sbin/deluser \
-    /usr/bin/crontab, /bin/kill, /usr/bin/$1, /sbin/poweroff, /sbin/reboot, !/usr/sbin/usermod root >> /etc/sudoers
+    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /usr/sbin/deluser, \
+    /bin/crontab, /bin/kill, /usr/bin/$1, /sbin/poweroff, /sbin/reboot, !/usr/sbin/usermod root >> /etc/sudoers
 }
 
 set_jar_executable() {
@@ -49,7 +49,7 @@ case "${family}" in
         install_param=install
         update_param=update
         no_confirm=-y
-        packages="lm_sensors bc neofetch sudo"
+        packages="lm_sensors bc sudo"
         java_package="java-openjdk"
     ;;
     *debian*)
@@ -57,7 +57,7 @@ case "${family}" in
         install_param=install
         update_param=update
         no_confirm=-y
-        packages="lm-sensors bc neofetch sudo"
+        packages="lm-sensors bc sudo"
         java_package="default-jdk"
     ;;
     *suse*)
@@ -65,7 +65,7 @@ case "${family}" in
         install_param=install
         update_param=update
         no_confirm=-n
-        packages="sensors bc cronie neofetch sudo"
+        packages="sensors bc cronie sudo"
         java_package="java-openjdk"
     ;;
     *arch*)
@@ -73,7 +73,7 @@ case "${family}" in
         install_param=-S
         update_param=-Sy
         no_confirm=-no-confirm
-        packages="lm-sensors bc cronie neofetch sudo"
+        packages="lm-sensors bc cronie sudo"
         java_package="jdk-openjdk"
     ;;
     *)

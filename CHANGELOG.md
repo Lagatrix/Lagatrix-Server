@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV007 - 03/05/2023 - Not see root process.
 - LASRV009 - 03/05/2023 - Put autoremove.
 - LASRV006 - 03/05/2023 - Not see password.
-- LASRV013 - 03/05/2023 - Check root login.
+- LASRV014 - 03/05/2023 - Check root login.
 - LASRV001 - 07/05/2023 - Change the obtain CPU use.
 - LASRV001 - 07/05/2023 - Fix the obtain CPU use.
 
@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV004 - 03/05/2023 - Fix obtain RAM unit capacity.
 - LASRV005 - 03/05/2023 - Fix float versions.
 - LASRV009 - 03/05/2023 - Fix list packages in zypper and yum.
+- LASRV014 - 03/05/2023 - Fix not have crontab permissions.
 
 ### Removed
 
