@@ -65,15 +65,15 @@ case "${family}" in
         install_param=install
         update_param=update
         no_confirm=-n
-        packages="sensors bc cronie sudo"
+        packages="lm_sensors bc cronie sudo"
         java_package="java-openjdk"
     ;;
     *arch*)
         package_manager=pacman
         install_param=-S
         update_param=-Sy
-        no_confirm=-no-confirm
-        packages="lm-sensors bc cronie sudo"
+        no_confirm=--noconfirm
+        packages="lm_sensors bc cronie sudo"
         java_package="jdk-openjdk"
     ;;
     *)
