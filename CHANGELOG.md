@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV014 - 03/05/2023 - Check root login.
 - LASRV001 - 07/05/2023 - Change the obtain CPU use.
 - LASRV001 - 07/05/2023 - Fix the obtain CPU use.
+- LASRV005 - 09/05/2023 - Fix Arch version errors.
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.

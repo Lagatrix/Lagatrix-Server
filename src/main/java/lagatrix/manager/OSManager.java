@@ -42,10 +42,12 @@ public class OSManager {
         os.setDistribution(informationDistribution.obtainDistribution());
         os.setDistributionFamily(informationDistribution.obtainFamilyDistribution());
         os.setDistributionName(informationDistribution.obtainDistributionName());
-        os.setDistributionVersion(informationDistribution.obtainDistributionVersion());
         os.setHostname(informationUname.obtainHostname());
         os.setKernel(informationUname.obtainKernel());
         os.setPackageManager(PackageManagerDetector.detectPackageManager(os.getDistributionFamily()));
+        
+        // Unrelevant information.
+        os.setDistributionVersion(informationDistribution.obtainDistributionVersion());
 
         return os;
     }
