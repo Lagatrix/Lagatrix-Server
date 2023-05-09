@@ -43,26 +43,30 @@ public class AuthClient {
     public boolean makeLogin() throws ConnectionException {
         Request request;
         UserManager manager = new UserManager(executor);
+        String user, password;
         
         while (attempt > 0) {
             request = communicator.obtainRequest();
             
-            if (manager.authUser((String) request.getParams()[0], (String) request.getParams()[1])){
+            user = (String) request.getParams()[0];
+            password = (String) request.getParams()[1];
+            
+            if (manager.authUser(user, password)){
                 if (rootAccess) {
-                    if (((String) request.getParams()[0]).equals("root")) {
-                        communicator.sendResponse(new Response("Root can't access", true));
+                    if (user.equals("root")) {
+                        communicator.sendResponse(new Response("Root no puede entrar", true));
                         return true;
                     }
                 }
                 
-                if (manager.isRoot((String) request.getParams()[0])){
-                    communicator.sendResponse(new Response("Correct login", true));
+                if (manager.isRoot(user)){
+                    communicator.sendResponse(new Response("Login correcto", true));
                     return true;
                 } else {
-                    communicator.sendResponse(new Response("User not have root permissions", false));
+                    communicator.sendResponse(new Response("El usuario no tiene permisos de root", false));
                 }
             } else {
-                communicator.sendResponse(new Response("User or password is not valid", false));
+                communicator.sendResponse(new Response("Usuario o clave no correcta", false));
             }
             
             attempt--;

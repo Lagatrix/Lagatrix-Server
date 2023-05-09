@@ -35,6 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV005 - 03/05/2023 - Fix float versions.
 - LASRV009 - 03/05/2023 - Fix list packages in zypper and yum.
 - LASRV014 - 03/05/2023 - Fix not have crontab permissions.
+- LASRV006 - 09/05/2023 - Fix user password.
 
 ### Removed
 
