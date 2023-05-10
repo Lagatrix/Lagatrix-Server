@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 ### Added
 - LASRV014 - 03/05/2023 - Add scripts, service and config file.
-- LASRV010 - 10/05/2023 - Add the RequestProcess class.
+- LASRV010 - 10/05/2023 - Add the RequestPower class.
 
 ### Changed
 - LASRV007 - 03/05/2023 - Not see root process.
@@ -14,7 +14,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV006 - 03/05/2023 - Not see password.
 - LASRV014 - 03/05/2023 - Check root login.
 - LASRV001 - 07/05/2023 - Change the obtain CPU use.
-- LASRV001 - 07/05/2023 - Fix the obtain CPU use.
 - LASRV014 - 10/05/2023 - Check if root exec.
 
 ### Fixed
@@ -35,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV005 - 03/05/2023 - Fix float versions.
 - LASRV009 - 03/05/2023 - Fix list packages in zypper and yum.
 - LASRV014 - 03/05/2023 - Fix not have crontab permissions.
+- LASRV001 - 07/05/2023 - Fix the obtain CPU use.
 - LASRV006 - 09/05/2023 - Fix user password.
 - LASRV005 - 09/05/2023 - Fix Arch version errors.
 - LASRV014 - 09/05/2023 - Fix Arch install errors.
