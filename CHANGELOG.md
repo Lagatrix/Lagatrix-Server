@@ -15,9 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV014 - 03/05/2023 - Check root login.
 - LASRV001 - 07/05/2023 - Change the obtain CPU use.
 - LASRV001 - 07/05/2023 - Fix the obtain CPU use.
-- LASRV005 - 09/05/2023 - Fix Arch version errors.
-- LASRV014 - 09/05/2023 - Fix Arch install errors.
-- LASRV014 - 10/05/2023 - Fix no response when close client.
+- LASRV014 - 10/05/2023 - Check if root exec.
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
@@ -38,6 +36,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV009 - 03/05/2023 - Fix list packages in zypper and yum.
 - LASRV014 - 03/05/2023 - Fix not have crontab permissions.
 - LASRV006 - 09/05/2023 - Fix user password.
+- LASRV005 - 09/05/2023 - Fix Arch version errors.
+- LASRV014 - 09/05/2023 - Fix Arch install errors.
+- LASRV011 - 10/05/2023 - Fix no response when close client.
 
 ### Removed
 
