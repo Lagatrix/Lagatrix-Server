@@ -74,6 +74,7 @@ public class ClientManager extends Thread {
                     manager = determineRequester(request.getObjectWhoRequest());
                     manager.determineRequest(request);
                 } else {
+                    communicator.sendResponse(new Response(null, true));
                     communicator.close();
                     break;
                 }

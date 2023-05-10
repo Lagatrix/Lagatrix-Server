@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 07/05/2023 - Fix the obtain CPU use.
 - LASRV005 - 09/05/2023 - Fix Arch version errors.
 - LASRV014 - 09/05/2023 - Fix Arch install errors.
+- LASRV014 - 10/05/2023 - Fix no response when close client.
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
