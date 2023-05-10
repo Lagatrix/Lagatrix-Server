@@ -8,6 +8,7 @@ import lagatrix.connection.requester.RequestManager;
 import lagatrix.connection.requester.RequestOS;
 import lagatrix.connection.requester.RequestPackage;
 import lagatrix.connection.requester.RequestPartiton;
+import lagatrix.connection.requester.RequestPower;
 import lagatrix.connection.requester.RequestProcess;
 import lagatrix.connection.requester.RequestRAM;
 import lagatrix.connection.requester.RequestUser;
@@ -95,9 +96,8 @@ public class ClientManager extends Thread {
      *
      * @param classItem The entity who client request.
      * @return The requester.
-     * @throws NotSupportedOperation If the classItem is not valid.
      */
-    private synchronized RequestManager determineRequester(Class classItem) throws NotSupportedOperation {
+    private synchronized RequestManager determineRequester(Class classItem) {
         // Determine the request.
         if (classItem.equals(CPU.class)) {
             return new RequestCPU(communicator, executor, logger);
@@ -118,9 +118,8 @@ public class ClientManager extends Thread {
         } else if (classItem.equals(PackageManagerComponents.class)) {
             return new RequestPackage(communicator, executor, packageManager, logger);
         }
-
-        throw new NotSupportedOperation(String.format("The request of class '%s' is not valid",
-                classItem.getSimpleName()));
+        
+        return new RequestPower(communicator, executor, logger);
     }
 
     /**
