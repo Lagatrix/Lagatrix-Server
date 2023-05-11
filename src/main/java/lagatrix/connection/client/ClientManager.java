@@ -77,6 +77,10 @@ public class ClientManager extends Thread {
                 } else {
                     communicator.sendResponse(new Response(null, true));
                     communicator.close();
+                    
+                    if (request.getParams() != null) {
+                        new RequestPower(communicator, executor, logger).determineRequest(request);
+                    }
                     break;
                 }
             } catch (ConnectionInOutException ex) {
@@ -97,7 +101,7 @@ public class ClientManager extends Thread {
      * @param classItem The entity who client request.
      * @return The requester.
      */
-    private synchronized RequestManager determineRequester(Class classItem) {
+    private synchronized RequestManager determineRequester(Class classItem) throws NotSupportedOperation {
         // Determine the request.
         if (classItem.equals(CPU.class)) {
             return new RequestCPU(communicator, executor, logger);
@@ -119,7 +123,8 @@ public class ClientManager extends Thread {
             return new RequestPackage(communicator, executor, packageManager, logger);
         }
         
-        return new RequestPower(communicator, executor, logger);
+         throw new NotSupportedOperation(String.format("The request of class '%s' is not valid",
+                classItem.getSimpleName()));
     }
 
     /**
