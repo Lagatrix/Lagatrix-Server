@@ -41,6 +41,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV014 - 09/05/2023 - Fix Arch install errors.
 - LASRV011 - 10/05/2023 - Fix no response when close client.
 - LASRV011 - 11/05/2023 - Fix use of RequestPower.
+- LASRV011 - 14/05/2023 - Fix change main group.
 
 ### Removed
 

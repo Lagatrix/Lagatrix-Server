@@ -9,7 +9,7 @@ package lagatrix.entities.components;
 public enum UserComponents {
     USERNAME("Username", 1, "-l"),
     HOME("Home path", 6, "-d"),
-    GROUP("Main group", 4, "-G"),
+    GROUP("Main group", 4, "-g"),
     SHELL("Shell", 7, "-s");
     
     
