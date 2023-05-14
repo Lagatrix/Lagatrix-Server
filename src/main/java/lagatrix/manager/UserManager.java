@@ -6,6 +6,7 @@ import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.manager.user.UserException;
 import lagatrix.manager.deletion.user.UserDeletion;
 import lagatrix.manager.information.user.AuthUser;
+import lagatrix.manager.information.user.GroupInfo;
 import lagatrix.manager.information.user.RootPermissionInfo;
 import lagatrix.manager.information.user.UserInfo;
 import lagatrix.manager.insertion.user.UserInsertion;
@@ -28,6 +29,7 @@ public class UserManager {
     private PasswordModificator password;
     private RootPermissionInfo root;
     private AuthUser auth;
+    private GroupInfo group;
 
     /**
      * The constructor of the class
@@ -42,6 +44,7 @@ public class UserManager {
         this.password = new PasswordModificator(executor);
         this.root = new RootPermissionInfo(executor);
         this.auth = new AuthUser(executor);
+        this.group = new GroupInfo(executor);
     }
     
     /**
@@ -60,7 +63,8 @@ public class UserManager {
             
             try {
                 user.setUsername(information.obtainUsername(index));
-                user.setGroup(information.obtainMainGroup(index));
+                user.setGroup(group.obtainGroup(Integer.parseInt(
+                        information.obtainIdMainGroup(index))));
                 user.setHome(information.obtainHomePath(index));
                 user.setIsRoot(root.isRoot(user.getUsername()));
                 user.setShell(information.obtainShell(index));

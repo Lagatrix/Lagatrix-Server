@@ -46,7 +46,7 @@ public class UserInfo {
      * @throws UserException If a problem occurs with the execution of the 
      * command.
      */
-    public String obtainMainGroup(int numUser) throws UserException{
+    public String obtainIdMainGroup(int numUser) throws UserException{
         return executeCommand(numUser, UserComponents.GROUP).getFirstLine();
     }
     

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - LASRV014 - 03/05/2023 - Add scripts, service and config file.
 - LASRV010 - 10/05/2023 - Add the RequestPower class.
+- LASRV006 - 14/05/2023 - Add the GroupInfo class.
 
 ### Changed
 - LASRV007 - 03/05/2023 - Not see root process.
