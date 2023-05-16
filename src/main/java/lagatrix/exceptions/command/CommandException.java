@@ -24,9 +24,4 @@ public class CommandException extends LagatrixException {
     public int getStatusCode() {
         return statusCode;
     }
-
-    @Override
-    public String getMessage() {
-        return super.getMessage(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
 }

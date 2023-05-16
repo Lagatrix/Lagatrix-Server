@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV001 - 07/05/2023 - Change the obtain CPU use.
 - LASRV014 - 10/05/2023 - Check if root exec.
 - LASRV001 - 16/05/2023 - Manage stderr.
+- LASRVUFC - 16/05/2023 - Quit error if return 0 event or user.
+
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
@@ -43,6 +45,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV011 - 10/05/2023 - Fix no response when close client.
 - LASRV011 - 11/05/2023 - Fix use of RequestPower.
 - LASRV006 - 14/05/2023 - Fix change main group.
+- LASRV011 - 16/05/2023 - Fix auth root.
 
 ### Removed
 

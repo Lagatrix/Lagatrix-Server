@@ -52,10 +52,9 @@ public class AuthClient {
             password = (String) request.getParams()[1];
             
             if (manager.authUser(user, password)){
-                if (rootAccess) {
+                if (!rootAccess) {
                     if (user.equals("root")) {
-                        communicator.sendResponse(new Response("Root no puede entrar", true));
-                        return true;
+                        communicator.sendResponse(new Response("Root no puede entrar", false));
                     }
                 }
                 
