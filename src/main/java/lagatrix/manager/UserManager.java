@@ -72,11 +72,7 @@ public class UserManager {
                 users.add(user);
                 index++;
             } catch (UserException ex) {
-                if (users.isEmpty()) {
-                    throw ex;
-                } else {
-                    return users;
-                }
+                return users;
             }
         }
     }

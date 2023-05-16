@@ -60,11 +60,7 @@ public class EventManager {
                 events.add(event);
                 index++;
             } catch (EventException ex) {
-                if (events.isEmpty()) {
-                    throw ex;
-                } else {
-                    return events;
-                }
+                return events;
             }
         }
     }
