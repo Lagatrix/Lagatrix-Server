@@ -37,19 +37,21 @@ public class CommandExecutor {
     public CommandResponse executeCommand(String command, boolean executeRoot, String... stdin) throws CommandInOutException, CommandBadExitCodeException {
         Process process;
         CommandResponse response = new CommandResponse();
-        String definitiveCommand = (executeRoot) ? "sudo -S " + command : command;
+        String definitiveCommand = (executeRoot) ? String.format("sudo -S %s", command) : command;
         
         try {
             process = new ProcessBuilder("/bin/bash", "-c", definitiveCommand).start();
             
             insertArgs(process.getOutputStream(), stdin);
-            readLinesResponse(response, process.getInputStream());
             
             response.setExitCode(process.waitFor());
             
             if (response.getExitCode() != 0){
-                getException(response.getExitCode(), command);
+                readLinesResponse(response, process.getErrorStream());
+                getException(response.getExitCode(), response);
             }
+            
+            readLinesResponse(response, process.getInputStream());
         } catch (IOException | InterruptedException ex) {
             throw new CommandInOutException(String.format("Error in I/O command: %s", command));
         }
@@ -99,7 +101,7 @@ public class CommandExecutor {
         
         while((line = reader.readLine()) != null){
                 response.addLine(line);
-            }
+        }
     }
     
     /**
@@ -107,27 +109,27 @@ public class CommandExecutor {
      * non 0 exit value.
      * 
      * @param statusCode The status code who return the command.
-     * @param command The command who it executed.
+     * @param command The response of command.
      * @throws CommandBadExitCodeException The exception with description.
      */
-    private static void getException (int statusCode, String command) throws CommandBadExitCodeException{
+    private static void getException (int statusCode, CommandResponse command) throws CommandBadExitCodeException{
         String description;
         
         switch (statusCode) {
             case 1:
-                description = String.format("general error with command: %s", command);
+                description = String.format("general error: %s", command.getFirstLine());
                 break;
             case 2:
-                description = String.format("bad usage with command: %s", command);
+                description = String.format("bad usage: %s", command.getFirstLine());
                 break;
             case 126:
-                description = String.format("permision error with command: %s", command);
+                description = String.format("permision error: %s", command.getFirstLine());
                 break;
             case 127:
-                description = String.format("this command not exist: %s", command);
+                description = String.format("command not exist: %s", command.getFirstLine());
                 break;
             default:
-                description = String.format("special error %d of command: %s", statusCode, command);
+                description = String.format("special error %d: %s", statusCode, command.getFirstLine());
         }
         
         throw new CommandBadExitCodeException(description, statusCode);

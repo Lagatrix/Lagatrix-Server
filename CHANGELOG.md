@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV014 - 03/05/2023 - Check root login.
 - LASRV001 - 07/05/2023 - Change the obtain CPU use.
 - LASRV014 - 10/05/2023 - Check if root exec.
+- LASRV001 - 16/05/2023 - Manage stderr.
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit server file.
