@@ -54,17 +54,6 @@ public class LogContoller {
              throw new FileException("Header security error in logger");
         }
     }
-
-    /**
-     * Display an action of the client in the program.
-     * 
-     * @param ip The ip of the client.
-     * @param action The action who realice.
-     * @param request The resource who use.
-     */
-    public synchronized void info(String ip, ActionsEnum action, String request) {
-        info(ip, action, request, null);
-    }
     
     /**
      * Display an action of the client in the program.

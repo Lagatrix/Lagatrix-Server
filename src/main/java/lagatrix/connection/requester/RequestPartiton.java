@@ -32,7 +32,6 @@ public class RequestPartiton extends RequestManager {
             response.setResponse(manager.getPartitions());
         }
         
-        logger.info(communicator.getClientIp(), request.getAction(), "partition");
         communicator.sendResponse(response);
     }
 

@@ -30,7 +30,6 @@ public class RequestOS extends RequestManager {
         
         if (request.getAction() == ActionsEnum.GET){
             response.setResponse(manager.obtainOSInformation());
-            logger.info(communicator.getClientIp(), request.getAction(), "operative system");
         }
         
         communicator.sendResponse(response);

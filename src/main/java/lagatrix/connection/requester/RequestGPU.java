@@ -30,7 +30,6 @@ public class RequestGPU extends RequestManager {
         
         if (request.getAction() == ActionsEnum.GET) {
             response.setResponse(manager.obtainGPU());
-            logger.info(communicator.getClientIp(), request.getAction(), "GPU");
         }
         
         communicator.sendResponse(response);

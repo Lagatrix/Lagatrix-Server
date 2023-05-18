@@ -27,18 +27,17 @@ public class RequestProcess extends RequestManager {
     @Override
     public synchronized void determineRequest(Request request) throws LagatrixException {
         Response response = new Response();
-        String message = null;
         
         // Determine the request of process.
         if (request.getAction() == ActionsEnum.GET){
             response.setResponse(manager.getProcess());
         } else if (request.getAction() == ActionsEnum.DELETE) {
             manager.killProcess((Integer) request.getParams()[0]);
-            message = String.format("the PID of process who kill is %d", request.getParams()[0]);
             response.setCorrectResult(true);
+            
+            makeLog(String.format("the PID of process who kill is %d", request.getParams()[0])
+                    , request.getAction(), "process");
         }
-        
-        logger.info(communicator.getClientIp(), request.getAction(), "process", message);
         communicator.sendResponse(response);
     }
 }

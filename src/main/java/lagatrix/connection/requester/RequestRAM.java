@@ -34,7 +34,6 @@ public class RequestRAM extends RequestManager {
                 response.setResponse(manager.obtainUse());
             } else {
                 response.setResponse(manager.obtainRAM());
-                logger.info(communicator.getClientIp(), request.getAction(), "RAM");
             }
         }
         

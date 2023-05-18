@@ -41,7 +41,6 @@ public class RequestCPU extends RequestManager {
                 }
             } else {
                 response.setResponse(manager.obtainCPU());
-                logger.info(communicator.getClientIp(), request.getAction(), "CPU");
             }
         }
 

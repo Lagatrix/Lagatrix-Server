@@ -1,6 +1,7 @@
 package lagatrix.connection.requester;
 
 import lagatrix.connection.communicators.AESCommunicator;
+import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
 import lagatrix.entities.dto.user.User;
@@ -52,7 +53,7 @@ public class RequestUser extends RequestManager {
                 break;
         }
         
-        logger.info(communicator.getClientIp(), request.getAction(), "user", message);
+        makeLog(message, request.getAction(), "user");
         communicator.sendResponse(response);
     }
 

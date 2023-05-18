@@ -53,7 +53,7 @@ public class RequestEvent extends RequestManager {
                 break;
         }
         
-        logger.info(communicator.getClientIp(), request.getAction(), "event", message);
+        makeLog(message, request.getAction(), "event");
         communicator.sendResponse(response);
     }
 
