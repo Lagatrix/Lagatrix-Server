@@ -41,7 +41,7 @@ public class RequestEvent extends RequestManager {
                 break;
             case DELETE:
                 manager.deleteEvent((Event) request.getParams()[0]);
-                message = String.format("the event who remomed %s", request.getParams()[0].toString());
+                message = String.format("the event who removed %s", request.getParams()[0].toString());
                 response.setCorrectResult(true);
                 break;
             case MODIFY:

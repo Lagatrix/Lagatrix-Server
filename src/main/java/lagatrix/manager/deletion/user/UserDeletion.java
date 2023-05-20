@@ -32,7 +32,7 @@ public class UserDeletion {
      * command.
      */
     public void deleteUser(String username) throws UserException {
-        String command = String.format("deluser %s", username);
+        String command = String.format("userdel %s", username);
         
         try {
             executor.executeCommand(command, true); 

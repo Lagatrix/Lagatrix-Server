@@ -36,7 +36,7 @@ import lagatrix.tools.command.CommandExecutor;
  * @author javierfh03
  * @since 0.2
  */
-public class ClientManager extends Thread {
+public class ClientManager {
 
     private AESCommunicator communicator;
     private CommandExecutor executor;
@@ -58,8 +58,7 @@ public class ClientManager extends Thread {
         this.packageManager = packageManager;
     }
 
-    @Override
-    public void run() {
+    public void startManager() {
         Request request;
         RequestManager manager;
 

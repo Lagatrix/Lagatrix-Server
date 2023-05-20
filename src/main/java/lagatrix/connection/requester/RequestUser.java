@@ -1,7 +1,6 @@
 package lagatrix.connection.requester;
 
 import lagatrix.connection.communicators.AESCommunicator;
-import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
 import lagatrix.entities.dto.user.User;
@@ -42,7 +41,7 @@ public class RequestUser extends RequestManager {
                 break;
             case DELETE:
                 manager.deleteUser((String) request.getParams()[0]);
-                message = String.format("the user remomed is %s", request.getParams()[0].toString());
+                message = String.format("the user removed is %s", request.getParams()[0].toString());
                 response.setCorrectResult(true);
                 break;
             case MODIFY:

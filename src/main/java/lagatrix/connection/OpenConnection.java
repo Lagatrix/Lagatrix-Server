@@ -59,8 +59,8 @@ public class OpenConnection {
             this.socket = new ServerSocket(Integer.parseInt(properties.get("port").toString()), 50,
                     (InetAddress) properties.get("ip"));
 
-            new ConnectionListener(socket, logger, new OSManager(new CommandExecutor())
-                    .obtainOSInformation().getPackageManager(), (boolean) properties.get("root")).start();
+            ConnectionListener.listen(socket, logger, new OSManager(new CommandExecutor())
+                    .obtainOSInformation().getPackageManager(), (boolean) properties.get("root"));
         } catch (IOException ex) {
             logger.error("localhost", new ConnectionInOutException(
                     String.format("Can't open the server socket because %s", ex)));
