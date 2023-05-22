@@ -9,7 +9,7 @@ add_service_user() {
     useradd -r -s /usr/sbin/nologin lagatrix
     passwd -d lagatrix
 
-    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /usr/sbin/deluser, \
+    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /sbin/userdel, \
     /bin/crontab, /bin/kill, /usr/bin/$1, /sbin/poweroff, /sbin/reboot, \
     /bin/passwd, !/usr/sbin/usermod root, !/bin/passwd root >> /etc/sudoers
 }
@@ -43,9 +43,8 @@ set_config() {
 }
 
 install_components() {
-    echo "Install components..."
-    $1 $4 $3  > /dev/null 2>&1
-    $1 $4 $2 $5  > /dev/null 2>&1
+    $1 $4 $3
+    $1 $4 $2 $5
 }
 
 set_package_manager() {

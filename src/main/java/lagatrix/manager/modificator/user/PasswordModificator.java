@@ -36,7 +36,7 @@ public class PasswordModificator {
         String command = String.format("printf '%s\\n%s' | sudo passwd %s", newPassword, newPassword, username);
         
         try {
-            executor.executeCommand(command, true); 
+            executor.executeCommand(command); 
         } catch (CommandException ex) {
             throw new UserException(UserException.getMessage(
                     this.getClass(), ActionsEnum.MODIFY, ex.getMessage()));

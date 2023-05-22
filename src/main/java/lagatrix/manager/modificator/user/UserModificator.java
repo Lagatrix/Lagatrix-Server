@@ -82,7 +82,6 @@ public class UserModificator {
      */
     private void executeCommand(String username, String newValue, UserComponents component) throws UserException {
         String command = String.format("usermod %s %s %s", component.getValueUserMod(), newValue, username);
-        System.out.println(command);
         
         try {
             executor.executeCommand(command, true); 
