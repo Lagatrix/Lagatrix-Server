@@ -74,6 +74,7 @@ public class ClientManager {
                     manager = determineRequester(request.getObjectWhoRequest());
                     manager.determineRequest(request);
                 } else {
+                    logger.info(communicator.getClientIp(), "Close connection");
                     communicator.sendResponse(new Response(null, true));
                     communicator.close();
                     

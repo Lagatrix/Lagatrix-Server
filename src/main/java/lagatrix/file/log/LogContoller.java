@@ -75,6 +75,16 @@ public class LogContoller {
     }
     
     /**
+     * Display a custom customer log.
+     * 
+     * @param ip The ip of the client.
+     * @param description The description.
+     */
+    public synchronized void info(String ip, String description) {
+         logger.info(String.format("[%s] %s",ip, description));
+    }
+    
+    /**
      * Display exception if the error is minor.
      * 
      * @param ip The ip of client who fail.

@@ -49,6 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LASRV006 - 14/05/2023 - Fix change main group.
 - LASRV011 - 16/05/2023 - Fix auth root.
 - LASRV011 - 20/05/2023 - Fix one user login at a time.
+- LASRV013 - 22/05/2023 - See when user connect or disconnect.
 
 ### Removed
 

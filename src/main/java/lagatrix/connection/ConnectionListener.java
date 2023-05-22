@@ -78,6 +78,7 @@ public class ConnectionListener extends Thread {
             executor = new CommandExecutor();
 
             if (auth(aesc, executor)) {
+                logger.info(aesc.getClientIp(), "Open connection");
                 new ClientManager(aesc, logger, executor, packageManager).startManager();
             } else {
                 aesc.close();
