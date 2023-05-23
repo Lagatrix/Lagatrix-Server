@@ -55,6 +55,7 @@ public class AuthClient {
                 if (!rootAccess) {
                     if (user.equals("root")) {
                         communicator.sendResponse(new Response("Root no puede entrar", false));
+                        continue;
                     }
                 }
                 
@@ -70,6 +71,7 @@ public class AuthClient {
             
             attempt--;
         }
+        
         return false;
     }
     

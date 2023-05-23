@@ -9,9 +9,9 @@ add_service_user() {
     useradd -r -s /usr/sbin/nologin lagatrix
     passwd -d lagatrix
 
-    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /sbin/userdel, \
-    /bin/crontab, /bin/kill, /usr/bin/$1, /sbin/poweroff, /sbin/reboot, \
-    /bin/passwd, !/usr/sbin/usermod root, !/bin/passwd root >> /etc/sudoers
+    echo lagatrix ALL = /usr/sbin/useradd, /usr/sbin/usermod, /usr/sbin/userdel, \
+    /usr/bin/crontab, /bin/kill, /usr/bin/$1, /sbin/poweroff, /sbin/reboot, \
+    /usr/bin/passwd, !/usr/sbin/usermod root, !/bin/passwd root, !/usr/sbin/userdel root >> /etc/sudoers
 }
 
 set_jar_executable() {
