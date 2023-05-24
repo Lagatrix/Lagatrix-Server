@@ -67,7 +67,7 @@ public class UserInsertion {
         
         // Check if you don't want to be added to existing group.
         if (!mainGroup.equals("")){
-            command = String.format("%s -G %s", command, mainGroup);
+            command = String.format("%s -g %s", command, mainGroup);
         }
         
         try {
